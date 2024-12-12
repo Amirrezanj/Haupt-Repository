@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Book id="1" title="The Great Gatsby" author="F. Scott Fitzgerald">
+    <Publisher name="Scribner" year="1925" />
+    <ISBN>9780743273565</ISBN>
+    <Price currency="USD">15.99</Price>
+    <Tags>
+      <Tag>Classic</Tag>
+      <Tag>Novel</Tag>
+    </Tags>
+    <Reviews>
+      <Review rating="5" comment="A masterpiece of the Jazz Age." />
+      <Review rating="4" comment="A compelling story of love and tragedy." />
+    </Reviews>
+  </Book>
+  <Book id="2" title="Moby-Dick" author="Herman Melville">
+    <Publisher name="Harper &amp; Brothers" year="1851" />
+    <ISBN>9780060935461</ISBN>
+    <Price currency="USD">14.99</Price>
+    <Tags>
+      <Tag>Epic</Tag>
+      <Tag>Adventure</Tag>
+    </Tags>
+    <Reviews>
+      <Review rating="4" comment="A thrilling tale of obsession and the sea." />
+      <Review rating="5" comment="Melville's masterpiece of the sea." />
+    </Reviews>
+  </Book>
+</Books>

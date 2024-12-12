@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simpc4136be8fe4d40579718291173266804" creation-date="10/28/2024 15:18:48">
+  <meta>
+    <name>16. Properties</name>
+    <authors>Vincent Uhlmann</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>4</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>10</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-582a867775804cb7a538ce67dd090779" name="" task-id-sequence="0">
+    <persons>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-52822f0c270c499681e1f148c9d6e99a" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="void" name="void" />
+      </types>
+    </custom-types>
+  </types>
+  <items />
+  <models>
+    <model id="p676f0220dd5046618f2c0869531e2328_673915072" name="16. Properties" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>10/28/2024 15:18:52</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p73379d897b1744dca6cc532aa6a71c49_206003271" name="Aufgabe01" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="726,81" zoom="2.4">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/28/2024 15:18:52</creation-date>
+          <change-date>10/28/2024 15:20:07</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="332dc2c55a5f4d3fa59ad5ae011aab49" cid="C001" type="class" name="Student" creator="" creation-date="10/28/2024 15:20:07">
+            <owned-items />
+            <attributes>
+              <attribute id="a793b241a5a54417b8bc7c3a51f8a5343738" cid="PROP001" name="name" creation-date="10/28/2024 15:20:39" property-ref="9924172cc91c4bcd8706eb50a69f0761" />
+              <attribute id="a39284a3b7f4b4d3abc72e4f5be8f9e72559" cid="PROP002" name="alter" creation-date="10/28/2024 15:20:44" property-ref="74e5ac597f1b48a4bb33bf2f401eec1c" />
+              <attribute id="a1ad84a86bf4d4ac0a25863ce97838454572" cid="PROP003" name="note" creation-date="10/28/2024 15:20:49" property-ref="886b16c418464c65993ee41235fbfdb8" />
+            </attributes>
+            <operations>
+              <operation id="o976429c1e2a94fe786071617ec2f3c48398" cid="OP002" name="Student" creation-date="10/28/2024 15:21:14" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p7102bb748790433fbcd232951a7d204b" name="name" type="String" type-id="Uml.String" creation-date="10/28/2024 15:21:51" />
+                  <parameter id="p324cd483b01643f29660383db38b1131" name="alter" type="Integer" type-id="Uml.Integer" creation-date="10/28/2024 15:24:45" />
+                </parameters>
+              </operation>
+              <operation id="o3286cddb6036416c9f88640f33185871679" cid="OP003" name="GetName" creation-date="10/28/2024 15:22:57" type="String" type-id="Uml.String" visibility="public" />
+              <operation id="o70a41af728b8407fbbc08364c4f1ac6b922" cid="OP004" name="SetName" creation-date="10/28/2024 15:23:04" type="void" type-id="void" visibility="private">
+                <parameters>
+                  <parameter id="p6f883e4637b9467281e6a181f10e2705" name="name" type="String" type-id="Uml.String" creation-date="10/28/2024 15:23:26" />
+                </parameters>
+              </operation>
+              <operation id="oc6256a5c4f8d471f96374c3a7b4bffb5697" cid="OP005" name="GetAlter" creation-date="10/28/2024 15:23:10" type="Integer" type-id="Uml.Integer" visibility="public" />
+              <operation id="o3754c88190be4c2287c2cf6dd7b0fd57293" cid="OP006" name="SetAlter" creation-date="10/28/2024 15:23:16" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pd5367c333b84409b8a0a58019e126227" name="alter" type="Integer" type-id="Uml.Integer" creation-date="10/28/2024 15:23:41" />
+                </parameters>
+              </operation>
+              <operation id="o037c2f8dea1447049633e2f8900c642b56" cid="OP007" name="GetNote" creation-date="10/28/2024 15:23:43" type="Integer" type-id="Uml.Integer" visibility="public" />
+              <operation id="obfaa19b244ad4eec8d1680dbad0cbc0e540" cid="OP008" name="SetNote" creation-date="10/28/2024 15:23:48" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="p0e41a5c0139642a8a7588ba7a5faaecd" name="note" type="Integer" type-id="Uml.Integer" creation-date="10/28/2024 15:23:53" />
+                </parameters>
+              </operation>
+              <operation id="oe07e8b475c6c4fb4954ab35be0c221c9104" cid="OP009" name="ToString" creation-date="10/28/2024 15:23:56" type="String" type-id="Uml.String" visibility="public" />
+            </operations>
+          </item>
+          <item id="9924172cc91c4bcd8706eb50a69f0761" cid="PROP001" type="property" name="name" owner="332dc2c55a5f4d3fa59ad5ae011aab49" creator="" creation-date="10/28/2024 15:20:39" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="886b16c418464c65993ee41235fbfdb8" cid="PROP003" type="property" name="note" owner="332dc2c55a5f4d3fa59ad5ae011aab49" creator="" creation-date="10/28/2024 15:20:49" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+          <item id="74e5ac597f1b48a4bb33bf2f401eec1c" cid="PROP002" type="property" name="alter" owner="332dc2c55a5f4d3fa59ad5ae011aab49" creator="" creation-date="10/28/2024 15:20:44" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+        </abstract-items>
+        <layer id="d5abdd3c99fc482a94e0e334463dadd8" name="Default" visible="true" enabled="true" locked="false">
+          <item id="332dc2c55a5f4d3fa59ad5ae011aab49" iid="2aef78d732984d8b9c4ac816879b4223" show-fields="true" creation-date="10/28/2024 15:20:07" order-index="0" type="entity">
+            <layout ax="327" ay="95" awidth="244" aheight="248" x="327" y="95" width="237" height="206" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

@@ -1,0 +1,50 @@
+{
+    "Name":"Toyota",
+    "Model":"Corolla",
+    "Year":2021,
+    "Engine":{
+       "Name":"VVT-i",
+       "Power":140,
+       "Torque":126
+    },
+    "Passengers":[
+       {
+          "Name":"John Doe",
+          "Age":25,
+          "Address":{
+             "Street":"123 Main St",
+             "City":"New York",
+             "ZipCode":"10001"
+          },
+          "Hobbies":[
+             {
+                "Name":"Reading",
+                "Description":"Reading books"
+             },
+             {
+                "Name":"Gaming",
+                "Description":"Playing video games"
+             }
+          ]
+       },
+       {
+          "Name":"Jane Doe",
+          "Age":22,
+          "Address":{
+             "Street":"456 Main St",
+             "City":"Los Angeles",
+             "ZipCode":"90001"
+          },
+          "Hobbies":[
+             {
+                "Name":"Cooking",
+                "Description":"Cooking food"
+             },
+             {
+                "Name":"Dancing",
+                "Description":"Dancing to music"
+             }
+          ]
+       }
+    ]
+ }

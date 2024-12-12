@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telefon", "telefon\telefon.csproj", "{ADD033A9-CAE5-4CD4-8CEF-FD1C530EE8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "erweitete", "erweitete\erweitete.csproj", "{9B4EA122-D6AA-4F53-B97A-6F4117DFDFC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADD033A9-CAE5-4CD4-8CEF-FD1C530EE8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD033A9-CAE5-4CD4-8CEF-FD1C530EE8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD033A9-CAE5-4CD4-8CEF-FD1C530EE8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD033A9-CAE5-4CD4-8CEF-FD1C530EE8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4EA122-D6AA-4F53-B97A-6F4117DFDFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4EA122-D6AA-4F53-B97A-6F4117DFDFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4EA122-D6AA-4F53-B97A-6F4117DFDFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4EA122-D6AA-4F53-B97A-6F4117DFDFC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5E6D919-FB60-4043-97EB-D27EB9DF9E24}
+	EndGlobalSection
+EndGlobal

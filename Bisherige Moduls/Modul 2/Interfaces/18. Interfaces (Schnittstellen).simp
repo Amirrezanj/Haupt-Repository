@@ -1,0 +1,1326 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simpdb6786674f1e4c3d89d095014fe9dc98" creation-date="11/07/2024 10:18:03">
+  <meta>
+    <name>18. Interfaces (Schnittstellen)</name>
+    <authors>Vincent Uhlmann</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type stereotype="interface" type-id="uml-interface-classifier" type="Interface" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>13</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>15</value>
+      </counter>
+      <counter>
+        <item-type type-id="relationship" type="Association" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="usage" type="Usage" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="realization" type="Realization" />
+        <value>12</value>
+      </counter>
+      <counter>
+        <item-type type-id="uml-interface-classifier" type="Interface" />
+        <value>2</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>7</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management uid="md-ae55434230ab4116acc3ca0deed1fd79" name="" task-id-sequence="0">
+    <working-schedule uid="ws-4e634edc89b04a829ef8605b2b77392b" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-ee22b3172d454143938006e9adf6d296" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-68e047c2240e4d84901c2a75a6b180a9" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-abb0c687cd764e97abfd570146f658ca" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-39eb16c1c1e64ac4950653aa9cfc44e7" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="Class:b903133783794a68a68ffa83b9f60266" tid="Class:di693051050754216176" name="IBeobachter" class-ref="di693051050754216176" />
+        <type id="Class:cc365868e063479189c2f24080452a6a" name="ITier" class-ref="cc365868e063479189c2f24080452a6a" />
+        <type id="void" name="void" />
+        <type id="string" name="string" />
+        <type id="Class:779d8a9cee2540cc97116bcc3057f4a2" tid="Class:779d8a9cee2540cc97116bcc3057f4a2" name="IWaffe" class-ref="779d8a9cee2540cc97116bcc3057f4a2" />
+        <type id="INachrichtenEmpfänger" tid="Class:di595915885567915591" name="INachrichtenEmpfänger" class-ref="di595915885567915591" />
+        <type id="double" name="double" />
+        <type id="Class:2b828340e0a945f39c71487c71352ed4" tid="Class:di595915885567915591" name="INachrichtenEmpfänger" class-ref="di595915885567915591" />
+        <type id="Class:70e9684b9780443c8a28b3bb08666623" name="Tierheim" class-ref="70e9684b9780443c8a28b3bb08666623" />
+      </types>
+    </custom-types>
+  </types>
+  <items>
+    <item id="b903133783794a68a68ffa83b9f60266" cid="C001" type="class" name="IBeobachter" creation-date="10/23/2014 14:26:43" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tva7362e06be25426b8149baa38dd792f2" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di693051050754216176_interface_c" type="interface" creation-date="11/07/2024 10:20:22" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="3d402cf2c34c4957a83c3f00f3d62358" cid="OP001" veid="o02f25a1febd1435ebbca57b8f5ef82ac177" name="WasserstandsÄnderung" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="wasserstand" type="double" type-id="double" creation-date="11/07/2024 10:20:22" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="dcaaa0706de94b788d94ee6560513265" cid="C002" type="class" name="Singvogel" creation-date="10/23/2014 09:31:38" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvf92a05ce7e9849a593fa49e39120d8d3" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="54285b907b3d4af2bd22ed9ca2d718a5" cid="OP002" veid="o019bc6c9393d4e0c9d81bf3a3e5c0bea613" name="Fliegen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+        <operation id="5494bb748e994cf7a05e20dff98351af" cid="OP003" veid="o5cf0c7b1935245bfaeb8ff1b20789214925" name="Singen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="3e0a75708715447e9c9e82cce4797468" cid="C002" type="class" name="Schwert" creation-date="02/27/2015 14:59:56" visibility="private">
+      <operations>
+        <operation id="7556befaf3d9473794bf83baf319bd7d" cid="OP002" veid="o0f33d4d8e1a94d38a67d4d44fa23535c688" name="GegnerTreffen" creation-date="11/07/2024 10:20:55" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="gegner" type="string" type-id="string" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="d0c92fefcecd4f2eb79d49b033e58ee7" cid="C003" type="class" name="Person" creation-date="02/23/2015 11:27:28" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv20b432b3cdb04decbba3563e324d9f8a" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="93ab4d647225440b891f561238c707ac" cid="PROP001" veid="ac3a78cf69a684afe90eb1307fa7b2028869" name="name" creation-date="10/06/2022 10:25:07" property-ref="0bec9b557f014e389fb6efa1407544c4" />
+      </attributes>
+      <operations>
+        <operation id="400017f94ac9400dabc23ae4cffc6198" cid="OP007" veid="ob8b30c8b79fa4dd284eb39913b088f76272" name="Person" creation-date="10/06/2022 10:25:07" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="0f21f66d3e9d40b7a2680151a0d06b89" cid="OP006" veid="o0ff9585a96db4600a312b4e0f3bd431967" name="EmpfangeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="c657af58de8f4afb9267fa3ee5a65cdd" cid="C002" type="class" name="Temperatur" creation-date="10/23/2014 12:06:05" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv8b69c999fcb24d6394fb1ee2540054f2" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="4c5646ea57c64551aacc42b038cc390a" cid="PROP006" veid="a65140fb268ff4f1d8253f0f1202abd5c713" name="temperaturInCelsius" creation-date="10/18/2022 08:19:21" property-ref="efb4d6a4f4354ecdb92eadb7fa68b25b" />
+      </attributes>
+      <operations>
+        <operation id="948506e607c84566917e155c2c4b6c70" cid="OP031" veid="obc49912553df43a7a5aa739dfd4a476c248" name="GetCelsius" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="c856a0d407d74fa0a5cc9c5df9bd31f5" cid="OP032" veid="oe62645e3d5f84e12b8068e5597276b79248" name="SetCelsius" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="c37a50be86ec449a9a9bf81729487a0e" cid="OP033" veid="o8c2cbafa6f514e9b9ce595229e7dc3f2564" name="Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+        <operation id="4d69a838007145bdbf0de35d009afe39" cid="OP034" veid="ofb229d008b29447a9b18d80b70975f7d404" name="GetKelvin" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="6658c0feb7c04be6abc71c3393cdb51a" cid="OP035" veid="o471f5d8e9c934dffbe2bc3969a52f3ea404" name="SetKelvin" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="da866ab761f148cc896382bb9ab58294" cid="OP036" veid="o407f37643d604cf1be63f3a6ed013a09564" name="IKelvin.Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+        <operation id="cbcdeb8aff5c42cfb980d5270b7a4034" cid="OP037" veid="o0b928274c4ee4071ba9a0b32df2ee6d6564" name="GetFahrenheit" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="0c9ec1b987e743199a80ab0f410be3a2" cid="OP038" veid="o1bfdd2fda5444f97897cc0f273e0c88a564" name="SetFahrenheit" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="21c5761ce1ed41d6a7b35a37dddef972" cid="OP039" veid="o13fffca038444966a43c3a7f647f2d93564" name="IFahrenheit.Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="36b1d947eadd4b85b727078f31c45c92" cid="C002" type="class" name="INachrichtenQuelle" creation-date="02/23/2015 11:01:05" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv33e479ff7fa94d4f964d668a525a8d44" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di248382490409947967_interface_c" type="interface" creation-date="11/07/2024 10:19:12" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="c7bcb9b43c324d208730c500743e8ab8" cid="OP051" veid="o46a5994119634c9a92a3b69930303a6f789" name="Anmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="INachrichtenEmpfänger" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="ca2a7a0a2da341d7a5eb1d3f27d5df7e" cid="OP052" veid="o07a632e86f57458d82c9989782858815751" name="Abmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="INachrichtenEmpfänger" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="5dd4d410d16d43b5956d9b1dd975eee1" cid="OP053" veid="o9e1a3737dd1041e2a7c48509b9bdd991736" name="SendeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="cf13120536e04358bd65ab6b8af557d4" cid="REA005" type="realization" creation-date="10/23/2014 09:34:22" from="fffc8944a9444c0d80a44aec85e4f51a" to="3af98adef1ca4a30ae7622e235bd842a" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvfbaa22a6a563466397b237bb016b93ba" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="5b516fc8de254605a79d69713b416e3f" cid="C008" type="class" name="Radio" creation-date="02/23/2015 11:31:43" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv856aedc418554dd394983a8edf2d0245" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="f3ef841e95024c5da472f05216688e9c" cid="PROP004" veid="acfab2c833cad4afdad14ac88d07c40cf552" name="frequenz" creation-date="10/06/2022 10:25:07" property-ref="e6f8faf4106649bba86d328e219c1ec4" />
+      </attributes>
+      <operations>
+        <operation id="c4f14f8149ab45b3ad60c9576ca72aac" cid="OP075" veid="o1f89e706202b40c1b726204a279bf85e552" name="Radio" creation-date="10/06/2022 10:25:07" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="b746f10d90ba4bdb9edb8823eaf31e01" cid="REA003" type="realization" creation-date="10/23/2014 09:34:08" from="dcaaa0706de94b788d94ee6560513265" to="6572c56a3d42402f9169d584aeabebf9" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv945811365dd14874b8cd4e7a5dac4e95" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="6572c56a3d42402f9169d584aeabebf9" cid="C005" type="class" name="ISingen" creation-date="10/23/2014 09:33:16" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tvd9fe6c88d59f42d08587570e1ce93dc4" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di745843025228295978_interface_c" type="interface" creation-date="11/07/2024 10:17:50" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="299744e25ee2446490aebbf7650d9fcb" cid="OP006" veid="o0cd2c605f38045e6baca07c613955783599" name="Singen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="c7ef9419249a45fcb5091bd7b8bb6bfa" cid="DEP003" type="dependency" creation-date="10/16/2015 13:46:36" from="6ec466f170dc4916a38abcff3a18beda" to="2b828340e0a945f39c71487c71352ed4" visibility="package">
+      <stereotypes>
+        <stereotype name="use" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv87baaf6b399a48a084509f61ee18a0fa" name="visibility" type="text" multiple="false" hidden="false" value="package" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di594011612714872562_use_c" type="use" creation-date="11/07/2024 10:19:12" ref="" />
+      </stereotype-instances>
+    </item>
+    <item id="49c8397cd59048e795c5e4aae4fb63e8" cid="REA002" type="realization" creation-date="02/27/2015 15:43:31" from="3e0a75708715447e9c9e82cce4797468" to="b80c12ed9ae84a909962b63eca9ba3ae" visibility="private" />
+    <item id="81b1377f81e244269146560214895947" cid="REA003" type="realization" creation-date="10/23/2014 12:08:33" from="c657af58de8f4afb9267fa3ee5a65cdd" to="5305115659c1410d95bd2a02590954aa" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv00bb3f6c9ee04201b3a43bcdec421389" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="0e594677bc364ecaaf8a6501981c1c6e" cid="DEP003" type="dependency" creation-date="02/24/2015 11:55:35" from="3506ff1621834b10ad5f63e9ce114010" to="b903133783794a68a68ffa83b9f60266" visibility="private">
+      <stereotypes>
+        <stereotype name="use" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv8910bba7fd2c40d6a832f66f535aa0fe" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di695039144338373940_use_c" type="use" creation-date="11/07/2024 10:20:22" ref="" />
+      </stereotype-instances>
+    </item>
+    <item id="c8f207e9a15a48869332ad266c9c185e" cid="REA004" type="realization" creation-date="10/23/2014 15:07:29" from="6f122484490f4605b12567c0d6ada443" to="b903133783794a68a68ffa83b9f60266" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv2ceefe06247241c2bab4f04eeab0cda1" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="b8aa48e90ead46759b22b864ad2b2797" cid="REA001" type="realization" creation-date="02/23/2015 11:27:53" from="d0c92fefcecd4f2eb79d49b033e58ee7" to="2b828340e0a945f39c71487c71352ed4" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv5ccf03d54dc348968cb98ef9d9b4aa14" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="61dc98bf5d9e45f8867a77d3f3a66b68" cid="REA005" type="realization" creation-date="10/23/2014 15:17:14" from="fb47542589ea4d2f9bdfea33e47e6a92" to="b903133783794a68a68ffa83b9f60266" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvc49c8469b45c484cb6267ea551fffc79" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="e1376b68e3a045a3b7f36aff5f20799d" cid="GNR006" type="generalization" creation-date="02/23/2015 13:35:58" from="5b516fc8de254605a79d69713b416e3f" to="6cf53283ee6b431391ec80e59f817b59" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvf40662fe840b45af913155dbb6e7a326" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="b80c12ed9ae84a909962b63eca9ba3ae" cid="C004" type="class" name="IWaffe" creation-date="02/27/2015 15:42:51" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <stereotype-instances>
+        <stereotype id="di218535611918014988_interface_c" type="interface" creation-date="11/07/2024 10:20:55" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="564c57db9347460683e2981b3153c9f0" cid="OP005" veid="o478b5c739d9c41ddac1a7c357741c16d326" name="GegnerTreffen" creation-date="11/07/2024 10:20:55" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="gegner" type="string" type-id="string" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="fb47542589ea4d2f9bdfea33e47e6a92" cid="C002" type="class" name="Büffelhirte" creation-date="10/23/2014 14:27:38" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv65282a70f1cf486fbe34493fc0f1954b" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="0bdbea8eff3c4c8580955b1b899871bc" cid="OP002" veid="o0534d7a6c87547d08642be05bc51d181168" name="WasserstandsÄnderung" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="wasserstand" type="double" type-id="double" creation-date="11/07/2024 10:20:22" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="82fdb4141141457eb30dc2a3ff6acfc9" cid="DEP002" type="dependency" creation-date="02/23/2015 14:50:52" from="6cf53283ee6b431391ec80e59f817b59" to="2b828340e0a945f39c71487c71352ed4" visibility="private">
+      <stereotypes>
+        <stereotype name="use" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv9d8daa43aad94bdcb70c4e9e601bbf7c" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di830149024711794224_use_c" type="use" creation-date="11/07/2024 10:19:12" ref="" />
+      </stereotype-instances>
+    </item>
+    <item id="4fc42099e12242eab374ec611c586ae4" cid="C001" type="class" name="ICelsius" creation-date="10/23/2014 12:02:23" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv3c6faf140626488f97b8ea6ffc89aa26" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di347728020724780127_interface_c" type="interface" creation-date="11/07/2024 10:19:59" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="91d885030e0e4ee69fc58cd864dccf25" cid="OP004" veid="o30403b8d989f40c28749e64ce8da4bb0953" name="GetCelsius" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="c247efcfc63d449589fe98d6dd7ceb46" cid="OP005" veid="o523caeb166c64cf2b5440714fe1779ab941" name="SetCelsius" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="bb3abedd3b7f4352b6050c6a5d7fbeb5" cid="OP006" veid="odbad5377c2e24b2f8f1c7e3c9cb11586941" name="Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="db9ce101813544a38ebb702dbee4a884" cid="REA001" type="realization" creation-date="10/23/2014 15:07:10" from="7a66e79a77d94757ba593fbece493d0e" to="b903133783794a68a68ffa83b9f60266" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvd5433adb189f4d8bb0e47fde55a73325" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="ed878813f8b84b0092f54cb2c01e9ebc" cid="REA006" type="realization" creation-date="10/23/2014 09:34:27" from="dcaaa0706de94b788d94ee6560513265" to="3af98adef1ca4a30ae7622e235bd842a" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv0a2b80f6131440c79305abad52a4d8d6" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="7a66e79a77d94757ba593fbece493d0e" cid="C004" type="class" name="Wanderverein" creation-date="10/23/2014 14:52:29" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvbc0cc438c37c4ceea541953d2703bb7f" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="626a7e7c2bb44b46b3bf0016905aae78" cid="OP006" veid="o5fe7281ce9b94611b346be25c8a5abe5102" name="WasserstandsÄnderung" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="wasserstand" type="double" type-id="double" creation-date="11/07/2024 10:20:22" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="6be4c07a4c9244919e9c144a3c5e4502" cid="REA004" type="realization" creation-date="02/23/2015 11:30:06" from="6ec466f170dc4916a38abcff3a18beda" to="36b1d947eadd4b85b727078f31c45c92" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv508895c119864228a4556f94c343ff67" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="5b937c7c60854fefb23f2815483ad0e3" cid="REA004" type="realization" creation-date="10/23/2014 12:08:34" from="c657af58de8f4afb9267fa3ee5a65cdd" to="a4574c26e28b49a4ae96262131a254bf" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv2ace538f1a2545c7b3ace736739fffa3" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="f0ef857246384152ba615607d2106b0c" cid="C005" type="class" name="Webseite" creation-date="02/23/2015 11:28:51" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvbef8da0e5eb7412c93e1a8072dd742eb" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="a9a480275add4367b08898f219194458" cid="PROP002" veid="aa12fa01a5d7b482fb2e5d685080021e124" name="url" creation-date="10/06/2022 10:25:07" property-ref="a8dfe84d70194d05b77f624cb9999d82" />
+      </attributes>
+      <operations>
+        <operation id="83d9df76d1c743c2b7a7d8dd00bb2fc5" cid="OP074" veid="o335790978d70436db74422238f4040d0366" name="Webseite" creation-date="10/06/2022 10:25:07" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+            <parameter id="" name="url" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="aec9d23c199146ae8112c320c9534a88" cid="GNR007" type="generalization" creation-date="02/23/2015 13:39:49" from="785355e6cb84459792cd210e3e2c299c" to="6cf53283ee6b431391ec80e59f817b59" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv68ab284a8de64c66967ffa234e956a92" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="6ace0f54bb6849309a6ec6c80815faeb" cid="C007" type="class" name="Zeitung" creation-date="02/23/2015 11:31:30" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvada045ff990747f3b8d5942494b69cdb" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="e46f397d6010434abeb973828211d631" cid="PROP003" veid="a49398ec45c144e0785b3edc84f87a8ba731" name="zeitungsTyp" creation-date="10/06/2022 10:25:07" property-ref="e2cff0ad437142d3bc61589ec1c677fc" />
+      </attributes>
+      <operations>
+        <operation id="f5191c6cb24140e582802eb21c3780f9" cid="OP077" veid="o70069c8808ed483a9afac527f0799da6667" name="Zeitung" creation-date="10/06/2022 10:25:07" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+            <parameter id="" name="zeitungsTyp" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="779d8a9cee2540cc97116bcc3057f4a2" cid="C004" type="class" name="IWaffe" creation-date="02/27/2015 15:42:51" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <stereotype-instances>
+        <stereotype id="di218535611918014988_interface_c" type="interface" creation-date="11/07/2024 10:20:55" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="63ef439ecbc84669a97e1d4fdc1f49e2" cid="OP005" veid="o478b5c739d9c41ddac1a7c357741c16d326" name="GegnerTreffen" creation-date="11/07/2024 10:20:55" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="gegner" type="string" type-id="string" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="8b82d212de5c4d80854c0b330edbfb65" cid="REA008" type="realization" creation-date="02/23/2015 13:30:13" from="6cf53283ee6b431391ec80e59f817b59" to="36b1d947eadd4b85b727078f31c45c92" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv3033f0fe0fe3471eac5b8550eb215218" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="e75da86b9a854f0baa5dc66af3d75a9e" cid="DEP001" type="dependency" creation-date="02/27/2015 15:43:51" from="550d2a18cd844a1a818e53eaca6f9a2d" to="b80c12ed9ae84a909962b63eca9ba3ae" visibility="private">
+      <stereotypes>
+        <stereotype name="use" />
+      </stereotypes>
+      <stereotype-instances>
+        <stereotype id="di315472398790555325_use_c" type="use" creation-date="11/07/2024 10:20:55" ref="" />
+      </stereotype-instances>
+    </item>
+    <item id="6a576ba00ac249a896e41ea16868c0c0" cid="REA001" type="realization" creation-date="10/23/2014 12:08:18" from="c657af58de8f4afb9267fa3ee5a65cdd" to="4fc42099e12242eab374ec611c586ae4" visibility="private">
+      <tagged-values>
+        <tagged-value id="tva90456ebd16a4ea1a46e51228edab421" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="b95ff1798f344e669f0cb21b486714cf" cid="C009" type="class" name="Quelle" creation-date="02/23/2015 13:30:02" visibility="private" is-abstract="true">
+      <tagged-values>
+        <tagged-value id="tv7568e4287f174b58953226422cfb68a3" name="isAbstract" type="text" multiple="false" hidden="false" value="True" />
+        <tagged-value id="tv9ca009bdf3f14149be26106e957af152" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="b154037a3c9e4197ba8355e04d60b899" cid="PROP008" veid="a4eaf6df5a2764a5e858fe19f708ccf1d530" name="name" creation-date="10/06/2022 10:25:07" property-ref="5601e8ddbc5c414497225d3fe85da887" />
+      </attributes>
+      <operations>
+        <operation id="cd4257e40bf14dcbaf8803c06e0a410d" cid="OP078" veid="oa194f6f0343c4daba78e29f6dcc2329c836" name="Anmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="5ca6799fc2d444d4b20ccd8bdf812a44" cid="OP079" veid="oc02200def6d54df0899c80239b86cd72836" name="Abmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="8d8a6cac34f74bcfb465c6a83586f4cc" cid="OP080" veid="o2369dd463de245e49551328c448e71fe836" name="SendeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="9b6e0771f4cf449b8c36d2e38a162c3c" cid="GNR008" type="generalization" creation-date="02/23/2015 13:40:43" from="6ace0f54bb6849309a6ec6c80815faeb" to="6cf53283ee6b431391ec80e59f817b59" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv91ec72a255834014b9121dceec2eec7e" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="5e52fa3129ab4130a8b7a3e59c484a1c" cid="REL002" type="relationship" creation-date="10/11/2021 11:14:53" from="3506ff1621834b10ad5f63e9ce114010" to="4889dbcd604948c388d54a921f97694c" visibility="package">
+      <stereotypes>
+        <stereotype name="static" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv44d07adb86d941beb54bf5760ba5a5c1" name="visibility" type="text" multiple="false" hidden="false" value="package" />
+      </tagged-values>
+      <documentations>
+        <doc id="d1842c1ba24b461588d3bd96a32931f5">
+          <text>
+            <default>
+              <style font-name="Verdana" font-size="12">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+              </style>
+            </default>
+            <styles>
+              <style name="S1" font-name="Verdana" font-size="12">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+              </style>
+            </styles>
+            <content>
+              <paragraph>
+                <style numbering-type="None">
+                  <numbering name="" multi-level="false">
+                    <numbering-level type="None" level="0" format="{0}." />
+                  </numbering>
+                </style>
+                <p s="S1">
+                  <t>
+</t>
+                </p>
+              </paragraph>
+            </content>
+          </text>
+        </doc>
+      </documentations>
+      <stereotype-instances>
+        <stereotype id="di769143263784662499_static_c" type="static" creation-date="11/07/2024 10:20:22" ref="" />
+      </stereotype-instances>
+      <relation from="3506ff1621834b10ad5f63e9ce114010" to="4889dbcd604948c388d54a921f97694c" derived="false">
+        <start-role id="umlar-3ec2d6c8-dffa-4e36-8eb4-fc93b2fd5c57" name="" navigability="" association-type="association" visibility="private" />
+        <end-role id="umlar-43be318f-c79b-438b-a00c-a3a94d0585dc" name="" navigability="" association-type="association" visibility="private" />
+      </relation>
+    </item>
+    <item id="c2b6fb9825eb4c80be6e975a7af28691" cid="GNR010" type="generalization" creation-date="02/23/2015 14:53:10" from="f0ef857246384152ba615607d2106b0c" to="6cf53283ee6b431391ec80e59f817b59" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv2a223ef21dfa470980900b8d78249555" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="a4574c26e28b49a4ae96262131a254bf" cid="C001" type="class" name="IFahrenheit" creation-date="10/23/2014 12:02:23" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tvbb9b856c2b754944b60e0925b4b202aa" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di320177201251872345_interface_c" type="interface" creation-date="11/07/2024 10:19:59" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="9d7ca269284b4b0a978b1eb8d4c054e7" cid="OP019" veid="o30403b8d989f40c28749e64ce8da4bb0953" name="GetFahrenheit" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="49a490493f1d46f98c31db224e513a27" cid="OP020" veid="o5f0d191ccee140f09025eb440f398aa3190" name="SetFahrenheit" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="fbcd5cec23234225bd2d1ec0eaf609a9" cid="OP021" veid="oe635fbad77bb487d91be15b50a6070bd190" name="Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="4889dbcd604948c388d54a921f97694c" cid="C008" type="class" name="Random" creation-date="10/11/2021 11:14:43" visibility="package">
+      <tagged-values>
+        <tagged-value id="tvbc36d8ed2678452d926751fd750bf1b1" name="visibility" type="text" multiple="false" hidden="false" value="package" />
+      </tagged-values>
+    </item>
+    <item id="fffc8944a9444c0d80a44aec85e4f51a" cid="C001" type="class" name="Biene" creation-date="10/23/2014 09:31:35" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv1030660e7db64f498c7ad373dfb663f7" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="cdccb28257124fbf8fbfabd038fe00e6" cid="OP001" veid="obeff49c88dce4bb0a32dc12d6b3aab74483" name="Fliegen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="785355e6cb84459792cd210e3e2c299c" cid="C006" type="class" name="TV" creation-date="02/23/2015 11:29:42" visibility="private">
+      <tagged-values>
+        <tagged-value id="tva4e0d0eff91d4640a8b5ed0020d1d7d8" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="4bbb0216708b4b25b79fd0ce422a8aab" cid="OP076" veid="o0cc67f1606d341aa9c42b9bdfee8e070800" name="TV" creation-date="10/06/2022 10:25:07" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="5601e8ddbc5c414497225d3fe85da887" veid="745f2c82f69a4f45b62034708e86cc21" cid="PROP008" type="property" name="name" owner="b95ff1798f344e669f0cb21b486714cf" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+      <structural-feature type="string" type-id="string" />
+    </item>
+    <item id="2b828340e0a945f39c71487c71352ed4" cid="C001" type="class" name="INachrichtenEmpfänger" creation-date="02/23/2015 10:54:53" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tvba3199ebb0fd4eceaa7f71746a2aede4" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di595915885567915591_interface_c" type="interface" creation-date="11/07/2024 10:19:12" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="2065f8b82d644f34b1ed8294599cdd06" cid="OP001" veid="o02099260121049d3a2672c3c80327301464" name="EmpfangeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="3af98adef1ca4a30ae7622e235bd842a" cid="C004" type="class" name="IFliegen" creation-date="10/23/2014 09:33:00" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv7be7f33c13e94212b9b75c91cce4db9f" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di897403586338957195_interface_c" type="interface" creation-date="11/07/2024 10:17:50" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="03ad8bd892714beeb1fe2514a98aaa2c" cid="OP005" veid="o8868261c0e3740ec86c0259d40654abf270" name="Fliegen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="53e06467106e4a0e84c3a9def6f7f415" cid="C001" type="class" name="INachrichtenEmpfänger" creation-date="02/23/2015 10:54:53" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tvba3199ebb0fd4eceaa7f71746a2aede4" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di595915885567915591_interface_c" type="interface" creation-date="11/07/2024 10:19:12" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="4755c4db25a7485a89b8b4d2a744b85b" cid="OP001" veid="o02099260121049d3a2672c3c80327301464" name="EmpfangeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="b92e756ca5de442a95b2957e7cd5eecf" cid="C003" type="class" name="Fledermaus" creation-date="10/23/2014 09:31:44" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv621d4919cf544f8690df63798163c61c" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="8cbe0c1dd7294c61ab1948cb51a98a56" cid="OP004" veid="oa31557971aa64bee86794bd2b5ce22d4712" name="Fliegen" creation-date="10/17/2022 10:32:24" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="e332003f484340ba8855c07823caf83a" cid="REA003" type="realization" creation-date="02/27/2015 15:43:35" from="a61ee9aa2e5e4ff786b670648b90e484" to="b80c12ed9ae84a909962b63eca9ba3ae" visibility="private" />
+    <item id="b758bf7226d4467e995b6eb5e92d3be3" cid="REA003" type="realization" creation-date="02/23/2015 11:29:54" from="6ec466f170dc4916a38abcff3a18beda" to="2b828340e0a945f39c71487c71352ed4" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvd63289d892e242f3a1f9bb57b8441b96" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="5305115659c1410d95bd2a02590954aa" cid="C001" type="class" name="IKelvin" creation-date="10/23/2014 12:02:23" visibility="private">
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tv947b610c5f104092a7138493fb82989d" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="di739972582219784052_interface_c" type="interface" creation-date="11/07/2024 10:19:59" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="e290b0c2eeaf4513ae958c91aa2af5a1" cid="OP010" veid="o30403b8d989f40c28749e64ce8da4bb0953" name="GetKelvin" creation-date="10/18/2022 08:19:21" type="double" type-id="double" visibility="public" />
+        <operation id="81c8e7bd539b441dac36011363e7adbb" cid="OP011" veid="ofcc165eee67c458393cf8346d9e5433a237" name="SetKelvin" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="temperatur" type="double" type-id="double" creation-date="11/07/2024 10:19:59" />
+          </parameters>
+        </operation>
+        <operation id="f03b8d4670de42dcb352aabead78c2ae" cid="OP012" veid="o6e39056510c44090bf84a34c84801a9d237" name="Ausgabe" creation-date="10/18/2022 08:19:21" type="void" type-id="void" visibility="public" />
+      </operations>
+    </item>
+    <item id="a61ee9aa2e5e4ff786b670648b90e484" cid="C003" type="class" name="Shuriken" creation-date="02/27/2015 15:00:02" visibility="private">
+      <operations>
+        <operation id="c34fe3529f7a4c3db8c712c2e50c0a66" cid="OP001" veid="o1f19f232cc404277aae51ec8a99f3c30953" name="GegnerTreffen" creation-date="11/07/2024 10:20:55" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="gegner" type="string" type-id="string" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="2cd496ca5a82490488f855a8f15b8426" cid="REA004" type="realization" creation-date="10/23/2014 09:34:16" from="b92e756ca5de442a95b2957e7cd5eecf" to="3af98adef1ca4a30ae7622e235bd842a" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv5081f3661e044dbebc96fdc2574c1a5e" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+    </item>
+    <item id="6cf53283ee6b431391ec80e59f817b59" cid="C009" type="class" name="Quelle" creation-date="02/23/2015 13:30:02" visibility="private" is-abstract="true">
+      <tagged-values>
+        <tagged-value id="tv7568e4287f174b58953226422cfb68a3" name="isAbstract" type="text" multiple="false" hidden="false" value="True" />
+        <tagged-value id="tv9ca009bdf3f14149be26106e957af152" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="b85a6950ca2b491c9d100771324f2c11" cid="PROP005" veid="a4eaf6df5a2764a5e858fe19f708ccf1d530" name="name" creation-date="10/06/2022 10:25:07" property-ref="8beb442ff84547b1b359046927a50a86" />
+      </attributes>
+      <operations>
+        <operation id="4eda95757a4d40df84ae430814e01807" cid="OP078" veid="oa194f6f0343c4daba78e29f6dcc2329c836" name="Anmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="c37d2a1deb004c83b61e6b4b230563e7" cid="OP079" veid="oc02200def6d54df0899c80239b86cd72836" name="Abmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="3a3f678f4d634194a4e10f1aad062d78" cid="OP080" veid="o2369dd463de245e49551328c448e71fe836" name="SendeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="6f122484490f4605b12567c0d6ada443" cid="C005" type="class" name="Strassenwacht" creation-date="10/23/2014 14:52:45" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv99a8797cfd5b48e982297219919b0249" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="111e45e7a6274f508f96f088ff608178" cid="OP005" veid="oab67d80d8b4f4c789694668acb5caf5874" name="WasserstandsÄnderung" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="wasserstand" type="double" type-id="double" creation-date="11/07/2024 10:20:22" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="6ec466f170dc4916a38abcff3a18beda" cid="C004" type="class" name="Vermittler" creation-date="02/23/2015 11:28:44" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvef39d6da80994d7bbf429a87140707bf" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="83ed7b189bb64f48a1e0ebad15c1b443" cid="OP043" veid="o7c8e05b7e5394263979ed98aeec98c9f519" name="EmpfangeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="d5563d56685f498f8abbf4da22c19fad" cid="OP044" veid="odbf7d368352a48e88410d877f3bf92bb519" name="Anmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="9f9215955d66404e9e50ff95f57b309f" cid="OP045" veid="o45714bd847eb48adb20107a563cd91a9519" name="Abmelden" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="empfänger" type="INachrichtenEmpfänger" type-id="Class:2b828340e0a945f39c71487c71352ed4" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+        <operation id="df6b47801fa24553a91a1719795e72ed" cid="OP046" veid="o420939416dab40cca112d13c9609e372519" name="SendeNachricht" creation-date="10/06/2022 10:25:07" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="nachricht" type="string" type-id="string" creation-date="11/07/2024 10:19:12" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="550d2a18cd844a1a818e53eaca6f9a2d" cid="C001" type="class" name="Ninja" creation-date="02/27/2015 14:59:50" visibility="private">
+      <operations>
+        <operation id="0726865b5b654c82aa587a67f0728953" cid="OP004" veid="o7ec8dd45ed464614b6bba6135a298dcd806" name="Ninja" creation-date="11/07/2024 10:20:55" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="waffe" type="IWaffe" type-id="Class:779d8a9cee2540cc97116bcc3057f4a2" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+        <operation id="66a7198186bd4e86b9fe288537e1b255" cid="OP003" veid="o4200e416d9e747e28b7d129f458c2249900" name="Angreifen" creation-date="11/07/2024 10:20:55" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="gegner" type="string" type-id="string" creation-date="11/07/2024 10:20:55" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="3506ff1621834b10ad5f63e9ce114010" cid="C003" type="class" name="Fluss" creation-date="10/23/2014 14:28:17" visibility="private">
+      <tagged-values>
+        <tagged-value id="tvd8c3696c77f34368a1b9d581e1ecf4a1" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="b451a83dca5849a38fc3bc51d72187d3" cid="PROP007" veid="aac331ddcc1114c6092d03c71c526efb5977" name="wasserstand" creation-date="10/19/2022 08:18:05" property-ref="cb8ce377ad5c46eba70cb19331ee0235" />
+      </attributes>
+      <operations>
+        <operation id="ea301e500fc84084ba77315c98da9151" cid="OP007" veid="o26cf2c6968344eaf80bf9b19778d95a6804" name="WasserpegelÄndern" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public" />
+        <operation id="2dbdf188ab8b474485921729e9cb4d8f" cid="OP008" veid="of5bbd5364303467db60e257fb6023b91178" name="BeobachterHinzufügen" creation-date="10/19/2022 08:18:05" type="void" type-id="void" visibility="public">
+          <parameters>
+            <parameter id="" name="beobachter" type="IBeobachter" type-id="Class:b903133783794a68a68ffa83b9f60266" creation-date="11/07/2024 10:20:22" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+  </items>
+  <models>
+    <model id="pf3e8cf08441846e4a77c20340541de9f_526872686" name="18. Interfaces (Schnittstellen)" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>11/07/2024 10:18:07</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p14bc6c22435e40d182d6249bb578fec2_469625336" name="Aufgabe01" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-260,4" zoom="1.4">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/07/2024 10:18:07</creation-date>
+          <change-date>11/07/2024 10:19:00</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="a8fd13b5a67d4adfaa4b536ce25a3e5e" name="Default" visible="true" enabled="true" locked="false">
+          <item id="fffc8944a9444c0d80a44aec85e4f51a" iid="18f68e4d9eba47fb80b3a26768da4931" creation-date="10/23/2014 09:31:35" order-index="0" type="entity">
+            <layout ax="-18" ay="420" awidth="140" aheight="72" x="-18" y="419.5" width="140" height="72" />
+            <classifier />
+            <class />
+          </item>
+          <item id="dcaaa0706de94b788d94ee6560513265" iid="25c9de8a912a4edfb3d390236fcff260" creation-date="10/23/2014 09:31:38" order-index="1" type="entity">
+            <layout ax="500" ay="420" awidth="140" aheight="72" x="500" y="419.5" width="140" height="72" />
+            <classifier />
+            <class />
+          </item>
+          <item id="b92e756ca5de442a95b2957e7cd5eecf" iid="e018977cf85d49ff944f91259db11337" creation-date="10/23/2014 09:31:44" order-index="2" type="entity">
+            <layout ax="262" ay="420" awidth="140" aheight="72" x="262" y="419.5" width="140" height="72" />
+            <classifier />
+            <class />
+          </item>
+          <item id="3af98adef1ca4a30ae7622e235bd842a" iid="3a06a46a2a774b74801db30dd56b0fb1" creation-date="10/23/2014 09:33:00" order-index="3" type="entity">
+            <layout ax="122" ay="198" awidth="140" aheight="72" x="122" y="197.5" width="140" height="72" />
+            <classifier />
+            <class />
+          </item>
+          <item id="6572c56a3d42402f9169d584aeabebf9" iid="f22dc7cb2a2b4842811c7e9f9fc2268b" creation-date="10/23/2014 09:33:16" order-index="4" type="entity">
+            <layout ax="500" ay="198" awidth="140" aheight="72" x="500" y="197.5" width="140" height="72" />
+            <classifier />
+            <class />
+          </item>
+          <item id="b746f10d90ba4bdb9edb8823eaf31e01" iid="6056b9b2ed694f3dbdeac80082127de4" creation-date="10/23/2014 09:34:08" order-index="5" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="570" y1="420" x2="570" y2="270" start-border-pos="0.125" end-border-pos="0.625" name-position="10,-10">
+              <points>
+                <point x="570" y="420" />
+                <point x="570" y="270" />
+              </points>
+            </layout>
+            <relation from="dcaaa0706de94b788d94ee6560513265" from-iid="25c9de8a912a4edfb3d390236fcff260" from-field="54285b907b3d4af2bd22ed9ca2d718a5" to="6572c56a3d42402f9169d584aeabebf9" to-iid="f22dc7cb2a2b4842811c7e9f9fc2268b" />
+          </item>
+          <item id="2cd496ca5a82490488f855a8f15b8426" iid="f27c2403043b4ccb9a1fbb288d56953e" creation-date="10/23/2014 09:34:16" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="333" y1="420" x2="234" y2="270" start-border-pos="0.126785714285714" end-border-pos="0.55" name-position="10,-10">
+              <points>
+                <point x="333" y="420" />
+                <point x="234" y="270" />
+              </points>
+            </layout>
+            <relation from="b92e756ca5de442a95b2957e7cd5eecf" from-iid="e018977cf85d49ff944f91259db11337" to="3af98adef1ca4a30ae7622e235bd842a" to-iid="3a06a46a2a774b74801db30dd56b0fb1" />
+          </item>
+          <item id="cf13120536e04358bd65ab6b8af557d4" iid="7ddcdd3fa2554ddaa738438e51166fab" creation-date="10/23/2014 09:34:22" order-index="7" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="75" y1="420" x2="169" y2="270" start-border-pos="0.16554054532732282" end-border-pos="0.665540531703404" name-position="10,-10">
+              <points>
+                <point x="75" y="420" />
+                <point x="169" y="270" />
+              </points>
+            </layout>
+            <relation from="fffc8944a9444c0d80a44aec85e4f51a" from-iid="18f68e4d9eba47fb80b3a26768da4931" to="3af98adef1ca4a30ae7622e235bd842a" to-iid="3a06a46a2a774b74801db30dd56b0fb1" />
+          </item>
+          <item id="ed878813f8b84b0092f54cb2c01e9ebc" iid="3bafe0fdb4f04825bd1259c1c354dad1" creation-date="10/23/2014 09:34:27" order-index="8" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="527" y1="420" x2="262" y2="250" start-border-pos="0.0482142857142857" end-border-pos="0.43203125" name-position="10,-10">
+              <points>
+                <point x="527" y="420" />
+                <point x="262" y="250" />
+              </points>
+            </layout>
+            <relation from="dcaaa0706de94b788d94ee6560513265" from-iid="25c9de8a912a4edfb3d390236fcff260" to="3af98adef1ca4a30ae7622e235bd842a" to-iid="3a06a46a2a774b74801db30dd56b0fb1" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="pc6f6b11e6a3641c181b6a43d2ae587af_399208476" name="Aufgabe02" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="97,37" zoom="1.05">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/07/2024 10:18:17</creation-date>
+          <change-date>11/07/2024 11:12:58</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="8beb442ff84547b1b359046927a50a86" veid="745f2c82f69a4f45b62034708e86cc21" cid="PROP005" type="property" name="name" owner="6cf53283ee6b431391ec80e59f817b59" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+            <structural-feature type="string" type-id="string" />
+          </item>
+          <item id="e6f8faf4106649bba86d328e219c1ec4" veid="c0b13128eae04f3dbfe231f3b70ba9f9" cid="PROP004" type="property" name="frequenz" owner="5b516fc8de254605a79d69713b416e3f" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+            <structural-feature type="double" type-id="double" />
+          </item>
+          <item id="a8dfe84d70194d05b77f624cb9999d82" veid="92302f2442eb4f0a9c67386a781ec959" cid="PROP002" type="property" name="url" owner="f0ef857246384152ba615607d2106b0c" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+            <structural-feature type="string" type-id="string" />
+          </item>
+          <item id="e2cff0ad437142d3bc61589ec1c677fc" veid="111a6aeb03da4bb09ca95ade98c6db55" cid="PROP003" type="property" name="zeitungsTyp" owner="6ace0f54bb6849309a6ec6c80815faeb" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+            <structural-feature type="string" type-id="string" />
+          </item>
+          <item id="0bec9b557f014e389fb6efa1407544c4" veid="f6332ccb411645248a1afb73b5075b72" cid="PROP001" type="property" name="name" owner="d0c92fefcecd4f2eb79d49b033e58ee7" creator="" creation-date="10/06/2022 10:25:07" visibility="private">
+            <structural-feature type="string" type-id="string" />
+          </item>
+        </abstract-items>
+        <layer id="0650d1f1366d40df9e5da832faa1a86c" name="Default" visible="true" enabled="true" locked="false">
+          <item id="2b828340e0a945f39c71487c71352ed4" iid="a7386bcc47df4896bc63da90b9fa37a7" creation-date="02/23/2015 10:54:53" order-index="0" type="entity">
+            <layout ax="248" ay="384" awidth="300" aheight="82" x="248" y="383.75" width="300" height="82" />
+            <classifier />
+            <class />
+          </item>
+          <item id="36b1d947eadd4b85b727078f31c45c92" iid="4b1a64f514d94cefa49fecfbc83b2476" creation-date="02/23/2015 11:01:05" order-index="1" type="entity">
+            <layout ax="681" ay="97" awidth="366" aheight="114" x="681" y="97.25" width="366" height="113.5" />
+            <classifier />
+            <class />
+          </item>
+          <item id="d0c92fefcecd4f2eb79d49b033e58ee7" iid="f49fa0b1f9ea4e35a2352ce7c97b8d1c" creation-date="02/23/2015 11:27:28" order-index="2" type="entity">
+            <layout ax="240" ay="599" awidth="300" aheight="100" x="240" y="599" width="300" height="100" />
+            <classifier />
+            <class />
+          </item>
+          <item id="b8aa48e90ead46759b22b864ad2b2797" iid="fa0bf39767cb4ff48c2a1645ca8c63ae" creation-date="02/23/2015 11:27:53" order-index="3" type="relation">
+            <layout line-style="oblique" lock-end-point="true" lock-to-fields="false" auto-path="" x1="390" y1="599" x2="389" y2="466" start-border-pos="0.12477231343587239" end-border-pos="0.63248502994012" name-position="10,-10">
+              <points>
+                <point x="390" y="599" />
+                <point x="389" y="466" />
+              </points>
+            </layout>
+            <relation from="d0c92fefcecd4f2eb79d49b033e58ee7" from-iid="f49fa0b1f9ea4e35a2352ce7c97b8d1c" to="2b828340e0a945f39c71487c71352ed4" to-iid="a7386bcc47df4896bc63da90b9fa37a7" />
+          </item>
+          <item id="6ec466f170dc4916a38abcff3a18beda" iid="6ff26098df2c466d8d0af366e1c51d42" creation-date="02/23/2015 11:28:44" order-index="4" type="entity">
+            <layout ax="215" ay="82" awidth="366" aheight="145" x="215" y="81.5" width="366" height="145" />
+            <classifier />
+            <class />
+          </item>
+          <item id="f0ef857246384152ba615607d2106b0c" iid="573de62a53604aec84587c1718f3f2fe" creation-date="02/23/2015 11:28:51" order-index="5" type="entity">
+            <layout ax="738" ay="608" awidth="253" aheight="83" x="737.5" y="607.5" width="253" height="83" />
+            <classifier />
+            <class />
+          </item>
+          <item id="785355e6cb84459792cd210e3e2c299c" iid="66b8190cdbf5458183458472a7e341bf" creation-date="02/23/2015 11:29:42" order-index="6" type="entity">
+            <layout ax="1198" ay="392" awidth="137" aheight="66" x="1197.5" y="392.25" width="137" height="66" />
+            <classifier />
+            <class />
+          </item>
+          <item id="b758bf7226d4467e995b6eb5e92d3be3" iid="cdde6eba5f00410a934b10e6a8fcdcd8" creation-date="02/23/2015 11:29:54" order-index="7" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="398" y1="227" x2="398" y2="384" start-border-pos="0.625" end-border-pos="0.125" name-position="10,-10">
+              <points>
+                <point x="398" y="227" />
+                <point x="398" y="384" />
+              </points>
+            </layout>
+            <relation from="6ec466f170dc4916a38abcff3a18beda" from-iid="6ff26098df2c466d8d0af366e1c51d42" to="2b828340e0a945f39c71487c71352ed4" to-iid="a7386bcc47df4896bc63da90b9fa37a7" />
+          </item>
+          <item id="6be4c07a4c9244919e9c144a3c5e4502" iid="485e765f511a4396bf3f01b23b1fb11e" creation-date="02/23/2015 11:30:06" order-index="8" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="581" y1="154" x2="681" y2="154" start-border-pos="0.3741379310344828" end-border-pos="0.875" name-position="10,-10">
+              <points>
+                <point x="581" y="154" />
+                <point x="681" y="154" />
+              </points>
+            </layout>
+            <relation from="6ec466f170dc4916a38abcff3a18beda" from-iid="6ff26098df2c466d8d0af366e1c51d42" to="36b1d947eadd4b85b727078f31c45c92" to-iid="4b1a64f514d94cefa49fecfbc83b2476" />
+          </item>
+          <item id="6ace0f54bb6849309a6ec6c80815faeb" iid="9e2d6693b1f749e094adf0ea10d388c4" creation-date="02/23/2015 11:31:30" order-index="9" type="entity">
+            <layout ax="1115" ay="211" awidth="302" aheight="83" x="1115" y="210.75" width="302" height="83" />
+            <classifier />
+            <class />
+          </item>
+          <item id="5b516fc8de254605a79d69713b416e3f" iid="591f8f9a52dc4a20a6a29d351f5a7479" creation-date="02/23/2015 11:31:43" order-index="10" type="entity">
+            <layout ax="1188" ay="608" awidth="171" aheight="113" x="1188" y="607.5" width="171" height="113" rotation-center="-0.07163743,0" />
+            <classifier />
+            <class />
+          </item>
+          <item id="6cf53283ee6b431391ec80e59f817b59" iid="5983c13a2c7d49dd84e312c04aac0e6e" creation-date="02/23/2015 13:30:02" order-index="11" type="entity">
+            <layout ax="681" ay="369" awidth="366" aheight="115" x="681" y="368.75" width="366" height="113" />
+            <classifier />
+            <class />
+          </item>
+          <item id="8b82d212de5c4d80854c0b330edbfb65" iid="62c6b58a24b74f249467ed25ffe91a19" creation-date="02/23/2015 13:30:13" order-index="12" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="864" y1="369" x2="864" y2="211" start-border-pos="0.125" end-border-pos="0.625" name-position="10,-10">
+              <points>
+                <point x="864" y="369" />
+                <point x="864" y="211" />
+              </points>
+            </layout>
+            <relation from="6cf53283ee6b431391ec80e59f817b59" from-iid="5983c13a2c7d49dd84e312c04aac0e6e" to="36b1d947eadd4b85b727078f31c45c92" to-iid="4b1a64f514d94cefa49fecfbc83b2476" />
+          </item>
+          <item id="e1376b68e3a045a3b7f36aff5f20799d" iid="ba791c65511b4ff78dede609554cd2b7" creation-date="02/23/2015 13:35:58" order-index="13" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1188" y1="614" x2="964" y2="484" start-border-pos="0.9865529558299917" end-border-pos="0.5567513971380849" name-position="10,-10">
+              <points>
+                <point x="1188" y="614" />
+                <point x="964" y="484" />
+              </points>
+            </layout>
+            <relation from="5b516fc8de254605a79d69713b416e3f" from-iid="591f8f9a52dc4a20a6a29d351f5a7479" to="6cf53283ee6b431391ec80e59f817b59" to-iid="5983c13a2c7d49dd84e312c04aac0e6e" />
+          </item>
+          <item id="aec9d23c199146ae8112c320c9534a88" iid="3d2da20acb134af2ac82078830689ea1" creation-date="02/23/2015 13:39:49" order-index="14" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1198" y1="425" x2="1047" y2="426" start-border-pos="0.8743592464562618" end-border-pos="0.37292341149371605" name-position="10,-10">
+              <points>
+                <point x="1198" y="425" />
+                <point x="1047" y="426" />
+              </points>
+            </layout>
+            <relation from="785355e6cb84459792cd210e3e2c299c" from-iid="66b8190cdbf5458183458472a7e341bf" to="6cf53283ee6b431391ec80e59f817b59" to-iid="5983c13a2c7d49dd84e312c04aac0e6e" />
+          </item>
+          <item id="9b6e0771f4cf449b8c36d2e38a162c3c" iid="cf43d4fefd4645d4ac84c2fe55a02423" creation-date="02/23/2015 13:40:43" order-index="15" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1169" y1="294" x2="996" y2="369" start-border-pos="0.7053265097914942" end-border-pos="0.21495197900657445" name-position="10,-10">
+              <points>
+                <point x="1169" y="294" />
+                <point x="996" y="369" />
+              </points>
+            </layout>
+            <relation from="6ace0f54bb6849309a6ec6c80815faeb" from-iid="9e2d6693b1f749e094adf0ea10d388c4" to="6cf53283ee6b431391ec80e59f817b59" to-iid="5983c13a2c7d49dd84e312c04aac0e6e" />
+          </item>
+          <item id="82fdb4141141457eb30dc2a3ff6acfc9" iid="06ab72d6ed4c475ab4a5d9b31e0a89d5" creation-date="02/23/2015 14:50:52" order-index="16" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="681" y1="426" x2="548" y2="425" start-border-pos="0.8769406525985054" end-border-pos="0.3759814006526296" name-position="10,-10">
+              <points>
+                <point x="681" y="426" />
+                <point x="548" y="425" />
+              </points>
+            </layout>
+            <relation from="6cf53283ee6b431391ec80e59f817b59" from-iid="5983c13a2c7d49dd84e312c04aac0e6e" to="2b828340e0a945f39c71487c71352ed4" to-iid="a7386bcc47df4896bc63da90b9fa37a7" />
+          </item>
+          <item id="c2b6fb9825eb4c80be6e975a7af28691" iid="efaa927703f947d8a786bed197f330b2" creation-date="02/23/2015 14:53:10" order-index="17" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="864" y1="608" x2="864" y2="484" start-border-pos="0.12450592885375494" end-border-pos="0.625" name-position="10,-10">
+              <points>
+                <point x="864" y="608" />
+                <point x="864" y="484" />
+              </points>
+            </layout>
+            <relation from="f0ef857246384152ba615607d2106b0c" from-iid="573de62a53604aec84587c1718f3f2fe" to="6cf53283ee6b431391ec80e59f817b59" to-iid="5983c13a2c7d49dd84e312c04aac0e6e" />
+          </item>
+          <item id="c7ef9419249a45fcb5091bd7b8bb6bfa" iid="423961a6cfa8441890b6c16dd98a1dc6" creation-date="10/16/2015 13:46:36" order-index="18" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="284" y1="227" x2="284" y2="384" start-border-pos="0.702868852459016" end-border-pos="0.03" name-position="10,-10">
+              <points>
+                <point x="284" y="227" />
+                <point x="284" y="384" />
+              </points>
+            </layout>
+            <relation from="6ec466f170dc4916a38abcff3a18beda" from-iid="6ff26098df2c466d8d0af366e1c51d42" to="2b828340e0a945f39c71487c71352ed4" to-iid="a7386bcc47df4896bc63da90b9fa37a7" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="pd79c8be260fd4ff990202d8d88de5077_455391814" name="Aufgabe03" order-index="3" overview-order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-174,-67" zoom="0.8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/07/2024 10:18:28</creation-date>
+          <change-date>11/07/2024 10:20:09</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="efb4d6a4f4354ecdb92eadb7fa68b25b" veid="e7d47c5a22ea47f4b12f107de225a8c8" cid="PROP006" type="property" name="temperaturInCelsius" owner="c657af58de8f4afb9267fa3ee5a65cdd" creator="" creation-date="10/18/2022 08:19:21" visibility="private">
+            <structural-feature type="double" type-id="double" />
+          </item>
+        </abstract-items>
+        <layer id="4b16126789bd42aa90fbfd5a434b554b" name="Default" visible="true" enabled="true" locked="false">
+          <item id="4fc42099e12242eab374ec611c586ae4" iid="502496b43e2a4da9ac11292c5e4546fe" creation-date="10/23/2014 12:02:23" order-index="0" type="entity">
+            <layout ax="18" ay="66" awidth="312" aheight="120" x="18" y="66.5" width="312" height="120" />
+            <classifier />
+            <class />
+          </item>
+          <item id="5305115659c1410d95bd2a02590954aa" iid="f00ec2177d894231ab32ef17f9169ade" creation-date="10/23/2014 12:02:23" order-index="1" type="entity">
+            <layout ax="382" ay="66" awidth="335" aheight="120" x="382" y="66.5" width="335" height="120" />
+            <classifier />
+            <class />
+          </item>
+          <item id="a4574c26e28b49a4ae96262131a254bf" iid="792b62ff5208421ba7e0ba064db24f1a" creation-date="10/23/2014 12:02:23" order-index="2" type="entity">
+            <layout ax="764" ay="66" awidth="335" aheight="120" x="764" y="66.5" width="335" height="120" />
+            <classifier />
+            <class />
+          </item>
+          <item id="c657af58de8f4afb9267fa3ee5a65cdd" iid="53ff080e88b7421a8ab21a2508bebc8a" creation-date="10/23/2014 12:06:05" order-index="3" type="entity">
+            <layout ax="382" ay="354" awidth="347" aheight="240" x="382" y="353.5" width="347" height="240" />
+            <classifier />
+            <class />
+          </item>
+          <item id="6a576ba00ac249a896e41ea16868c0c0" iid="f6ce9228576f476487bece8e24153466" creation-date="10/23/2014 12:08:18" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="382" y1="355" x2="202" y2="186" start-border-pos="0.999429225921631" end-border-pos="0.602678571428571" name-position="10,-10">
+              <points>
+                <point x="382" y="355" />
+                <point x="202" y="186" />
+              </points>
+            </layout>
+            <relation from="c657af58de8f4afb9267fa3ee5a65cdd" from-iid="53ff080e88b7421a8ab21a2508bebc8a" to="4fc42099e12242eab374ec611c586ae4" to-iid="502496b43e2a4da9ac11292c5e4546fe" />
+          </item>
+          <item id="81b1377f81e244269146560214895947" iid="49d5015d479d48dca521bbca51eb80ec" creation-date="10/23/2014 12:08:33" order-index="5" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="554" y1="354" x2="550" y2="186" start-border-pos="0.123643410852713" end-border-pos="0.625" name-position="10,-10">
+              <points>
+                <point x="554" y="354" />
+                <point x="550" y="186" />
+              </points>
+            </layout>
+            <relation from="c657af58de8f4afb9267fa3ee5a65cdd" from-iid="53ff080e88b7421a8ab21a2508bebc8a" to="5305115659c1410d95bd2a02590954aa" to-iid="f00ec2177d894231ab32ef17f9169ade" />
+          </item>
+          <item id="5b937c7c60854fefb23f2815483ad0e3" iid="7479022516c64b5cbe11865a0133aecc" creation-date="10/23/2014 12:08:34" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="729" y1="354" x2="932" y2="186" start-border-pos="0.25" end-border-pos="0.624626867473125" name-position="10,-10">
+              <points>
+                <point x="729" y="354" />
+                <point x="932" y="186" />
+              </points>
+            </layout>
+            <relation from="c657af58de8f4afb9267fa3ee5a65cdd" from-iid="53ff080e88b7421a8ab21a2508bebc8a" to="a4574c26e28b49a4ae96262131a254bf" to-iid="792b62ff5208421ba7e0ba064db24f1a" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p1a6d2c591cf0403da87668b1216fee34_901101158" name="Aufgabe04" order-index="4" overview-order-index="2" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-53,-466" zoom="0.5">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/07/2024 10:18:36</creation-date>
+          <change-date>11/07/2024 10:20:45</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="cb8ce377ad5c46eba70cb19331ee0235" veid="320ce8aaa0844d5ba9923784fbd1b259" cid="PROP007" type="property" name="wasserstand" owner="3506ff1621834b10ad5f63e9ce114010" creator="" creation-date="10/19/2022 08:18:05" visibility="private">
+            <structural-feature type="double" type-id="double" />
+          </item>
+        </abstract-items>
+        <layer id="a7b2483293434a4893e00849f13b2d80" name="Default" visible="true" enabled="true" locked="false">
+          <item id="b903133783794a68a68ffa83b9f60266" iid="2b98aae8daa64b1da8dc1667bcd09e36" creation-date="10/23/2014 14:26:43" order-index="0" type="entity">
+            <layout ax="278" ay="150" awidth="368" aheight="95" x="277.5" y="149.5" width="368" height="95" />
+            <classifier />
+            <class />
+          </item>
+          <item id="fb47542589ea4d2f9bdfea33e47e6a92" iid="fe618d49d04c410babc8191843aac557" creation-date="10/23/2014 14:27:38" order-index="1" type="entity">
+            <layout ax="66" ay="326" awidth="228" aheight="78" x="66.5" y="325.5" width="228" height="78" />
+            <classifier />
+            <class />
+          </item>
+          <item id="3506ff1621834b10ad5f63e9ce114010" iid="f4f70c26bf3c49a982ea4cee2ef49ee1" creation-date="10/23/2014 14:28:17" order-index="2" type="entity">
+            <layout ax="254" ay="-26" awidth="414" aheight="112" x="254.5" y="-26.5" width="414" height="112" />
+            <classifier />
+            <class />
+          </item>
+          <item id="7a66e79a77d94757ba593fbece493d0e" iid="56fa799f9a744098a03c756d5ef96d85" creation-date="10/23/2014 14:52:29" order-index="3" type="entity">
+            <layout ax="646" ay="326" awidth="204" aheight="78" x="645.5" y="325.5" width="204" height="78" />
+            <classifier />
+            <class />
+          </item>
+          <item id="6f122484490f4605b12567c0d6ada443" iid="3870f251a98e4324970c2964c05241c9" creation-date="10/23/2014 14:52:45" order-index="4" type="entity">
+            <layout ax="356" ay="326" awidth="228" aheight="78" x="356" y="325.5" width="228" height="78" />
+            <classifier />
+            <class />
+          </item>
+          <item id="db9ce101813544a38ebb702dbee4a884" iid="9ceae349811347229590099f0fcb0277" creation-date="10/23/2014 15:07:10" order-index="5" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="681" y1="326" x2="542" y2="245" start-border-pos="0.043149013145297184" end-border-pos="0.5703185952228048" name-position="10,-10">
+              <points>
+                <point x="681" y="326" />
+                <point x="542" y="245" />
+              </points>
+            </layout>
+            <relation from="7a66e79a77d94757ba593fbece493d0e" from-iid="56fa799f9a744098a03c756d5ef96d85" to="b903133783794a68a68ffa83b9f60266" to-iid="2b98aae8daa64b1da8dc1667bcd09e36" />
+          </item>
+          <item id="c8f207e9a15a48869332ad266c9c185e" iid="bf5a67b0cff44729874120ddb5199a9e" creation-date="10/23/2014 15:07:29" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="463" y1="326" x2="463" y2="245" start-border-pos="0.116952789699571" end-border-pos="0.62398097826087" name-position="10,-10">
+              <points>
+                <point x="463" y="326" />
+                <point x="463" y="245" />
+              </points>
+            </layout>
+            <relation from="6f122484490f4605b12567c0d6ada443" from-iid="3870f251a98e4324970c2964c05241c9" to="b903133783794a68a68ffa83b9f60266" to-iid="2b98aae8daa64b1da8dc1667bcd09e36" />
+          </item>
+          <item id="61dc98bf5d9e45f8867a77d3f3a66b68" iid="68ec5eff677b49818ba6e6eedba05aca" creation-date="10/23/2014 15:17:14" order-index="7" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="174" y1="326" x2="325" y2="245" start-border-pos="0.118969298245614" end-border-pos="0.71773097826087" name-position="10,-10">
+              <points>
+                <point x="174" y="326" />
+                <point x="325" y="245" />
+              </points>
+            </layout>
+            <relation from="fb47542589ea4d2f9bdfea33e47e6a92" from-iid="fe618d49d04c410babc8191843aac557" to="b903133783794a68a68ffa83b9f60266" to-iid="2b98aae8daa64b1da8dc1667bcd09e36" />
+          </item>
+          <item id="0e594677bc364ecaaf8a6501981c1c6e" iid="2196310d185840898fb3891b493fb962" creation-date="02/24/2015 11:55:35" order-index="8" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="461" y1="86" x2="462" y2="150" start-border-pos="0.6247987056124038" end-border-pos="0.12480590654456097" name-position="20,-2">
+              <points>
+                <point x="461" y="86" />
+                <point x="462" y="150" />
+              </points>
+            </layout>
+            <relation from="3506ff1621834b10ad5f63e9ce114010" from-iid="f4f70c26bf3c49a982ea4cee2ef49ee1" to="b903133783794a68a68ffa83b9f60266" to-iid="2b98aae8daa64b1da8dc1667bcd09e36" />
+          </item>
+          <item id="4889dbcd604948c388d54a921f97694c" iid="1e82cb89c24f4f9ca97880f0503a989d" creation-date="10/11/2021 11:14:43" order-index="9" type="entity">
+            <layout ax="-66" ay="-17" awidth="140" aheight="160" x="-66" y="-17" width="140" height="160" />
+            <classifier />
+            <class />
+          </item>
+          <item id="5e52fa3129ab4130a8b7a3e59c484a1c" iid="67d8cffd1ddb4df695da7584287ad937" creation-date="10/11/2021 11:14:53" order-index="10" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="254" y1="45" x2="74" y2="58" start-border-pos="0.8416350824492318" end-border-pos="0.3671020269393921" name-position="10,-10">
+              <points>
+                <point x="254" y="45" />
+                <point x="74" y="58" />
+              </points>
+            </layout>
+            <relation from="3506ff1621834b10ad5f63e9ce114010" from-iid="f4f70c26bf3c49a982ea4cee2ef49ee1" to="4889dbcd604948c388d54a921f97694c" to-iid="1e82cb89c24f4f9ca97880f0503a989d" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p40ee79391ca543918d27fbcb16e90065_348619128" name="Aufgabe05" order-index="5" overview-order-index="3" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="0,-198" zoom="0.7">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/07/2024 10:18:44</creation-date>
+          <change-date>11/07/2024 10:21:50</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="efdb4e15409f4453a07ac16a9b7305e6" name="Default" visible="true" enabled="true" locked="false">
+          <item id="550d2a18cd844a1a818e53eaca6f9a2d" iid="7379d2fbfb0a4a65a2751fd23de5815d" creation-date="02/27/2015 14:59:50" order-index="0" type="entity">
+            <layout ax="617" ay="250" awidth="320" aheight="90" x="617" y="250.5" width="320" height="90" />
+            <classifier />
+            <class />
+          </item>
+          <item id="3e0a75708715447e9c9e82cce4797468" iid="f8b99b5dace04e89a1518a2e8423b19a" creation-date="02/27/2015 14:59:56" order-index="1" type="entity">
+            <layout ax="227" ay="82" awidth="304" aheight="80" x="227" y="81.5" width="304" height="80" />
+            <classifier />
+            <class />
+          </item>
+          <item id="a61ee9aa2e5e4ff786b670648b90e484" iid="768dcc861d724709a11bf92508ad564c" creation-date="02/27/2015 15:00:02" order-index="2" type="entity">
+            <layout ax="1023" ay="82" awidth="304" aheight="80" x="1023" y="81.5" width="304" height="80" />
+            <classifier />
+            <class />
+          </item>
+          <item id="b80c12ed9ae84a909962b63eca9ba3ae" iid="ee7c284e752845bcb576380d42a9e3aa" creation-date="02/27/2015 15:42:51" order-index="3" type="entity">
+            <layout ax="625" ay="82" awidth="304" aheight="82" x="625" y="81.5" width="304" height="82" />
+            <classifier />
+            <class />
+          </item>
+          <item id="49c8397cd59048e795c5e4aae4fb63e8" iid="261f5cf907d2432fb7451e5950b195fd" creation-date="02/27/2015 15:43:31" order-index="4" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="531" y1="122" x2="625" y2="123" start-border-pos="0.3761934757232666" end-border-pos="0.8761643665592844" name-position="10,-10">
+              <points>
+                <point x="531" y="122" />
+                <point x="625" y="123" />
+              </points>
+            </layout>
+            <relation from="3e0a75708715447e9c9e82cce4797468" from-iid="f8b99b5dace04e89a1518a2e8423b19a" to="b80c12ed9ae84a909962b63eca9ba3ae" to-iid="ee7c284e752845bcb576380d42a9e3aa" />
+          </item>
+          <item id="e332003f484340ba8855c07823caf83a" iid="81e77ee117ca434e846ca5a7842c6320" creation-date="02/27/2015 15:43:35" order-index="5" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1023" y1="122" x2="929" y2="123" start-border-pos="0.8738065242767334" end-border-pos="0.3738356334407155" name-position="10,-10">
+              <points>
+                <point x="1023" y="122" />
+                <point x="929" y="123" />
+              </points>
+            </layout>
+            <relation from="a61ee9aa2e5e4ff786b670648b90e484" from-iid="768dcc861d724709a11bf92508ad564c" to="b80c12ed9ae84a909962b63eca9ba3ae" to-iid="ee7c284e752845bcb576380d42a9e3aa" />
+          </item>
+          <item id="e75da86b9a854f0baa5dc66af3d75a9e" iid="11df904cfd5845eb9a38464c26526e13" creation-date="02/27/2015 15:43:51" order-index="6" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="777" y1="250" x2="777" y2="164" start-border-pos="0.125" end-border-pos="0.625" name-position="27,-2">
+              <points>
+                <point x="777" y="250" />
+                <point x="777" y="164" />
+              </points>
+            </layout>
+            <relation from="550d2a18cd844a1a818e53eaca6f9a2d" from-iid="7379d2fbfb0a4a65a2751fd23de5815d" to="b80c12ed9ae84a909962b63eca9ba3ae" to-iid="ee7c284e752845bcb576380d42a9e3aa" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

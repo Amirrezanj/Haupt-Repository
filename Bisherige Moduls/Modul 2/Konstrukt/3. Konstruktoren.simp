@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simp763dc81148894cdf9ad021abac84ae74" creation-date="10/15/2024 08:31:19">
+  <meta>
+    <name>3. Konstruktoren</name>
+    <authors>Vincent Uhlmann</authors>
+    <description />
+  </meta>
+  <counters models="2">
+    <entity-names>
+      <counter>
+        <item-type stereotype="enumeration" type-id="enumeration" type="Enumeration" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>8</value>
+      </counter>
+      <counter>
+        <item-type type-id="enumeration" type="Enumeration" />
+        <value>2</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>2</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-abfd09ac817b48ba8e5d2ae591a304b2" name="" task-id-sequence="0">
+    <working-schedule uid="ws-56ed5b7db64145f58e840e22ad84d47e" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-41343d31745b4195bd9bf3c141be80b3" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-c11ffff00763476d969424af70803e10" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-bbea3c39ff574d988b38761123f83f74" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="void" name="void" />
+        <type id="int" name="int" />
+        <type id="bool" name="bool" />
+      </types>
+    </custom-types>
+  </types>
+  <items>
+    <item id="8f018b849ede412aa53fffbc8f811d99" cid="C002" type="class" name="PiggyBank" creation-date="03/12/2014 11:58:17" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv551e04146b1845ac9ae01d8b6fc54269" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <documentations>
+        <doc id="f42fcb9ec580476abd5724eb6ec904f5">
+          <text>
+            <default>
+              <style font-name="Verdana" font-size="12">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+              </style>
+            </default>
+            <styles>
+              <style name="S1" font-name="Arial" font-size="12">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+              </style>
+            </styles>
+            <content>
+              <paragraph>
+                <style numbering-type="None">
+                  <numbering name="" multi-level="false">
+                    <numbering-level type="None" level="0" format="{0}." />
+                  </numbering>
+                </style>
+                <p s="S1">
+                  <t>
+</t>
+                </p>
+              </paragraph>
+            </content>
+          </text>
+        </doc>
+      </documentations>
+      <owned-items />
+      <attributes>
+        <attribute id="42f965c508d74daf9662dffdbf4cba70" cid="PROP001" veid="" name="zähler1Cent" creation-date="09/27/2022 09:10:06" property-ref="f7ceeee526f64735b55b1ad52787331e" />
+        <attribute id="9b2abdd5a0274103a48797eea4e3506c" cid="PROP002" veid="" name="zähler10Cent" creation-date="09/27/2022 09:10:06" property-ref="21f936f7fdce4154a5da4a2c2d65d125" />
+        <attribute id="1a8e38e4368148639ef97bfc607a8fa9" cid="PROP003" veid="" name="zähler50Cent" creation-date="09/27/2022 09:10:06" property-ref="f9405caef2c24fc3b42689fc3534cf4b" />
+        <attribute id="af45c03f66304da88342228b6d5c1fff" cid="PROP004" veid="" name="zähler100Cent" creation-date="09/27/2022 09:10:06" property-ref="ba40d79eeb11463299ff270a442450e8" />
+        <attribute id="675a2d1675574c7f893fb9cad53c39bb" cid="PROP005" veid="" name="maximaleAnzahlMünzen" creation-date="09/27/2022 09:10:06" property-ref="9f2732082aad4167abd978da31009ce6" />
+        <attribute id="1994329b10724e5d9c6366b1246fa22b" cid="PROP006" veid="" name="aufgebrochen" creation-date="09/27/2022 09:10:06" property-ref="80cdbb2a13fb4d43958c351db1d7a640" />
+        <attribute id="4cc3686d648946cea49f7a0cd7539f6a" cid="PROP007" veid="" name="gesamtAnzahlMünzen" creation-date="09/27/2022 09:10:06" property-ref="c4f2f9306d9147d6b93adadc4b6b78d7" />
+      </attributes>
+      <operations>
+        <operation id="ccbb88d5d6a7425d92c26d29b927839b" cid="OP033" veid="oc287a75adb3a4925a652f5976dcc1e8d259" name="PiggyBank" creation-date="09/27/2022 09:10:06" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="p714b172b25194dc9939574e918f8a3db" name="maximaleAnzahlMünzen" type="int" type-id="int" creation-date="10/16/2024 10:39:25" />
+          </parameters>
+        </operation>
+        <operation id="25583577c0a1464994cbcee801e75fb0" cid="OP034" veid="o5458c9cdc9f14362a701619af4592d20623" name="Add1Cents" creation-date="09/27/2022 09:10:06" type="int" type-id="int" visibility="public">
+          <parameters>
+            <parameter id="pfbfbf12a931b4633ac1f75134315608e" name="anzahl" type="int" type-id="int" creation-date="10/15/2024 15:17:47" />
+          </parameters>
+        </operation>
+        <operation id="8a24b174a84947019e28b9802f73e983" cid="OP035" veid="o3c7a770713064d1bb103297981e120a7792" name="Add10Cents" creation-date="09/27/2022 09:10:06" type="int" type-id="int" visibility="public">
+          <parameters>
+            <parameter id="p5b1d98064b3e4b21aefbc6c4f324eed4" name="anzahl" type="int" type-id="int" creation-date="10/15/2024 15:17:47" />
+          </parameters>
+        </operation>
+        <operation id="ab9a480a74dd4578aa1e18ed0accc582" cid="OP036" veid="" name="Add50Cents" creation-date="09/27/2022 09:10:06" type="int" type-id="int" visibility="public">
+          <parameters>
+            <parameter id="paf22751a63194b168c62c0edf42d2318" name="anzahl" type="int" type-id="int" creation-date="10/15/2024 15:17:47" />
+          </parameters>
+        </operation>
+        <operation id="b29e8dfe6d394a8f8c1e65db232fbd7e" cid="OP037" veid="" name="Add100Cents" creation-date="09/27/2022 09:10:06" type="int" type-id="int" visibility="public">
+          <parameters>
+            <parameter id="p513d9c302a804a94ac164bd0558b51fb" name="anzahl" type="int" type-id="int" creation-date="10/15/2024 15:17:47" />
+          </parameters>
+        </operation>
+        <operation id="4755b1f054124cc9888ad3bfbc1a91b4" cid="OP038" veid="o096c098649e747c9904dcc766f7fe776708" name="Shake" creation-date="09/27/2022 09:10:06" type="void" type-id="void" visibility="public" />
+        <operation id="902371bcd52741448f6d9aee3fa67e77" cid="OP039" veid="of3c2f59a919a4f4c8e431f67584edec7634" name="IsBroken" creation-date="09/27/2022 09:10:06" type="bool" type-id="bool" visibility="public" />
+        <operation id="371ee118259d4e67b1dbae4d874f809d" cid="OP040" veid="o5e9a9253747948b09cc3143bec8cc5be397" name="BreakInto" creation-date="09/27/2022 09:10:06" type="int" type-id="int" visibility="public" />
+      </operations>
+    </item>
+  </items>
+  <models>
+    <model id="p73d6749e3b654172bf17a574e97b1de0_129137307" name="3. Konstruktoren" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>10/15/2024 08:31:33</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="pfb35760fd1a548788ca5fc87c3ef106f_216775360" name="Aufgabe01" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-479,-70" zoom="1.6">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:31:44</creation-date>
+          <change-date>10/16/2024 10:36:50</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="9f2732082aad4167abd978da31009ce6" veid="dif4a2e8aaec974c8581dbb3d90c5874e58670" cid="PROP005" type="property" name="maximaleAnzahlMünzen" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="21f936f7fdce4154a5da4a2c2d65d125" veid="di71ad09f23aaa441380618139bf3573dd8670" cid="PROP002" type="property" name="zähler10Cent" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="ba40d79eeb11463299ff270a442450e8" veid="difb555bd0c4e4464dab7c7db543e37b9d8670" cid="PROP004" type="property" name="zähler100Cent" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="f9405caef2c24fc3b42689fc3534cf4b" veid="diee5bf80482a24c02a6b7fc8a982f06158670" cid="PROP003" type="property" name="zähler50Cent" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="80cdbb2a13fb4d43958c351db1d7a640" veid="di01f69288c5f1498ebebc8dcd5084202e8670" cid="PROP006" type="property" name="aufgebrochen" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="bool" type-id="bool" />
+          </item>
+          <item id="f7ceeee526f64735b55b1ad52787331e" veid="did1d50922914246a29d9221c4c4df36498670" cid="PROP001" type="property" name="zähler1Cent" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="c4f2f9306d9147d6b93adadc4b6b78d7" veid="di38994b680bc5467383e7c8557d3c33048670" cid="PROP007" type="property" name="gesamtAnzahlMünzen" owner="8f018b849ede412aa53fffbc8f811d99" creator="" creation-date="09/27/2022 09:10:06" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+        </abstract-items>
+        <layer id="a8b613090de0420987c899146b8f50b6" name="Default" visible="true" enabled="true" locked="false">
+          <item id="8f018b849ede412aa53fffbc8f811d99" iid="8531fa2a9ee74c28b59629001b903642" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="03/12/2014 11:58:17" order-index="0" type="entity">
+            <layout ax="-219" ay="21" awidth="304" aheight="343" x="-219" y="21" width="256" height="324" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

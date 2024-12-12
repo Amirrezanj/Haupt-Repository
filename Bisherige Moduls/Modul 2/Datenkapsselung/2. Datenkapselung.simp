@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simp2c4882043311413db074690734a71833" creation-date="10/15/2024 08:21:08">
+  <meta>
+    <name>2. Datenkapselung</name>
+    <authors>Vincent Uhlmann</authors>
+    <description />
+  </meta>
+  <counters models="5">
+    <entity-names>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>4</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>13</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlUseCaseDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>7</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>30</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-0c3feec717244295ae0823c4550a28ba" name="" task-id-sequence="0">
+    <working-schedule uid="ws-4cb39e5dd5714fad829d8e47d1906f6c" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-a6588b353c294270b0f6e96ce32943c1" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-3d21ad6a1fc74849949698151a44941c" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-8b5aa48c12974ee4b3eed5f07a56926e" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="void" name="void" />
+        <type id="double" name="double" />
+        <type id="Class:21b6fb95955c41c5a753fe1637d8374d" name="Filiale" class-ref="21b6fb95955c41c5a753fe1637d8374d" />
+      </types>
+    </custom-types>
+  </types>
+  <items />
+  <models>
+    <model id="p70a368deb188468ebe7a5a03ca137852_455317699" name="2. Datenkapselung" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>10/15/2024 08:22:26</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p0db75a9584c34317947d12c8797abae6_243119012" name="Aufgabe01" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="433,176" zoom="1.8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:22:26</creation-date>
+          <change-date>10/15/2024 10:06:49</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="b6ed2063e90d41028821eaaf7dd6d27d" cid="C001" type="class" name="Socke" creator="" creation-date="10/15/2024 10:06:49" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="ae2c60a7e7fdd4f63b93b7ae362bf7721250" cid="PROP001" name="farbe" creation-date="10/15/2024 10:06:54" property-ref="35814338f7424bab80c6fb58bf4fb370" />
+              <attribute id="a5dfef70dc14b4baaac120804dcac806f977" cid="PROP002" name="trocken" creation-date="10/15/2024 10:06:58" property-ref="1076c332a6b0458b909989d8fc7cc11d" />
+              <attribute id="a2407333c14c54a99a7a918584f9fc191283" cid="PROP003" name="sauber" creation-date="10/15/2024 10:07:03" property-ref="d0690841a5a74a54b8f9762502dd9b22" />
+            </attributes>
+            <operations>
+              <operation id="ocd61110076e042749ef0d858398a7cf9640" cid="OP001" name="Trockne" creation-date="10/15/2024 10:07:46" type="void" type-id="void" visibility="public" />
+              <operation id="o0e27769c10274591bac64b0bbeec842b470" cid="OP002" name="Wasche" creation-date="10/15/2024 10:07:50" type="void" type-id="void" visibility="public" />
+              <operation id="o96062b50548c48f0abdbbdf3ec44578c19" cid="OP003" name="Ausgabe" creation-date="10/15/2024 10:07:54" type="void" type-id="void" visibility="public" />
+              <operation id="o2ad475a052df4c2392ef89854d425981415" cid="OP004" name="SetFarbe" creation-date="10/15/2024 10:08:00" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pbf61a019e97a44cfa9d07ce1da9aabb0" name="farbe" type="String" type-id="Uml.String" creation-date="10/15/2024 10:08:55" />
+                </parameters>
+              </operation>
+            </operations>
+          </item>
+          <item id="35814338f7424bab80c6fb58bf4fb370" cid="PROP001" type="property" name="farbe" owner="b6ed2063e90d41028821eaaf7dd6d27d" creator="" creation-date="10/15/2024 10:06:54" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="1076c332a6b0458b909989d8fc7cc11d" cid="PROP002" type="property" name="trocken" owner="b6ed2063e90d41028821eaaf7dd6d27d" creator="" creation-date="10/15/2024 10:06:58" visibility="private">
+            <structural-feature type="Boolean" type-id="Uml.Boolean" />
+          </item>
+          <item id="d0690841a5a74a54b8f9762502dd9b22" cid="PROP003" type="property" name="sauber" owner="b6ed2063e90d41028821eaaf7dd6d27d" creator="" creation-date="10/15/2024 10:07:03" visibility="private">
+            <structural-feature type="Boolean" type-id="Uml.Boolean" />
+          </item>
+        </abstract-items>
+        <layer id="371e681ca4d64b76a59b647c774595ad" name="Default" visible="true" enabled="true" locked="false">
+          <item id="b6ed2063e90d41028821eaaf7dd6d27d" iid="70274ffe9eba4583a4d4d02f92a9b43a" show-fields="true" creation-date="10/15/2024 10:06:49" order-index="0" type="entity">
+            <layout ax="279" ay="186" awidth="194" aheight="172" x="279" y="186" width="140" height="160" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p9f388256688c4334a5aab3f560a9bffd_592867203" name="Aufgabe02" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="552,104" zoom="2">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:24:02</creation-date>
+          <change-date>10/15/2024 11:04:05</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="80706c334ea7485faa71983c31ef1ec1" cid="PROP005" type="property" name="name" owner="d3988df599d840f584c7473c97b3fff8" creator="" creation-date="10/15/2024 11:04:06" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="70774b84bccc4a789453e3bf973936a8" cid="PROP006" type="property" name="alter" owner="d3988df599d840f584c7473c97b3fff8" creator="" creation-date="10/15/2024 11:04:09" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+          <item id="d3988df599d840f584c7473c97b3fff8" cid="C002" type="class" name="Mensch" creator="" creation-date="10/15/2024 11:04:05" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="a9fe7c7f8b006462aa0c2b9c8c02efc9e406" cid="PROP005" name="name" creation-date="10/15/2024 11:04:06" property-ref="80706c334ea7485faa71983c31ef1ec1" />
+              <attribute id="acc5d1020c2b34d1d87929b3b6f67c30f663" cid="PROP006" name="alter" creation-date="10/15/2024 11:04:09" property-ref="70774b84bccc4a789453e3bf973936a8" />
+            </attributes>
+            <operations>
+              <operation id="o564cc7b9269a4396adf53f209230b811267" cid="OP005" name="Vorstellen" creation-date="10/15/2024 11:04:31" type="void" type-id="void" visibility="public" />
+              <operation id="oe78aad1c67ff407c8aeda1ceebd62446303" cid="OP006" name="Geburtstag" creation-date="10/15/2024 11:04:35" type="void" type-id="void" visibility="public" />
+              <operation id="o8bf62f529e54424aa57368702321ea3b55" cid="OP010" name="GetName" creation-date="10/15/2024 11:05:43" type="String" type-id="Uml.String" visibility="public" />
+              <operation id="o7717c538b64543efa9673013db4ccaca446" cid="OP011" name="SetName" creation-date="10/15/2024 11:05:47" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pdee9550852814d71a347661594ead144" name="name" type="String" type-id="Uml.String" creation-date="10/15/2024 11:05:58" />
+                </parameters>
+              </operation>
+              <operation id="o07754b676da34d679477c1ff031c6f80358" cid="OP012" name="GetAlter" creation-date="10/15/2024 11:05:58" type="Integer" type-id="Uml.Integer" visibility="public" />
+              <operation id="o3657ce5548a2478594c840b2712ec4f7889" cid="OP013" name="SetAlter" creation-date="10/15/2024 11:06:03" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="p54814e588d314af0a53874e611fa0239" name="alter" type="Integer" type-id="Uml.Integer" creation-date="10/15/2024 11:06:10" />
+                </parameters>
+              </operation>
+            </operations>
+          </item>
+        </abstract-items>
+        <layer id="58ebecf148d74d13b7a3b5c91a1819f9" name="Default" visible="true" enabled="true" locked="false">
+          <item id="d3988df599d840f584c7473c97b3fff8" iid="7e70ba7d552d4577809a5282fe039e92" show-fields="true" creation-date="10/15/2024 11:04:05" order-index="0" type="entity">
+            <layout ax="522" ay="179" awidth="199" aheight="191" x="522" y="179" width="140" height="160" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p5706cefa0a9b4766b88546ac63ae8a0a_988252242" name="Aufgabe03" order-index="3" overview-order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="124,9" zoom="1.2">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:24:08</creation-date>
+          <change-date>10/15/2024 11:52:51</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="e213e3cf9ec84c6b812885e8de3eb17c" cid="PROP007" type="property" name="eingeschaltet" owner="1d666dc4a36d438d8495bb33798199fb" creator="" creation-date="10/15/2024 11:53:04" visibility="private">
+            <structural-feature type="Boolean" type-id="Uml.Boolean" />
+          </item>
+          <item id="1d666dc4a36d438d8495bb33798199fb" cid="C003" type="class" name="Radio" creator="" creation-date="10/15/2024 11:52:51" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="a21c4dccaeaf3492e9ffd7b9e261c9909519" cid="PROP007" name="eingeschaltet" creation-date="10/15/2024 11:53:04" property-ref="e213e3cf9ec84c6b812885e8de3eb17c" />
+              <attribute id="a124e70286e0247798da55226ce981dd2110" cid="PROP008" name="lautstärke" creation-date="10/15/2024 11:53:08" property-ref="7eeac8f0d7e144b881a0088db9272858" />
+              <attribute id="ad9a6b262133040fc88f8ccd22d339037747" cid="PROP009" name="frequenz" creation-date="10/15/2024 11:56:40" property-ref="cc948e13ff5a4a98bb113573460ae8e2" />
+            </attributes>
+            <operations>
+              <operation id="o0ac39682b11b4246891c7aae5b20fa0c539" cid="OP014" name="Lauter" creation-date="10/15/2024 11:53:34" type="void" type-id="void" visibility="public" />
+              <operation id="oac56d4dab44b4beeb81939f5f3e23511803" cid="OP015" name="Leiser" creation-date="10/15/2024 11:53:39" type="void" type-id="void" visibility="public" />
+              <operation id="o6f01b54e06c94a98b14c273f770e18cc810" cid="OP016" name="Einschalten" creation-date="10/15/2024 11:53:42" type="void" type-id="void" visibility="public" />
+              <operation id="o462855e93e784a898db5ab5332ff4994282" cid="OP017" name="Ausschalten" creation-date="10/15/2024 11:54:57" type="void" type-id="void" visibility="public" />
+              <operation id="o93332548b79641fc861439e4af48525f427" cid="OP018" name="IstAn" creation-date="10/15/2024 11:55:02" type="Boolean" type-id="Uml.Boolean" visibility="public" />
+              <operation id="of20222049b9e4ce387c8e5a4986a191c273" cid="OP019" name="WähleSender" creation-date="10/15/2024 11:55:22" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pcd9a739d3d8a41debd0a1e46b7797cef" name="frequenz" type="double" type-id="double" creation-date="10/15/2024 11:55:42" />
+                </parameters>
+              </operation>
+              <operation id="oc0bb20e7e3fc4d2ab04006cf769a684a24" cid="OP020" name="GetRadioInfo" creation-date="10/15/2024 11:55:49" type="String" type-id="Uml.String" visibility="public" />
+            </operations>
+          </item>
+          <item id="cc948e13ff5a4a98bb113573460ae8e2" cid="PROP009" type="property" name="frequenz" owner="1d666dc4a36d438d8495bb33798199fb" creator="" creation-date="10/15/2024 11:56:40" visibility="private">
+            <structural-feature type="double" type-id="double" />
+          </item>
+          <item id="7eeac8f0d7e144b881a0088db9272858" cid="PROP008" type="property" name="lautstärke" owner="1d666dc4a36d438d8495bb33798199fb" creator="" creation-date="10/15/2024 11:53:08" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+        </abstract-items>
+        <layer id="dd8d6ad94e3d4ecebf8758146f8e8195" name="Default" visible="true" enabled="true" locked="false">
+          <item id="1d666dc4a36d438d8495bb33798199fb" iid="24a4043d2d1c4bc8bc9fff75a3917603" show-fields="true" creation-date="10/15/2024 11:52:51" order-index="0" type="entity">
+            <layout ax="355" ay="225" awidth="436" aheight="342" x="355" y="225" width="436" height="342" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p12340216d9a646e2893786147172944b_427208764" name="Aufgabe04" order-index="4" overview-order-index="2" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="142,28" zoom="1.2">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:24:14</creation-date>
+          <change-date>10/15/2024 12:13:17</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="21b6fb95955c41c5a753fe1637d8374d" cid="C004" type="class" name="Filiale" creator="" creation-date="10/15/2024 12:13:17" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="a2232b45c164c418eb0b73fe6d77a7644920" cid="PROP010" name="warenbestand" creation-date="10/15/2024 12:13:20" property-ref="cc38382c0e13449c819dd8ed45c39c76" />
+              <attribute id="ae466330591044cea815dd70c24a5fb9d804" cid="PROP011" name="kasse" creation-date="10/15/2024 12:13:25" property-ref="55b0e247d3834fe681d6984c94197de9" />
+              <attribute id="ab575d3bbd6d64eab987728bb58aa5f4b913" cid="PROP012" name="name" creation-date="10/15/2024 12:13:37" property-ref="94c558df35604f4a967b60dba2240657" />
+            </attributes>
+            <operations>
+              <operation id="o8caa33a1f7424dc4a60d4ac0fdde154d930" cid="OP021" name="Einkaufen" creation-date="10/15/2024 12:13:36" type="void" type-id="void" visibility="public" />
+              <operation id="oa3a75ce24ee74990988db2f827fe9aae705" cid="OP022" name="Verkaufen" creation-date="10/15/2024 12:13:56" type="void" type-id="void" visibility="public" />
+              <operation id="o828dbc0eeef14bb087ab4966ae7743ef779" cid="OP023" name="Ausgabe" creation-date="10/15/2024 12:14:04" type="void" type-id="void" visibility="public" />
+              <operation id="o09344ea8b4a644faa90ec24caa6caf0b510" cid="OP024" name="SetWarenbestand" creation-date="10/15/2024 12:15:03" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pfc56d77dcbb847c1a5ef62b61b6374c2" name="warenbestand" type="Integer" type-id="Uml.Integer" creation-date="10/15/2024 12:15:15" />
+                </parameters>
+              </operation>
+              <operation id="o1913b6e7ef1c4700a9184e07513fae6845" cid="OP025" name="SetKasse" creation-date="10/15/2024 12:15:15" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="p03cf724ab94d485abcba72d32ffa8fdd" name="kasse" type="Integer" type-id="Uml.Integer" creation-date="10/15/2024 12:15:24" />
+                </parameters>
+              </operation>
+              <operation id="ob70d1149902c42bdac108d0175a3c44b48" cid="OP026" name="SetName" creation-date="10/15/2024 12:15:24" type="void" type-id="void" visibility="public">
+                <parameters>
+                  <parameter id="pf90445b2a1ac458386728af3f6156297" name="name" type="String" type-id="Uml.String" creation-date="10/15/2024 12:15:34" />
+                </parameters>
+              </operation>
+            </operations>
+          </item>
+          <item id="94c558df35604f4a967b60dba2240657" cid="PROP012" type="property" name="name" owner="21b6fb95955c41c5a753fe1637d8374d" creator="" creation-date="10/15/2024 12:13:37" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="cc38382c0e13449c819dd8ed45c39c76" cid="PROP010" type="property" name="warenbestand" owner="21b6fb95955c41c5a753fe1637d8374d" creator="" creation-date="10/15/2024 12:13:20" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+          <item id="55b0e247d3834fe681d6984c94197de9" cid="PROP011" type="property" name="kasse" owner="21b6fb95955c41c5a753fe1637d8374d" creator="" creation-date="10/15/2024 12:13:25" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+        </abstract-items>
+        <layer id="aeb7c7440e0e4c66b0f522e81571dc07" name="Default" visible="true" enabled="true" locked="false">
+          <item id="21b6fb95955c41c5a753fe1637d8374d" iid="0ec29f31a94344c4a52a42a52fa4bd90" show-fields="true" creation-date="10/15/2024 12:13:17" order-index="0" type="entity">
+            <layout ax="548" ay="274" awidth="351" aheight="259" x="548" y="274" width="351" height="259" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

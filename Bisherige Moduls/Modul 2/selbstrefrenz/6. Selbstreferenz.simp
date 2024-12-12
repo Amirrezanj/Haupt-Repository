@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simpb96b0d026d3044a6a8b059570801017c" creation-date="10/15/2024 08:54:59">
+  <meta>
+    <name>6. Selbstreferenz</name>
+    <authors>Vincent Uhlmann</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names />
+    <entity-ids>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>5</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>3</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>8</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-b1562cffef4a41328a08e71e6593fa1f" name="" task-id-sequence="0">
+    <working-schedule uid="ws-dd411bbfed3b4deb97ba9f9bddc0c481" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-adfc6d2e548f4d94bb0b8575706136e8" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-3b2f0c92fa924af284010be0150de90c" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-b937ef342ace4baaa687e84e2ab7a4ca" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-f32366d966734f42bd7c66568caa6574" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Vincent</first-name>
+        <last-name>Uhlmann</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-ee1de23c133f451eba54bd8eabf33761" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="void" name="void" />
+        <type id="Bruch" name="Bruch" />
+        <type id="int" name="int" />
+        <type id="Class:ef1c21a473994e2687413b6840a770ed" name="Person" class-ref="ef1c21a473994e2687413b6840a770ed" />
+        <type id="string" name="string" />
+        <type id="bool" name="bool" />
+        <type id="double" name="double" />
+      </types>
+    </custom-types>
+  </types>
+  <items>
+    <item id="237e5409a6784ce288c223492ff39646" cid="C002" type="class" name="Bruch" creation-date="03/12/2014 12:06:56" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv2b5a2bc23e624a7d82c5a43b789a8193" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="6b026ed6aef349668aaf1815729ed607" cid="PROP001" veid="" name="zähler" creation-date="09/27/2022 09:14:14" property-ref="3e9e635352414393ad7938c59d114370" />
+        <attribute id="865eb6010bf1487e897b6979c4d8b2f7" cid="PROP002" veid="" name="nenner" creation-date="09/27/2022 09:14:14" property-ref="79618d488caf44aebf01f2a2144bf965" />
+      </attributes>
+      <operations>
+        <operation id="4af69c35403644beb5d3a210a9079977" cid="OP031" veid="" name="Bruch" creation-date="09/27/2022 09:14:14" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="p1ba9a62645f2497eae9e96daf22ea196" name="zähler" type="int" type-id="int" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="352affdfb391472f8fdf4d8b4b1b29c7" cid="OP032" veid="" name="Bruch" creation-date="09/27/2022 09:14:14" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="p9a8ceb775a18492291976482eb9636d8" name="zähler" type="int" type-id="int" creation-date="10/16/2024 08:38:03" />
+            <parameter id="p8a0c9f6c6c2143b68549757ad4ea4c22" name="nenner" type="int" type-id="int" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="174befd313d8405798cd8c591dc0b7f7" cid="OP035" veid="" name="Kürzen" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public" />
+        <operation id="fbe5b5a90a6640d3a9e32ba2b4117eea" cid="OP034" veid="" name="GetKehrwert" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public" />
+        <operation id="a210b6dccc0844188db897b212f56d8c" cid="OP036" veid="o71031e451b4f458e8577af86da11c0ac900" name="Addiere" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public">
+          <parameters>
+            <parameter id="p9f1c277b33f44c86863e45f830aebffc" name="einBruch" type="Bruch" type-id="Bruch" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="a4309f377d9f45c3bc394cbb95431a34" cid="OP037" veid="o58c130fbc5c3487f891bed0e04e11deb658" name="Subtrahiere" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public">
+          <parameters>
+            <parameter id="pbd904b3a7ec144fd89e9ed556b025799" name="einBruch" type="Bruch" type-id="Bruch" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="7e6c6f8f667841c0a6955afe8c63dec5" cid="OP038" veid="o1ea81ec836534f70986e268d54d27497171" name="Multipliziere" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public">
+          <parameters>
+            <parameter id="p4b9510b903aa4256885f32217d21af63" name="einBruch" type="Bruch" type-id="Bruch" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="875b135789da451699fada89bf430268" cid="OP039" veid="odd43bd98435a45cbadc4bc4fc3bffdf1134" name="Dividiere" creation-date="09/27/2022 09:14:14" type="Bruch" type-id="Bruch" visibility="public">
+          <parameters>
+            <parameter id="pbd23898abd354fb8b8bb2ca69363db88" name="einBruch" type="Bruch" type-id="Bruch" creation-date="10/16/2024 08:38:03" />
+          </parameters>
+        </operation>
+        <operation id="7ecbb53edd6e41e090c879c335889caa" cid="OP033" veid="o4b87245dc35a4237a325a32bd5c3333b654" name="Ausgabe" creation-date="09/27/2022 09:14:14" type="String" type-id="Uml.String" visibility="public" />
+        <operation id="ob8c2e68cda66468da75ea605c82f464f494" cid="OP005" name="Copy" creation-date="10/18/2024 08:56:02" type="Bruch" type-id="Bruch" visibility="private" />
+        <operation id="3451aea4655249cc9da6fa05b33b4325" cid="OP040" veid="of82e31d9560842bf8ea3f456747bdf82110" name="GgtBerechnen" creation-date="09/27/2022 09:14:14" type="int" type-id="int" visibility="private" static="true">
+          <parameters>
+            <parameter id="p3a226ccb451342a3ac9ab7c8cce50e31" name="a" type="Integer" type-id="Uml.Integer" creation-date="10/18/2024 08:32:01" />
+            <parameter id="p302cafee362241e9bf8462eaf90e0edf" name="b" type="Integer" type-id="Uml.Integer" creation-date="10/18/2024 08:32:01" />
+          </parameters>
+        </operation>
+        <operation id="o43f374dcd18749aa98b0d7429b71f79d327" cid="OP006" name="GleicheNennerBerechnen" creation-date="10/18/2024 08:56:35" type="void" type-id="void" visibility="private" static="true">
+          <parameters>
+            <parameter id="p27d3eb7998e344dcacdac86ff665d5b9" name="a" type="Bruch" type-id="Bruch" creation-date="10/18/2024 08:56:48" />
+            <parameter id="p2707c98f458e4f519edc1d57179e52d0" name="b" type="Bruch" type-id="Bruch" creation-date="10/18/2024 08:56:48" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="ef1c21a473994e2687413b6840a770ed" cid="C001" type="class" name="Person" creation-date="10/07/2014 11:04:07" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv690547b74e3741c191f74b793be73f24" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <owned-items />
+      <attributes>
+        <attribute id="a036a784f8484caa99248a93092db38b" cid="PROP003" veid="a0d64b9f57ace43a090d3c2f37416e2d7820" name="name" creation-date="09/27/2022 09:15:16" property-ref="99b4a0c60b1d4dc3bee84ca86c3a675a" />
+        <attribute id="1163627a76d04feb928fca585594080b" cid="PROP004" veid="a9f6a8441bfab47f59406990c6b1773aa466" name="geburtsdatum" creation-date="09/27/2022 09:15:16" property-ref="d3e28f0576cf4b94a6fc541f7b168298" />
+      </attributes>
+      <operations>
+        <operation id="cebb3bbde0fe46dd8b88ad9f9749f75c" cid="OP002" veid="o5f4bf5b2a0de4b15b272e1db3ed03b21551" name="Person" creation-date="09/27/2022 09:15:16" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="10/16/2024 08:40:46" />
+            <parameter id="" name="geburtsdatum" type="DateTime" type-id="Uml.DateTime" creation-date="10/16/2024 08:40:46" />
+          </parameters>
+        </operation>
+        <operation id="8578520df8af48298519b5991a984c78" cid="OP003" veid="o55d2054f83d64d85ab9dc3f252ebbbb2304" name="Person" creation-date="09/27/2022 09:15:16" type="" type-id="" visibility="public">
+          <parameters>
+            <parameter id="" name="name" type="string" type-id="string" creation-date="10/16/2024 08:40:46" />
+            <parameter id="" name="geburtsdatum" type="string" type-id="string" creation-date="10/16/2024 08:40:46" />
+          </parameters>
+        </operation>
+        <operation id="ff5802bef5044fd7b882ed85c071ae9d" cid="OP004" veid="o202d126ebbba41ef931f98df06a6f388696" name="GetAlter" creation-date="09/27/2022 09:15:16" type="int" type-id="int" visibility="public" />
+        <operation id="o3b820ce6c74547a3822a5f0f9ce7baf6335" cid="OP007" name="GetName" creation-date="10/18/2024 12:20:32" type="String" type-id="Uml.String" visibility="public" />
+      </operations>
+    </item>
+    <item id="642813b3073e40fab7dcebb3987e5552" cid="C002" type="class" name="Program" creation-date="10/07/2014 12:13:38" visibility="private">
+      <tagged-values>
+        <tagged-value id="tv2f48c03a2372462aaa71c27ee1186751" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <operations>
+        <operation id="864e286bd1304559b86703cbf6ce729a" cid="OP024" veid="odb4c86e0e97c40e488482b83938530c8754" name="DatenEinlesen" creation-date="09/27/2022 09:15:16" type="void" type-id="void" visibility="public" static="true">
+          <parameters>
+            <parameter id="" name="allePersonen" type="Person" type-id="Class:ef1c21a473994e2687413b6840a770ed" creation-date="10/16/2024 08:40:46" multiplicity="1..6" />
+          </parameters>
+        </operation>
+        <operation id="38ba86c515f6410f852e51ec604b6f72" cid="OP025" veid="of0f350886d6b4774a7ddf680ab89225d755" name="DurchschnittsalterBerechnen" creation-date="09/27/2022 09:15:16" type="double" type-id="double" visibility="public" static="true">
+          <parameters>
+            <parameter id="" name="allePersonen" type="Person" type-id="Class:ef1c21a473994e2687413b6840a770ed" creation-date="10/16/2024 08:40:46" multiplicity="1..6" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+    <item id="7cb50c0e6c9546a19f0996d511333533" cid="C002" type="class" name="Prüfsumme" creation-date="03/12/2014 12:09:32" visibility="">
+      <stereotypes>
+        <stereotype name="static" />
+      </stereotypes>
+      <tagged-values>
+        <tagged-value id="tvffa1687371004f489f8d0dcce6e411a3" name="visibility" type="text" multiple="false" hidden="false" value="private" />
+      </tagged-values>
+      <stereotype-instances>
+        <stereotype id="7cb50c0e6c9546a19f0996d511333533_static_c" type="static" creation-date="10/18/2024 14:35:08" ref="" />
+      </stereotype-instances>
+      <operations>
+        <operation id="8a662138533f409a907fe46d56eaccdc" cid="OP001" veid="" name="CheckIdentNumber" creation-date="09/27/2022 09:14:45" type="bool" type-id="bool" visibility="public" static="true">
+          <parameters>
+            <parameter id="" name="number" type="int" type-id="int" creation-date="10/16/2024 08:39:45" multiplicity="*" />
+          </parameters>
+        </operation>
+        <operation id="051a5122df4642458482d147b639c6c5" cid="OP002" veid="o00a2561bc7b84ce49875f58029915620815" name="CheckIdentNumber" creation-date="09/27/2022 09:14:45" type="bool" type-id="bool" visibility="public" static="true">
+          <parameters>
+            <parameter id="" name="number" type="string" type-id="string" creation-date="10/16/2024 08:39:45" />
+          </parameters>
+        </operation>
+      </operations>
+    </item>
+  </items>
+  <models>
+    <model id="p46647b0163c248eeba289b5b803f52db_667591347" name="6. Selbstreferenz" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>10/15/2024 08:55:09</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p69baf4025ab045cb91f70f769476d508_422349858" name="Aufgabe01" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-160,30" zoom="1.6">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:55:14</creation-date>
+          <change-date>10/16/2024 08:38:13</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="79618d488caf44aebf01f2a2144bf965" veid="dia25172c01609416f8d71d6e381f1113b8372" cid="PROP002" type="property" name="nenner" owner="237e5409a6784ce288c223492ff39646" creator="" creation-date="09/27/2022 09:14:14" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="3e9e635352414393ad7938c59d114370" veid="difbbca9f2f4214e40a8b9785ef02fadfb8372" cid="PROP001" type="property" name="zähler" owner="237e5409a6784ce288c223492ff39646" creator="" creation-date="09/27/2022 09:14:14" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+        </abstract-items>
+        <layer id="aa79fd8b17734938a21f08e728cbf803" name="Default" visible="true" enabled="true" locked="false">
+          <item id="237e5409a6784ce288c223492ff39646" iid="aa2d2747619b4309a7dc56e2e494ce3f" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="03/12/2014 12:06:56" order-index="0" type="entity">
+            <layout ax="88" ay="93" awidth="373" aheight="305" x="88" y="93" width="373" height="288" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p60136423fc534a6988b653439bed7eeb_636229067" name="Aufgabe02" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-162,207" zoom="1.8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:55:22</creation-date>
+          <change-date>10/16/2024 08:40:20</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="9c5b8ab102a44ce68e92523c2a06e2d9" name="Default" visible="true" enabled="true" locked="false">
+          <item id="7cb50c0e6c9546a19f0996d511333533" iid="39c9728870964b929d26fe90beb51570" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="03/12/2014 12:09:32" order-index="0" type="entity">
+            <layout ax="127" ay="158" awidth="433" aheight="121" x="127" y="158" width="433" height="121" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p0858c8351c5e4c01b1dfc190567bec40_746919323" name="Aufgabe03" order-index="3" overview-order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="0,-124" zoom="1.2">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>10/15/2024 08:55:30</creation-date>
+          <change-date>10/16/2024 08:56:32</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="d3e28f0576cf4b94a6fc541f7b168298" veid="5c2bb8d64b90448d8194b676c9ad6e49" cid="PROP004" type="property" name="geburtsdatum" owner="ef1c21a473994e2687413b6840a770ed" creator="" creation-date="09/27/2022 09:15:16" visibility="private">
+            <structural-feature type="DateTime" type-id="Uml.DateTime" />
+          </item>
+          <item id="99b4a0c60b1d4dc3bee84ca86c3a675a" veid="8d105854df184a1aa25b8a99fe32bb6d" cid="PROP003" type="property" name="name" owner="ef1c21a473994e2687413b6840a770ed" creator="" creation-date="09/27/2022 09:15:16" visibility="private">
+            <structural-feature type="string" type-id="string" />
+          </item>
+        </abstract-items>
+        <layer id="c526cf27153f47959758891667229ed7" name="Default" visible="true" enabled="true" locked="false">
+          <item id="ef1c21a473994e2687413b6840a770ed" iid="5d1ca7d018ae4104be9564e0b3a13d51" creation-date="10/07/2014 11:04:07" order-index="0" type="entity">
+            <layout ax="267" ay="4" awidth="508" aheight="177" x="267" y="3.5" width="508" height="177" />
+            <classifier />
+            <class />
+          </item>
+          <item id="642813b3073e40fab7dcebb3987e5552" iid="642522ff22e14987b5521047ed1327fb" creation-date="10/07/2014 12:13:38" order-index="1" type="entity">
+            <layout ax="267" ay="204" awidth="450" aheight="160" x="267" y="204" width="450" height="160" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>
