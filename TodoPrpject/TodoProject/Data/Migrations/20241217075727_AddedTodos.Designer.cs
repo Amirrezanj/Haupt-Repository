@@ -11,8 +11,8 @@ using TodoProject.Data;
 namespace TodoProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241216142527_addcontinent")]
-    partial class addcontinent
+    [Migration("20241217075727_AddedTodos")]
+    partial class AddedTodos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,36 @@ namespace TodoProject.Data.Migrations
                     b.ToTable("addresses", (string)null);
                 });
 
+            modelBuilder.Entity("TodoProject.Data.Entities.TodoEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Todos");
+                });
+
             modelBuilder.Entity("TodoProject.Data.Entities.UserEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -107,6 +137,17 @@ namespace TodoProject.Data.Migrations
                     b.ToTable("users", (string)null);
                 });
 
+            modelBuilder.Entity("TodoProject.Data.Entities.TodoEntity", b =>
+                {
+                    b.HasOne("TodoProject.Data.Entities.UserEntity", "User")
+                        .WithMany("Todos")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TodoProject.Data.Entities.UserEntity", b =>
                 {
                     b.HasOne("TodoProject.Data.Entities.AddressEntity", "Address")
@@ -121,6 +162,11 @@ namespace TodoProject.Data.Migrations
             modelBuilder.Entity("TodoProject.Data.Entities.AddressEntity", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("TodoProject.Data.Entities.UserEntity", b =>
+                {
+                    b.Navigation("Todos");
                 });
 #pragma warning restore 612, 618
         }

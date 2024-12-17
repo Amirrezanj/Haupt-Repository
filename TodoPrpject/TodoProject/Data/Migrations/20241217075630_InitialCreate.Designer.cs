@@ -11,7 +11,7 @@ using TodoProject.Data;
 namespace TodoProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241216141406_InitialCreate")]
+    [Migration("20241217075630_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -45,6 +45,10 @@ namespace TodoProject.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("TEXT")
                         .HasColumnName("houseNumber");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Street")
                         .IsRequired()

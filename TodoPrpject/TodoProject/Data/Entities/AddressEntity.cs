@@ -8,7 +8,7 @@ public class AddressEntity
     public required string City { get; set; }
     public required string ZipCode { get; set; }
     public required string Country { get; set; }
-    public string Phone { get; set; }
+    public string? Phone { get; set; }
 
     // Navigation Property
     public List<UserEntity> Users { get; set; } = new List<UserEntity>();

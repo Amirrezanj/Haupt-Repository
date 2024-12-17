@@ -8,6 +8,7 @@ public class ApplicationDbContext : DbContext
 {
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<AddressEntity> Addresses { get; set; }
+    public DbSet<TodoEntity> Todos { get; set; }
 
     private static readonly ILoggerFactory _loggerFactory = LoggerFactory.Create((options) =>
     {
@@ -45,6 +46,13 @@ public class ApplicationDbContext : DbContext
             entity.Property(entity => entity.Id).HasColumnName("id").IsRequired().HasMaxLength(60);
             entity.Property(entity => entity.ZipCode).HasColumnName("zipCode").IsRequired().HasMaxLength(60);
             entity.Property(entity => entity.Country).HasColumnName("country").IsRequired().HasMaxLength(60);
+        });
+        modelBuilder.Entity<TodoEntity>(entity =>
+        {
+            entity.ToTable("todo");
+            entity.Property(entity => entity.Id).HasColumnName("id");
+            entity.Property(entity => entity.DueDate).HasColumnName("dueDate");
+            entity.Property(entity => entity.Description).HasColumnName("description");
         });
     }
 }

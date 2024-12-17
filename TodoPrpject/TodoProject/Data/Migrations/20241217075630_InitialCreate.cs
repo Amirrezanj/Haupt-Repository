@@ -20,7 +20,8 @@ namespace TodoProject.Data.Migrations
                     houseNumber = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
                     city = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
                     zipCode = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
-                    country = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false)
+                    country = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    Phone = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
