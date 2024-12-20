@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace _00.Models.Requests
 {
-    public record LoginRequest(string Email, string Password);
+    public record CreateTodoItemsRequest(string Title,string Description,DateTime Duedate);
 }

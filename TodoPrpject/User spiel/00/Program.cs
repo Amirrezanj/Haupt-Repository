@@ -7,7 +7,7 @@ using _00.Models.Responces;
 
 namespace _00
 {
-    internal class Program
+    public class Program
     {
         private static readonly HttpClient _httpClient = new HttpClient();
 
@@ -23,20 +23,38 @@ namespace _00
             //Console.WriteLine(responce.id);
             //Console.WriteLine(responce.FirstName);
 
+            IDataService dataService = new DataSrvice("https://b4eb-79-195-74-70.ngrok-free.app/");
 
-            IDataService dataService = new DataSrvice();
-            var users = await dataService.GetUsersAsync(0,100,"amir");
-           // var users = await dataService.GetUsersAsync(firstNameFilter : "");
+            //get users
+            //var users = await dataService.GetUsersAsync(0,100,"amir");
+            // var users = await dataService.GetUsersAsync(firstNameFilter : "");
 
-            foreach (var user in users)
-            {
-                Console.WriteLine(user.id);
-                Console.WriteLine(user.FirstName);
-            }
+            //foreach (var user in users)
+            //{
+            //    Console.WriteLine(user.id);
+            //    Console.WriteLine(user.FirstName);
+            //}
+
+
             var loginRequest = new LoginRequest("amirnjjjj@gmail.com", "Test.123");
             var loginResponse = await dataService.LoginAsync(loginRequest);
             Console.WriteLine(loginResponse.Token);
             Console.WriteLine(loginResponse.TokenExpiry);
+
+            //logout
+            //await dataService.LogoutAsync(loginResponse.Token);
+
+
+            //todoitem erstellen
+            var creatTodoItemsRequest = new CreateTodoItemsRequest("spielen","Fifa", DateTime.Parse("2024-12-20T09:01:36.427Z"));
+            var todoitemsRespnse = dataService.CreateTodoItemAsync(creatTodoItemsRequest,loginResponse.Token);
+            Console.WriteLine(todoitemsRespnse.Id);
+
+            //get todo items
+            var todoitems = await dataService.GetTodoItemsAsync(loginResponse.Token,0,100);
+            foreach (var todoitem in todoitems) { Console.WriteLine(todoitem.);
+
+
         }
 
         //private static async Task GetUsersAsync()
