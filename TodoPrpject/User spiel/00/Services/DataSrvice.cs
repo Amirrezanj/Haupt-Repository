@@ -94,22 +94,45 @@ namespace _00.Services
         }
 
 
-        public async Task<CreateUserResponce> CreateUserAsynk(CreateUserRequest request)
+        public async Task<IEnumerable<GetTodoItemResponse>> GetTodoItemsAsync(string token, int page = 0, int pageSize = 10, string? titleFilter = null)
         {
-            var requestJson = JsonSerializer.Serialize(request);
-            var content = new StringContent(requestJson,Encoding.UTF8,"application/json");
-            var responce = await _httpClient.PostAsync("/api/users", content);
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.Method = HttpMethod.Get;
+            request.RequestUri = new Uri("/api/todoitems", UriKind.Relative);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            responce.EnsureSuccessStatusCode();
+            HttpResponseMessage responseMessage = await _httpClient.SendAsync(request);
 
-            var responceJson = await responce.Content.ReadAsStringAsync();
-            var creatUserResponce = JsonSerializer.Deserialize<CreateUserResponce>(responceJson,_serializerOptions);
+            var responseJson= await responseMessage.Content.ReadAsStringAsync();
+            var getTodoItemsResponse = JsonSerializer.Deserialize<IEnumerable<GetTodoItemResponse>>(responseJson,_serializerOptions);
 
-            if (creatUserResponce == null)
-                throw new Exception($"{nameof(creatUserResponce)} could not be deserialized");
-
-            return creatUserResponce;
+            if (getTodoItemsResponse == null)
+            {
+                throw new Exception(($"{nameof(getTodoItemsResponse)} could not be deserilizied"));
+            }
+            return getTodoItemsResponse;
         }
+
+
+        public async Task<GetTodoItemResponse> GetTodoItemAsync(string token, Guid id)
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage();
+            requestMessage.Method = HttpMethod.Get;
+            requestMessage.RequestUri = new Uri($"/api/todoitems/{id}", UriKind.Relative);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var responseMessage = await _httpClient.SendAsync(requestMessage);
+            responseMessage.EnsureSuccessStatusCode();
+
+            var responseJson = await responseMessage.Content.ReadAsStringAsync();
+            var response = JsonSerializer.Deserialize<GetTodoItemResponse>(responseJson, _serializerOptions);
+
+            if (response == null)
+                throw new Exception($"{nameof(GetTodoItemResponse)} could not be deserialized");
+
+            return response;
+        }
+
         public async Task<CreateTodoItemsResponse> CreateTodoItemAsync(CreateTodoItemsRequest request, string token)
         {
             var requestJson = JsonSerializer.Serialize(request);
@@ -134,6 +157,64 @@ namespace _00.Services
             }
             return creatTodoResonse;
         }
+        public async Task<UpdateTodoItemResponse> UpdateTodoItemAsync(string token, UpdateTodoItemRequest request)
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage();
+            requestMessage.Method = HttpMethod.Put;
+            requestMessage.RequestUri = new Uri($"/api/todoitems/{request.Id}", UriKind.Relative);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            requestMessage.Content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
+
+            var responseMessage = await _httpClient.SendAsync(requestMessage);
+            responseMessage.EnsureSuccessStatusCode();
+
+            var responseJson = await responseMessage.Content.ReadAsStringAsync();
+            var response = JsonSerializer.Deserialize<UpdateTodoItemResponse>(responseJson, _serializerOptions);
+
+            if (response == null)
+                throw new Exception($"{nameof(UpdateTodoItemResponse)} could not be deserialized");
+
+            return response;
+        }
+
+        public async Task DeleteTodoItemAsync(string token, Guid id)
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage();
+            requestMessage.Method = HttpMethod.Delete;
+            requestMessage.RequestUri = new Uri($"/api/todoitems/{id}", UriKind.Relative);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var responseMessage = await _httpClient.SendAsync(requestMessage);
+            responseMessage.EnsureSuccessStatusCode();
+        }
+
+
+        public async Task<CreateUserResponce> CreateUserAsynk(CreateUserRequest request)
+        {
+            var requestJson = JsonSerializer.Serialize(request);
+            var content = new StringContent(requestJson,Encoding.UTF8,"application/json");
+            var responce = await _httpClient.PostAsync("/api/users", content);
+
+            responce.EnsureSuccessStatusCode();
+
+            var responceJson = await responce.Content.ReadAsStringAsync();
+            var creatUserResponce = JsonSerializer.Deserialize<CreateUserResponce>(responceJson,_serializerOptions);
+
+            if (creatUserResponce == null)
+                throw new Exception($"{nameof(creatUserResponce)} could not be deserialized");
+
+            return creatUserResponce;
+        }
+        public async Task DeleteUserAsync(string token)
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage();
+            requestMessage.Method = HttpMethod.Delete;
+            requestMessage.RequestUri = new Uri("/api/users", UriKind.Relative);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var responseMessage = await _httpClient.SendAsync(requestMessage);
+            responseMessage.EnsureSuccessStatusCode();
+        }
         public async Task<IEnumerable<GetUserResponse>> GetUsersAsync(int page =0,int pageSize = 10,string? firstNameFilter=null)
         {
             var responce = await _httpClient.GetAsync($"/api/users?page={page}&pageSize={pageSize}&");
@@ -148,24 +229,6 @@ namespace _00.Services
                 throw new Exception(($"{nameof(getUsersResponse)} could not be deserilizied"));
             return getUsersResponse;
 
-        }
-        public async Task<IEnumerable<GetTodoItemResponse>> GetTodoItemsAsync(string token, int page = 0, int pageSize = 10, string? titleFilter = null)
-        {
-            HttpRequestMessage request = new HttpRequestMessage();
-            request.Method = HttpMethod.Get;
-            request.RequestUri = new Uri("/api/todoitems", UriKind.Relative);
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            HttpResponseMessage responseMessage = await _httpClient.SendAsync(request);
-
-            var responseJson= await responseMessage.Content.ReadAsStringAsync();
-            var getTodoItemsResponse = JsonSerializer.Deserialize<IEnumerable<GetTodoItemResponse>>(responseJson,_serializerOptions);
-
-            if (getTodoItemsResponse == null)
-            {
-                throw new Exception(($"{nameof(getTodoItemsResponse)} could not be deserilizied"));
-            }
-            return getTodoItemsResponse;
         }
         
     }
