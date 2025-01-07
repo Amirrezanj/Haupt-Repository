@@ -12,6 +12,6 @@ public class UserEntity
 
     // Navigation Property
     public AddressEntity Address { get; set; }
-    public ICollection<TodoEntity> Todos { get; set; } = new List<TodoEntity>();
+    public List<TodoEntity> Todos { get; set; } = new List<TodoEntity>();
 
 }

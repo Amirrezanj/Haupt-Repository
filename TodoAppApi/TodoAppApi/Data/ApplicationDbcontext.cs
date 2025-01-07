@@ -18,7 +18,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        var dbPath = Path.Combine(desktopPath, "todo_project.db");
+        var dbPath = Path.Combine(desktopPath, "TodoProject.db");
 
         optionsBuilder.UseSqlite($"Data Source={dbPath}")
             .EnableSensitiveDataLogging()
