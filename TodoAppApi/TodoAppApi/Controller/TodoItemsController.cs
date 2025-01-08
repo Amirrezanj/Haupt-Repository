@@ -11,28 +11,45 @@ namespace TodoAppApi.Controller
     public class TodoItemsController : ControllerBase
     {
         private readonly ApplicationDbContext _dbcontext;
+        private readonly ILogger<UsersController> _logger;
 
-        public TodoItemsController(ApplicationDbContext dbcontext)
+        public TodoItemsController(ApplicationDbContext dbcontext,ILogger<UsersController>logger)
         {
             _dbcontext = dbcontext;
+            _logger = logger;
         }
 
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems()
+        public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(int page =0,int pageSize=10,string? titleFilter=null)
         {
-            var list = new List<GetTodoResponse>();
-            foreach (var item in _dbcontext.Todos)
+            if (titleFilter!=null)
             {
-                list.Add(GetTodoResponse.FromEntity(item));
+                var todoItems = _dbcontext.Todos.Where(x=>x.Title.Contains(titleFilter));
+                return Ok(todoItems.Select(x=>GetTodoResponse.FromEntity(x)));
+
+            }
+            else 
+            {
+                var todoItems = _dbcontext.Todos.Skip(page * pageSize).Take(pageSize);
+                return Ok(todoItems.Select(x => GetTodoResponse.FromEntity(x)));
             }
 
-            return Ok(list);
+            //var list = new List<GetTodoResponse>();
+            //foreach (var item in _dbcontext.Todos)
+            //{
+            //    list.Add(GetTodoResponse.FromEntity(item));
+            //}
+
+            //return Ok(list);
 
             //Alternative
             //return Ok(_dbcontext.Todos.Select(x => GetTodoResponse.FromEntity(x)));
         }
+
+
+
 
         [HttpGet("{id}")]
         [Produces("application/json")]
