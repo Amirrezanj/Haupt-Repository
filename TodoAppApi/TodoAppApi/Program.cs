@@ -2,12 +2,14 @@ using System.Diagnostics;
 using TodoAppApi.Data;
 using TodoAppApi.Controller;
 using TodoAppApi.Data;
+using TodoAppApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
@@ -22,5 +24,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+
+//beispiel
+//app.Use(async (HttpContext HttpContext, RequestDelegate next) =>
+//{
+//    Debug.WriteLine("vorher");
+//    await next.Invoke(HttpContext);
+//    Debug.WriteLine("nachher");
+//});
+
+app.UseMiddleware<LoggingMiddleware>();
 
 app.Run();

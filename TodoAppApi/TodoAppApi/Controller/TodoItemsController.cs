@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TodoAppApi.Data;
-using TodoAppApi.Data.Entities;
 using TodoAppApi.Models.Requests;
 using TodoAppApi.Models.Responses;
 
@@ -66,32 +65,52 @@ namespace TodoAppApi.Controller
             return Ok(GetTodoResponse.FromEntity(item));
         }
 
+
+
+
+        //public async Task<ActionResult<PutTodoResponse>> PutTodoItem(PutTodoRequest request, Guid id)
+        //{
+
+        //}
+
+
+
+
+
+
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request)
+        public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request,Guid userId)
         {
             //wurde kommentiert durch wir ein parameter in der klmmer geschrieben haben zwar TodoEntity.
             //TodoEntity? entity= await HttpContext.Request.ReadFromJsonAsync<TodoEntity>();
             //if (entity == null) return BadRequest("Invalid TodoItem");
 
+
+
+            //um ein todo item zu legen brauchen wir erst ein user
+            var user = _dbcontext.Users.FirstOrDefault(x => x.Id == userId);
+            if (user == null) return NotFound();
+
             var entity = CreateTodoRequest.ToEntity(request);
             //TEMP
-            entity.User = new UserEntity
-            {
-                FirstName = "amir",
-                LastName = "mj",
-                Email = "blallala@gmail.com",
-                Address = new AddressEntity
-                {
-                    Street = "harzstrasse",
-                    HouseNumber = "26",
-                    City = "heiligenhaus",
-                    Country = "germany",
-                    ZipCode = "E G A L"
-                }
-            };
-            _dbcontext.Todos.Add(entity);
+            //entity.User = new UserEntity
+            //{
+            //    FirstName = "amir",
+            //    LastName = "mj",
+            //    Email = "blallala@gmail.com",
+            //    Address = new AddressEntity
+            //    {
+            //        Street = "harzstrasse",
+            //        HouseNumber = "26",
+            //        City = "heiligenhaus",
+            //        Country = "germany",
+            //        ZipCode = "E G A L"
+            //    }
+            //};
+            user.Todos.Add(entity);
             await _dbcontext.SaveChangesAsync();
             return Created($"/todoitems/{entity.Id}", CreateTodoResponse.FromEntity(entity));
         }

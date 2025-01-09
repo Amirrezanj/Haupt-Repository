@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoAppApi.Data;
 using TodoAppApi.Data.Entities;
@@ -56,6 +57,14 @@ namespace TodoAppApi.Controller
         }
 
 
+        public async Task<ActionResult<PutUserResponse>> PutUser(Guid id,PutUserRequest request)
+        {
+            var person = _dbcontext.Users.FirstOrDefault(x=>x.Id == id);
+            if(person == null) return NotFound();
+            return Ok(PutUserResponse.FromEntity(person));
+        }
+
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -78,6 +87,5 @@ namespace TodoAppApi.Controller
             if (addresse == null) return NotFound();
             return Ok(GetUserAddressResponse.FromEntity(addresse));
         }
-
     }
 }
