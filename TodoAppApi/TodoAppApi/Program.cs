@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 
 
 var app = builder.Build();

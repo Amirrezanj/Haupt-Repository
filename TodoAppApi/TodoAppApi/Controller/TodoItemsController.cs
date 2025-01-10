@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TodoAppApi.Data;
 using TodoAppApi.Models.Requests;
 using TodoAppApi.Models.Responses;
@@ -113,6 +114,47 @@ namespace TodoAppApi.Controller
             user.Todos.Add(entity);
             await _dbcontext.SaveChangesAsync();
             return Created($"/todoitems/{entity.Id}", CreateTodoResponse.FromEntity(entity));
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> DeleteTodoItemByIdAsync(Guid id)
+        {
+            var todo = _dbcontext.Todos.FirstOrDefault(x => x.Id == id);
+
+            if (todo == null)
+                return NotFound();
+
+            _dbcontext.Remove(todo);
+            await _dbcontext.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<UpdateTodoResponse>> UpdateTodoItemAsync(UpdateTodoRequest request, Guid userId)
+        {
+            var user = _dbcontext.Users.FirstOrDefault(x => x.Id == userId);
+
+            if (user == null)
+                return NotFound();
+
+            var todo = _dbcontext.Todos.FirstOrDefault(x => x.Id == request.Id);
+
+            if (todo == null)
+                return NotFound();
+
+            todo.Title = request.Title;
+            todo.Description = request.Description;
+            todo.DueDate = request.DueDate;
+            todo.IsDone = request.IsDone;
+
+            await _dbcontext.SaveChangesAsync();
+            return Ok(CreateTodoResponse.FromEntity(todo));
         }
     }
 }
