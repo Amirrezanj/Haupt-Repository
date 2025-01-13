@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using System.Security.Claims;
 using TodoAppApi.Data;
 using TodoAppApi.Data.Entities;
 using TodoAppApi.Filter;
@@ -30,6 +31,7 @@ namespace TodoAppApi.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [LoggingFilter]
         [CachingFilter]
+        [TokenAuthorizationFilter]
         public ActionResult<IEnumerable<GetUserResponse>> GetUsers(int page=0 , int pageSize=10)
         {
             _logger.LogInformation("GetUsers was called");
@@ -135,9 +137,10 @@ namespace TodoAppApi.Controller
             user.LastName = request.LastName;
             user.Email = request.Email;
 
+            await _dbcontext.SaveChangesAsync();
+
             _cache.Remove("/Users");
 
-            await _dbcontext.SaveChangesAsync();
             return Ok(UpdateUserResponse.FromEntity(user));
         }
 
@@ -168,6 +171,98 @@ namespace TodoAppApi.Controller
 
             await _dbcontext.SaveChangesAsync();
             return Ok(UpdateAddressResponse.FromEntity(address));
+        }
+        [HttpGet("current/Todoitems")] // wenn jemend get methode aufruft landmal hier
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [TokenAuthorizationFilter]
+        public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(int page = 0, int pageSize = 10, string? titleFilter = null)
+        {
+            //zwei zeilen von vincent copiert
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            IEnumerable<TodoEntity> todoItems = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos;
+
+
+            if (!string.IsNullOrWhiteSpace(titleFilter))
+            {
+                todoItems = todoItems.Where(x => x.Title.Contains(titleFilter));
+            }
+
+            todoItems = todoItems.Skip(page * pageSize).Take(pageSize);
+
+            return Ok(todoItems.Select(x => GetTodoResponse.FromEntity(x)));
+
+            //var list = new List<GetTodoResponse>();
+            //foreach (var item in _dbcontext.Todos)
+            //{
+            //    list.Add(GetTodoResponse.FromEntity(item));
+            //}
+
+            //return Ok(list);
+
+            //Alternative
+            //return Ok(_dbcontext.Todos.Select(x => GetTodoResponse.FromEntity(x)));
+        }
+
+        [HttpGet("current/TodosItems/{todoId}")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [TokenAuthorizationFilter]
+        public ActionResult<GetTodoResponse> GetTodoItem(Guid todoId)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var todoItem = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos.First(x=>x.Id == todoId);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(GetTodoResponse.FromEntity(todoItem));
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+
+        [TokenAuthorizationFilter]
+        public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request)
+        {
+            //wurde kommentiert durch wir ein parameter in der klmmer geschrieben haben zwar TodoEntity.
+            //TodoEntity? entity= await HttpContext.Request.ReadFromJsonAsync<TodoEntity>();
+            //if (entity == null) return BadRequest("Invalid TodoItem");
+
+
+
+            //um ein todo item zu legen brauchen wir erst ein user
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = _dbcontext.Users.Single(x => x.Id == Guid.Parse(userId));
+
+            if (user == null) return NotFound();
+
+            var entity = CreateTodoRequest.ToEntity(request);
+            //TEMP
+            //entity.User = new UserEntity
+            //{
+            //    FirstName = "amir",
+            //    LastName = "mj",
+            //    Email = "blallala@gmail.com",
+            //    Address = new AddressEntity
+            //    {
+            //        Street = "harzstrasse",
+            //        HouseNumber = "26",
+            //        City = "heiligenhaus",
+            //        Country = "germany",
+            //        ZipCode = "E G A L"
+            //    }
+            //};
+            user.Todos.Add(entity);
+            await _dbcontext.SaveChangesAsync();
+            return Created($"/todoitems/{entity.Id}", CreateTodoResponse.FromEntity(entity));
         }
     }
 }

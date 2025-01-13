@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.OpenApi.Validations;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 using TodoAppApi.Data.Entities;
 using TodoAppApi.Data.Entities;
+using TodoAppApi.Helpers;
 
 namespace TodoAppApi.Models.Requests
 {
@@ -10,17 +12,23 @@ namespace TodoAppApi.Models.Requests
         string? SecondName,
         string LastName,
 		string Email, 
+		string Password,
 		CreateAddressRequest Address) : IValidatableObject
 	{
 
 		public static UserEntity ToEntity(CreateUserRequest request)
 		{
+			var salt = PasswordHelper.GenerateSalt();
+			var hash = PasswordHelper.HashPassword(request.Password,salt);
+
 			var entity = new UserEntity
 			{
 				FirstName = request.FirstName,
 				SecondName = request.SecondName,
 				LastName = request.LastName,
 				Email = request.Email,
+				PasswordSalt = salt,
+				PasswordHash = hash,
 				Address = CreateAddressRequest.ToEntity(request.Address)
 			};
 

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TodoAppApi.Data;
 
@@ -10,9 +11,11 @@ using TodoAppApi.Data;
 namespace TodoAppApi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250113081508_AddedIdentity")]
+    partial class AddedIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -124,24 +127,10 @@ namespace TodoAppApi.Data.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("lastName");
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PasswordSalt")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("SecondName")
                         .HasMaxLength(60)
                         .HasColumnType("TEXT")
                         .HasColumnName("secondName");
-
-                    b.Property<string>("SessionToken")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("TokenExpiry")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

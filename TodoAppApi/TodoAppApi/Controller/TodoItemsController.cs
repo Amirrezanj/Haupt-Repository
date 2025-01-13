@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TodoAppApi.Data;
+using TodoAppApi.Data.Entities;
+using TodoAppApi.Filter;
 using TodoAppApi.Models.Requests;
 using TodoAppApi.Models.Responses;
 
@@ -19,22 +22,26 @@ namespace TodoAppApi.Controller
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("current/Todoitems")] // wenn jemend get methode aufruft landmal hier
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [TokenAuthorizationFilter]
         public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(int page =0,int pageSize=10,string? titleFilter=null)
         {
-            if (titleFilter!=null)
-            {
-                var todoItems = _dbcontext.Todos.Where(x=>x.Title.Contains(titleFilter));
-                return Ok(todoItems.Select(x=>GetTodoResponse.FromEntity(x)));
+            //zwei zeilen von vincent copiert
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            IEnumerable<TodoEntity> todoItems = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos;
 
-            }
-            else 
+
+            if (!string.IsNullOrWhiteSpace(titleFilter))
             {
-                var todoItems = _dbcontext.Todos.Skip(page * pageSize).Take(pageSize);
-                return Ok(todoItems.Select(x => GetTodoResponse.FromEntity(x)));
+                todoItems = todoItems.Where(x => x.Title.Contains(titleFilter));
             }
+
+            todoItems = todoItems.Skip(page * pageSize).Take(pageSize);
+
+            return Ok(todoItems.Select(x => GetTodoResponse.FromEntity(x)));
 
             //var list = new List<GetTodoResponse>();
             //foreach (var item in _dbcontext.Todos)
@@ -47,7 +54,6 @@ namespace TodoAppApi.Controller
             //Alternative
             //return Ok(_dbcontext.Todos.Select(x => GetTodoResponse.FromEntity(x)));
         }
-
 
 
 
