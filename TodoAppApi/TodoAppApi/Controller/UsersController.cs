@@ -17,55 +17,14 @@ namespace TodoAppApi.Controller
     {
         private readonly ApplicationDbContext _dbcontext;
         private readonly ILogger<UsersController> _logger;
-        private readonly IMemoryCache _cache;
+        //private readonly IMemoryCache _cache;
 
-        public UsersController(ApplicationDbContext dbContext,ILogger<UsersController> logger ,IMemoryCache cache)
+        public UsersController(ApplicationDbContext dbContext,ILogger<UsersController> logger /*,IMemoryCache cache*/)
         {
             _dbcontext = dbContext;
             _logger = logger;
-            _cache = cache;
+            //_cache = cache;
         }
-
-        [HttpGet]
-        [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [LoggingFilter]
-        [CachingFilter]
-        [TokenAuthorizationFilter]
-        public ActionResult<IEnumerable<GetUserResponse>> GetUsers(int page=0 , int pageSize=10)
-        {
-            _logger.LogInformation("GetUsers was called");
-
-            var users = _dbcontext.Users.Skip(page * pageSize).Take(pageSize).ToList();
-
-            return Ok(users.Select(x=>GetUserResponse.FromEntity(x)));
-
-
-
-            //var users = new List<GetUserResponse>();
-            //foreach (var user in _dbcontext.Users)
-            //{
-            //    users.Add(GetUserResponse.FromEntity(user));
-            //}
-            //return Ok(users);
-        }
-        [HttpGet("{id}")]
-        [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-
-        public ActionResult<GetUserResponse> GetUser(Guid id)
-        {
-            _logger.LogInformation("GetUserById was called with Id {id}", id);
-
-            var item = _dbcontext.Users.FirstOrDefault(x => x.Id == id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-            return Ok(GetUserResponse.FromEntity(item));
-        }
-
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -77,60 +36,47 @@ namespace TodoAppApi.Controller
             _dbcontext.Users.Add(entity);
             await _dbcontext.SaveChangesAsync();
 
-            _cache.Remove("/Users");
-
-            return Created($"/users/{entity.Id}", CreateUserResponse.FromEntity(entity));
+            return Created($"/users/current", CreateUserResponse.FromEntity(entity));
         }
 
 
-        [HttpGet("{id}/address")]
+
+
+
+
+
+
+
+
+        [HttpGet("current")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<GetUserAddressResponse> GetAddressForUser(Guid id)
+        [TokenAuthorizationFilter]
+        public ActionResult<GetUserResponse> GetCurrentUser()
         {
-            var entity = _dbcontext.Users.Include(x => x.Address)
-            .FirstOrDefault(x => x.Id == id);
-            if (entity == null) return NotFound();
-            return Ok(GetUserAddressResponse.FromEntity(entity.Address));
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var entity = _dbcontext.Users.Single(x => x.Id == Guid.Parse(userId));
+
+            return Ok(GetUserResponse.FromEntity(entity));
         }
 
 
 
-        [HttpDelete]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public async Task<ActionResult> DeleteUserByIdAsync(Guid id)
-        {
-            var user = _dbcontext.Users.FirstOrDefault(x => x.Id == id);
-
-            if (user == null)
-                return NotFound();
-
-            if (_dbcontext.Todos.Where(x => x.Id == user.Id).Any())
-                return Conflict("Can not delete user if todos are left.");
-
-            _dbcontext.Remove(user);
-
-
-            await _dbcontext.SaveChangesAsync();
-            return NoContent();
-        }
 
 
 
-        [HttpPut]
+
+
+
+        [HttpPut("current")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<UpdateUserResponse>> UpdateUserAsync(UpdateUserRequest request, Guid userId)
-        {
-            var user = _dbcontext.Users.FirstOrDefault(x => x.Id == userId);
+        [TokenAuthorizationFilter]
 
-            if (user == null)
-                return NotFound();
+        public async Task<ActionResult<UpdateUserResponse>> UpdateCurrentUser(UpdateUserRequest request)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = _dbcontext.Users.Single(x => x.Id == Guid.Parse(userId));
 
             user.FirstName = request.FirstName;
             user.SecondName = request.SecondName;
@@ -139,50 +85,150 @@ namespace TodoAppApi.Controller
 
             await _dbcontext.SaveChangesAsync();
 
-            _cache.Remove("/Users");
-
             return Ok(UpdateUserResponse.FromEntity(user));
         }
 
 
-        [HttpPut("Address")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<UpdateAddressResponse>> UpdateUserAddressAsync(UpdateAddressRequest request, Guid userId)
+        [HttpDelete("current")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [TokenAuthorizationFilter]
+        public async Task<ActionResult> DeleteCurrentUser()
         {
-            var user = _dbcontext.Users.FirstOrDefault(x => x.Id == userId);
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = _dbcontext.Users.Include(x => x.Todos).Single(x => x.Id == Guid.Parse(userId));
 
-            if (user == null)
-                return NotFound();
+            if (user.Todos.Count != 0)
+                return Conflict("Can not delete user if todos are left.");
 
-            var address = _dbcontext.Addresses.FirstOrDefault(x => x.Id == request.Id);
-
-            if (address == null)
-                return NotFound();
-
-            address.Street = request.Street;
-            address.HouseNumber = request.HouseNumber;
-            address.City = request.City;
-            address.Country = request.Country;
-            address.ZipCode = request.ZipCode;
-
-            _cache.Remove("/Users");
-
+            _dbcontext.Remove(user);
             await _dbcontext.SaveChangesAsync();
-            return Ok(UpdateAddressResponse.FromEntity(address));
+
+            return NoContent();
         }
-        [HttpGet("current/Todoitems")] // wenn jemend get methode aufruft landmal hier
+        //alte version
+        //[HttpGet]
+        //[Produces("application/json")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[LoggingFilter]
+        //[CachingFilter]
+        //[TokenAuthorizationFilter]
+        //public ActionResult<IEnumerable<GetUserResponse>> GetUsers(int page = 0, int pageSize = 10)
+        //{
+        //    _logger.LogInformation("GetUsers was called");
+
+        //    var users = _dbcontext.Users.Skip(page * pageSize).Take(pageSize).ToList();
+
+        //    return Ok(users.Select(x => GetUserResponse.FromEntity(x)));
+
+
+
+        //    //var users = new List<GetUserResponse>();
+        //    //foreach (var user in _dbcontext.Users)
+        //    //{
+        //    //    users.Add(GetUserResponse.FromEntity(user));
+        //    //}
+        //    //return Ok(users);
+        //}
+        //[HttpGet("{id}")]
+        //[Produces("application/json")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public ActionResult<GetUserResponse> GetUser(Guid id)
+        //{
+        //    _logger.LogInformation("GetUserById was called with Id {id}", id);
+
+        //    var item = _dbcontext.Users.FirstOrDefault(x => x.Id == id);
+        //    if (item == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(GetUserResponse.FromEntity(item));
+        //}
+
+
+       
+
+        [HttpGet("current/address")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [TokenAuthorizationFilter]
-        public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(int page = 0, int pageSize = 10, string? titleFilter = null)
+        public ActionResult<GetUserAddressResponse> GetAddressForCurrentUser()
         {
-            //zwei zeilen von vincent copiert
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
-            IEnumerable<TodoEntity> todoItems = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos;
+            var user = _dbcontext.Users.Include(x => x.Address).Single(x => x.Id == Guid.Parse(userId));
 
+            return Ok(GetUserAddressResponse.FromEntity(user.Address));
+        }
+
+
+
+
+
+
+
+
+        [HttpPut("current/address")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TokenAuthorizationFilter]
+        public async Task<ActionResult<UpdateAddressResponse>> UpdateUserAddressAsync(UpdateAddressRequest request)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = _dbcontext.Users.Include(x => x.Address).Single(x => x.Id == Guid.Parse(userId));
+
+            user.Address.Street = request.Street;
+            user.Address.HouseNumber = request.HouseNumber;
+            user.Address.City = request.City;
+            user.Address.Country = request.Country;
+            user.Address.ZipCode = request.ZipCode;
+
+            await _dbcontext.SaveChangesAsync();
+            return Ok(UpdateAddressResponse.FromEntity(user.Address));
+        }
+
+
+
+
+
+
+
+
+        [HttpPost("current/todos")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [TokenAuthorizationFilter]
+        public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = _dbcontext.Users.Single(x => x.Id == Guid.Parse(userId));
+
+            var entity = CreateTodoRequest.ToEntity(request);
+
+            user.Todos.Add(entity);
+            await _dbcontext.SaveChangesAsync();
+            return Created($"/users/current/todoitems/{entity.Id}", CreateTodoResponse.FromEntity(entity));
+        }
+
+
+
+
+
+
+
+
+        [HttpGet("current/todos")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [TokenAuthorizationFilter]
+        public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(
+            [FromQuery] int page = 0,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string? titleFilter = null)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+
+            IQueryable<TodoEntity> todoItems = _dbcontext.Todos.Where(x => x.Id == Guid.Parse(userId));
 
             if (!string.IsNullOrWhiteSpace(titleFilter))
             {
@@ -192,77 +238,80 @@ namespace TodoAppApi.Controller
             todoItems = todoItems.Skip(page * pageSize).Take(pageSize);
 
             return Ok(todoItems.Select(x => GetTodoResponse.FromEntity(x)));
-
-            //var list = new List<GetTodoResponse>();
-            //foreach (var item in _dbcontext.Todos)
-            //{
-            //    list.Add(GetTodoResponse.FromEntity(item));
-            //}
-
-            //return Ok(list);
-
-            //Alternative
-            //return Ok(_dbcontext.Todos.Select(x => GetTodoResponse.FromEntity(x)));
         }
 
-        [HttpGet("current/TodosItems/{todoId}")]
+
+
+
+
+
+        [HttpGet("current/todos/{todoId}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [TokenAuthorizationFilter]
-        public ActionResult<GetTodoResponse> GetTodoItem(Guid todoId)
+        public ActionResult<GetTodoResponse> GetTodoItemById(Guid todoId)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
-            var todoItem = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos.First(x=>x.Id == todoId);
+            var todo = _dbcontext.Todos.SingleOrDefault(x => x.Id == todoId && x.Id == Guid.Parse(userId));
 
-            if (todoItem == null)
-            {
+            if (todo == null)
                 return NotFound();
-            }
 
-            return Ok(GetTodoResponse.FromEntity(todoItem));
+            return Ok(GetTodoResponse.FromEntity(todo));
         }
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+
+
+
+
+
+
+
+
+
+        [HttpPut("current/todos/{todoId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-
         [TokenAuthorizationFilter]
-        public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request)
+        public async Task<ActionResult<UpdateTodoResponse>> UpdateTodoItemAsync(UpdateTodoRequest request, Guid todoId)
         {
-            //wurde kommentiert durch wir ein parameter in der klmmer geschrieben haben zwar TodoEntity.
-            //TodoEntity? entity= await HttpContext.Request.ReadFromJsonAsync<TodoEntity>();
-            //if (entity == null) return BadRequest("Invalid TodoItem");
-
-
-
-            //um ein todo item zu legen brauchen wir erst ein user
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
-            var user = _dbcontext.Users.Single(x => x.Id == Guid.Parse(userId));
+            var todo = _dbcontext.Todos.SingleOrDefault(x => x.Id == todoId && x.Id == Guid.Parse(userId));
 
-            if (user == null) return NotFound();
+            if (todo == null)
+                return NotFound();
 
-            var entity = CreateTodoRequest.ToEntity(request);
-            //TEMP
-            //entity.User = new UserEntity
-            //{
-            //    FirstName = "amir",
-            //    LastName = "mj",
-            //    Email = "blallala@gmail.com",
-            //    Address = new AddressEntity
-            //    {
-            //        Street = "harzstrasse",
-            //        HouseNumber = "26",
-            //        City = "heiligenhaus",
-            //        Country = "germany",
-            //        ZipCode = "E G A L"
-            //    }
-            //};
-            user.Todos.Add(entity);
+            todo.Title = request.Title;
+            todo.Description = request.Description;
+            todo.DueDate = request.DueDate;
+            todo.IsDone = request.IsDone;
+
             await _dbcontext.SaveChangesAsync();
-            return Created($"/todoitems/{entity.Id}", CreateTodoResponse.FromEntity(entity));
+            return Ok(CreateTodoResponse.FromEntity(todo));
         }
+
+
+
+
+
+        [HttpDelete("current/todos/{todoId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [TokenAuthorizationFilter]
+        public async Task<ActionResult> DeleteTodoItemByIdAsync(Guid todoId)
+        {
+            var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var todo = _dbcontext.Todos.SingleOrDefault(x => x.Id == todoId && x.Id == Guid.Parse(userId));
+
+            if (todo == null)
+                return NotFound();
+
+            _dbcontext.Remove(todo);
+            await _dbcontext.SaveChangesAsync();
+            return NoContent();
+        }
+
     }
 }

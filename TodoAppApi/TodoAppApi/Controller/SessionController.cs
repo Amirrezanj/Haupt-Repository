@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using TodoAppApi.Data;
 using TodoAppApi.Filter;
@@ -21,12 +22,15 @@ namespace TodoAppApi.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task <ActionResult<CreateSessionResponse>> CreateSessionAsync(CreateSessionRequest request)
+        public async Task<ActionResult<CreateSessionResponse>> CreateSessionAsync(CreateSessionRequest request)
         {
             var user = _dbcontext.Users.SingleOrDefault(x => x.Email == request.Email);
-            if (user == null) return Unauthorized();
 
-            if (!PasswordHelper.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt)) return Unauthorized();
+            if (user == null)
+                return Unauthorized();
+
+            if (!PasswordHelper.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+                return Unauthorized();
 
             var token = TokenHelper.GenerateToken();
             var expiry = DateTime.UtcNow.AddHours(2);
