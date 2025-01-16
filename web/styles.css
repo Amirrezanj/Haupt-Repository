@@ -1,0 +1,21 @@
+.blautitle{
+    background-color: rgb(92, 18, 141);
+}
+.redtitle{
+    background-color: rgb(214, 10, 10);
+}
+button{
+    color: rgb(20, 19, 3);
+    border-radius: 5px;
+    border: none;
+    padding: 30px 30px;
+    transition: background-color 0.3s;
+    background-color: khaki;
+    
+}
+button:hover{
+    filter: brightness(1.1);
+}
+#text{
+    color: green;
+}
