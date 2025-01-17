@@ -51,7 +51,7 @@ namespace TodoAppApi.Controller
         [HttpGet("current")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public ActionResult<GetUserResponse> GetCurrentUser()
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -71,7 +71,7 @@ namespace TodoAppApi.Controller
         [HttpPut("current")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
 
         public async Task<ActionResult<UpdateUserResponse>> UpdateCurrentUser(UpdateUserRequest request)
         {
@@ -92,7 +92,7 @@ namespace TodoAppApi.Controller
         [HttpDelete("current")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<ActionResult> DeleteCurrentUser()
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -152,7 +152,7 @@ namespace TodoAppApi.Controller
         [HttpGet("current/address")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public ActionResult<GetUserAddressResponse> GetAddressForCurrentUser()
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -171,7 +171,7 @@ namespace TodoAppApi.Controller
         [HttpPut("current/address")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<ActionResult<UpdateAddressResponse>> UpdateUserAddressAsync(UpdateAddressRequest request)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -197,7 +197,7 @@ namespace TodoAppApi.Controller
         [HttpPost("current/todos")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<ActionResult<CreateTodoResponse>> CreateTodoItem(CreateTodoRequest request)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -220,7 +220,7 @@ namespace TodoAppApi.Controller
         [HttpGet("current/todos")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public ActionResult<IEnumerable<GetTodoResponse>> GetTodoItems(
             [FromQuery] int page = 0,
             [FromQuery] int pageSize = 10,
@@ -249,7 +249,7 @@ namespace TodoAppApi.Controller
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public ActionResult<GetTodoResponse> GetTodoItemById(Guid todoId)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -273,7 +273,7 @@ namespace TodoAppApi.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<ActionResult<UpdateTodoResponse>> UpdateTodoItemAsync(UpdateTodoRequest request, Guid todoId)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
@@ -299,7 +299,7 @@ namespace TodoAppApi.Controller
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<ActionResult> DeleteTodoItemByIdAsync(Guid todoId)
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;

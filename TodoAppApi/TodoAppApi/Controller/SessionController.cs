@@ -44,7 +44,7 @@ namespace TodoAppApi.Controller
         [HttpDelete("current")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [TokenAuthorizationFilter]
+        [TokenAuthorizationFilter("User")]
         public async Task<IActionResult> DeleteSessionAsync()
         {
             // statt komentare haben wir filter geschrieben

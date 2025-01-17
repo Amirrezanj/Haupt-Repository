@@ -2,12 +2,18 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using TodoAppApi.Collections;
 using TodoAppApi.Data;
 
 namespace TodoAppApi.Filter
 {
     public class TokenAuthorizationFilter : Attribute, IAuthorizationFilter
     {
+        private string? _role;
+        public TokenAuthorizationFilter(string? role)
+        {
+            _role = role;
+        }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             var token = context.HttpContext.Request.Headers.Authorization.ToString();
@@ -34,6 +40,13 @@ namespace TodoAppApi.Filter
             if (user == null)
             {
                 context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                context.Result = new EmptyResult();
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(_role) && user.Role.ToString() != _role)
+            {
+                context.HttpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
                 context.Result = new EmptyResult();
                 return;
             }

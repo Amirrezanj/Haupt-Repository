@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using TodoAppApi.Collections;
 
 namespace TodoAppApi.Data.Entities;
 
@@ -20,5 +21,5 @@ public class UserEntity
     // Navigation Property
     public AddressEntity Address { get; set; }
     public List<TodoEntity> Todos { get; set; } = new List<TodoEntity>();
-
+    public Roles Role {  get; set; } 
 }
