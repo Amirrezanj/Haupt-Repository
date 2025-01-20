@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodoAppMaui.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="FirstName"
+                    TextColor="Blue" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Text="give your Firstname"
+                    TextColor="Black" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="SecondName"
+                    TextColor="Blue" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Text="give your Secondname"
+                    TextColor="Black" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Email"
+                    TextColor="Blue" />
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Text="give your Email"
+                    TextColor="Black" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
