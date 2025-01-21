@@ -2,41 +2,158 @@
 <ContentPage
     x:Class="TodoAppMaui.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <ScrollView>
-        <VerticalStackLayout Spacing="20">
-            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Text="FirstName"
-                    TextColor="Blue" />
-                <Entry
-                    HorizontalTextAlignment="Center"
-                    Text="give your Firstname"
-                    TextColor="Black" />
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="alt.jpg">
+
+    <Grid>
+        <Grid Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+
+
+
+
+            <VerticalStackLayout
+                Grid.Column="0"
+                BackgroundColor="Beige"
+                HeightRequest="350"
+                Spacing="15"
+                WidthRequest="300">
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="FirstName"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Firstname:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="SecondName"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Secondname:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="LastName"
+                        TextColor="Blue" />
+                    <Entry
+                        FontFamily="farsan"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your LastName:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Password"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="*****"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
             </VerticalStackLayout>
 
-            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Text="SecondName"
-                    TextColor="Blue" />
-                <Entry
-                    HorizontalTextAlignment="Center"
-                    Text="give your Secondname"
-                    TextColor="Black" />
+
+            <VerticalStackLayout
+                Grid.Column="1"
+                BackgroundColor="Beige"
+                HeightRequest="350"
+                Spacing="15"
+                WidthRequest="300">
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Email"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Email:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Country"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Country:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Address"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Address:"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Repeat Password"
+                        TextColor="Blue" />
+                    <Entry
+                        HorizontalTextAlignment="Center"
+                        Placeholder="******"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
             </VerticalStackLayout>
 
-            <VerticalStackLayout BackgroundColor="Khaki" WidthRequest="500">
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Text="Email"
-                    TextColor="Blue" />
-                <Entry
-                    HorizontalTextAlignment="Center"
-                    Text="give your Email"
-                    TextColor="Black" />
-            </VerticalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+            <Button
+                Grid.ColumnSpan="2"
+                Margin="400"
+                Clicked="ChangeThemeClicked"
+                HorizontalOptions="Center"
+                Text="Login"
+                VerticalOptions="Start"
+                WidthRequest="100" />
+
+            <Button
+                Grid.ColumnSpan="2"
+                Margin="10"
+                HorizontalOptions="Center"
+                Text="Register"
+                VerticalOptions="End"
+                WidthRequest="500" />
+        </Grid>
+    </Grid>
 </ContentPage>
+
