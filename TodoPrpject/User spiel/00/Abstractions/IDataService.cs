@@ -15,7 +15,7 @@ namespace _00.Abstractions
         Task LogoutAsync(string token);
         #endregion Auth
         #region TodoItems
-        Task<IEnumerable<GetUserResponse>> GetTodoItemsAsync(string token,int page = 0, int pageSize = 10, string? titleFilter = null );
+        Task<IEnumerable<GetTodoItemResponse>> GetTodoItemsAsync(string token,int page = 0, int pageSize = 10, string? titleFilter = null );
         Task<CreateTodoItemsResponse> CreateTodoItemAsync(CreateTodoItemsRequest request,string token);
         Task<GetTodoItemResponse> GetTodoItemAsync(string token, Guid id);
         Task<UpdateTodoItemResponse> UpdateTodoItemAsync(string token, UpdateTodoItemRequest request);

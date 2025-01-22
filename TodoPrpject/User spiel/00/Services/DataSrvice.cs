@@ -17,7 +17,7 @@ using System.Net.Http;
 
 namespace _00.Services
 {
-    public class DataSrvice : IDataService
+    public class DataService : IDataService
     {
 #if DEBUG
         private static readonly HttpClient _httpClient = new HttpClient(new LoggingHandler(new HttpClientHandler()));
@@ -28,7 +28,7 @@ namespace _00.Services
         {
             PropertyNameCaseInsensitive = true
         };
-        public DataSrvice(string url)
+        public DataService(string url)
         {
             _httpClient.BaseAddress = new Uri(url);
             
@@ -230,7 +230,8 @@ namespace _00.Services
             return getUsersResponse;
 
         }
-        
+
+       
     }
 }
 

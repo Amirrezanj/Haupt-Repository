@@ -1,21 +1,36 @@
-﻿namespace TodoAppMaui
+﻿using TodoAppMaui.Abstractions;
+using TodoAppMaui.Models;
+
+namespace TodoAppMaui
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly IDataService _dataService;
 
-        public MainPage()
+        public MainPage(IDataService dataService)
         {
+            _dataService = dataService;
             InitializeComponent();
         }
 
-        private void ChangeThemeClicked(object? sender, EventArgs e)
+        private async void Register(object? sender, EventArgs e)
         {
-            if (Application.Current.UserAppTheme == AppTheme.Light)
-                Application.Current.UserAppTheme = AppTheme.Dark;
-            else
-                Application.Current.UserAppTheme = AppTheme.Light;
+            var address = new CreateAddressRequest(
+                "Peterweg",
+                "12",
+                "12123",
+                "awdeawd",
+                "awdawd");
+            var request = new CreateUserRequest(
+                "amir",
+                _secondNameEntry.Text,
+                _lastNameEntry.Text,
+                _emailEntry.Text,
+                _passwordEntity.Text,
+                address
+                );
+
+            await _dataService.CreateUserAsync(request);
         }
     }
-
 }
