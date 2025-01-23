@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using TodoAppMaui.Abstractions;
-using TodoAppMaui.Services;
-using TodoAppMaui.Views;
 
-namespace TodoAppMaui
+namespace _00
 {
     public static class MauiProgram
     {
@@ -16,11 +13,8 @@ namespace TodoAppMaui
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("Farsan-Regular.ttf", "farsan");
                 });
-            //neu
-            builder.Services.AddSingleton<IDataService, DataService>();
-            builder.Services.AddTransient<MainPage>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

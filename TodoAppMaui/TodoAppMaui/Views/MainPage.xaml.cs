@@ -1,7 +1,8 @@
 ﻿using TodoAppMaui.Abstractions;
 using TodoAppMaui.Models;
+using TodoAppMaui.ViewModels;
 
-namespace TodoAppMaui
+namespace TodoAppMaui.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -10,23 +11,26 @@ namespace TodoAppMaui
         public MainPage(IDataService dataService)
         {
             _dataService = dataService;
+
+            BindingContext = new MainViewModels();
+
             InitializeComponent();
         }
 
         private async void Register(object? sender, EventArgs e)
         {
             var address = new CreateAddressRequest(
-                "Peterweg",
-                "12",
-                "12123",
-                "awdeawd",
-                "awdawd");
+                _strasseEntity.Text,
+                _hausNumberEntity.Text,
+                _cityEntity.Text,
+                _zipCodeEntity.Text,
+                _countryEntry.Text);
             var request = new CreateUserRequest(
-                "amir",
+                _firstNameEntry.Text,
                 _secondNameEntry.Text,
                 _lastNameEntry.Text,
                 _emailEntry.Text,
-                _passwordEntity.Text,
+                _passwordEntry.Text,
                 address
                 );
 

@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="TodoAppMaui.MainPage"
+    x:Class="TodoAppMaui.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:i18n="clr-namespace:TodoAppMaui.Resources.Localization"
+    xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
+    x:DataType="viewModels:MainViewModels"
     BackgroundImageSource="alt.jpg">
 
     <ContentPage.Resources>
@@ -32,7 +34,7 @@
             <VerticalStackLayout
                 Grid.Column="0"
                 BackgroundColor="Beige"
-                HeightRequest="350"
+                HeightRequest="450"
                 Spacing="15"
                 WidthRequest="300">
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
@@ -40,15 +42,20 @@
                         HorizontalTextAlignment="Center"
                         Text="{Static i18n:AddResources.FirstName_Label}"
                         TextColor="Blue" />
-                    <Entry Placeholder="{Static i18n:AddResources.FirstName_Entry}" Style="{StaticResource Key=Default}" />
-                    <!--
+                    <Entry
+                        x:Name="_firstNameEntry"
                         HorizontalTextAlignment="Center"
-                        Placeholder="Your Firstname:"
+                        Placeholder="{Static i18n:AddResources.FirstName_Entry}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
-                        Light=black}"
+                                                           Light=black}"
+                        Style="{StaticResource Key=Default}"
+                        Text="{Binding FirstName}"
                         TextColor="Black" />
-                    -->
+
+
                 </VerticalStackLayout>
+
+
 
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
                     <Label
@@ -61,6 +68,7 @@
                         Placeholder="Your Secondname:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding SecondName}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -76,6 +84,26 @@
                         Placeholder="Your LastName:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding LastName}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="{Binding FullName}" HorizontalTextAlignment="Center" TextColor="Blue" />
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Email"
+                        TextColor="Blue" />
+                    <Entry
+                        x:Name="_emailEntry"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your Email:"
+                        Text="{Binding Email}"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -89,6 +117,7 @@
                         x:Name="_passwordEntry"
                         HorizontalTextAlignment="Center"
                         Placeholder="*****"
+                        Text="{Binding Password}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         TextColor="Black" />
@@ -99,18 +128,65 @@
             <VerticalStackLayout
                 Grid.Column="1"
                 BackgroundColor="Beige"
-                HeightRequest="350"
+                HeightRequest="450"
                 Spacing="15"
                 WidthRequest="300">
+
+
+
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
                     <Label
                         HorizontalTextAlignment="Center"
-                        Text="Email"
+                        Text="strasse"
                         TextColor="Blue" />
                     <Entry
-                        x:Name="_emailEntry"
+                        x:Name="_strasseEntity"
                         HorizontalTextAlignment="Center"
-                        Placeholder="Your Email:"
+                        Placeholder="Your street:"
+                        Text="{Binding Strasse}"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="haus number"
+                        TextColor="Blue" />
+                    <Entry
+                        x:Name="_hausNumberEntity"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your hausenumber:"
+                        Text="{Binding HausNumber}"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="City"
+                        TextColor="Blue" />
+                    <Entry
+                        x:Name="_cityEntity"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="your city"
+                        PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                           Light=black}"
+                        TextColor="Black" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="zipcode"
+                        TextColor="Blue" />
+                    <Entry
+                        x:Name="_zipCodeEntity"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Your zipcode:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         TextColor="Black" />
@@ -130,37 +206,12 @@
                         TextColor="Black" />
                 </VerticalStackLayout>
 
-                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
-                    <Label
-                        HorizontalTextAlignment="Center"
-                        Text="Address"
-                        TextColor="Blue" />
-                    <Entry
-                        x:Name="_addressEntity"
-                        HorizontalTextAlignment="Center"
-                        Placeholder="Your Address:"
-                        PlaceholderColor="{AppThemeBinding Dark=beige,
-                                                           Light=black}"
-                        TextColor="Black" />
-                </VerticalStackLayout>
-                <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
-                    <Label
-                        HorizontalTextAlignment="Center"
-                        Text="{Static i18n:AddResources.password_label}"
-                        TextColor="Blue" />
-                    <Entry
-                        x:Name="_passwordEntity"
-                        HorizontalTextAlignment="Center"
-                        Placeholder="******"
-                        PlaceholderColor="{AppThemeBinding Dark=beige,
-                                                           Light=black}"
-                        TextColor="Black" />
-                </VerticalStackLayout>
+
             </VerticalStackLayout>
 
             <Button
                 Grid.ColumnSpan="2"
-                Margin="400"
+                Margin="100"
                 Clicked="Register"
                 HorizontalOptions="Center"
                 Text="{Static i18n:AddResources.button_login}"
@@ -170,6 +221,7 @@
             <Button
                 Grid.ColumnSpan="2"
                 Margin="10"
+                Clicked="Register"
                 HorizontalOptions="Center"
                 Text="{Static i18n:AddResources.button_register}"
                 VerticalOptions="End"

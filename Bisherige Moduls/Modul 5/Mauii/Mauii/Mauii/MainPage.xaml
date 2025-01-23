@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Mauii.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout>
+
+        <Slider
+            x:Name="slider1"
+            BackgroundColor="BurlyWood"
+            Maximum="360"
+            Minimum="0" />
+
+        <Slider
+            x:Name="slider2"
+            BackgroundColor="Bisque"
+            Maximum="360"
+            Minimum="0" />
+
+
+        <Entry
+            BindingContext="{x:Reference slider1}"
+            BackgroundColor="AliceBlue"
+            FontSize="{Binding Value}"
+            HorizontalOptions="Center"
+            Rotation="{Binding Value}"
+            Text="{Binding Value, Mode=TwoWay}" />
+        <Entry
+            BackgroundColor="Brown"
+            FontSize="{Binding Source={x:Reference slider1},Path=Value}"
+            HorizontalOptions="Center"
+            Rotation="{Binding Source={x:Reference slider1},Path=Value}"
+            Text="{Binding Source={x:Reference slider2},Path=Value}"  />
+
+    </VerticalStackLayout>
+
+</ContentPage>
