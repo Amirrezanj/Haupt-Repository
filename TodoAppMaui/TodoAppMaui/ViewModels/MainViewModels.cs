@@ -1,15 +1,24 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using TodoAppMaui.Abstractions;
+using TodoAppMaui.Models;
 
 namespace TodoAppMaui.ViewModels
 {
     public class MainViewModels :INotifyPropertyChanged
     {
+        private readonly IDataService _dataService;
+
+        private readonly ILogger _logger;
+
         private string firstName = string.Empty;
         private string secondName = string.Empty;
         private string lastName = string.Empty;
@@ -17,6 +26,9 @@ namespace TodoAppMaui.ViewModels
         private string password = string.Empty;
         private string strasse = string.Empty;
         private string hausNumber = string.Empty;
+        private string city = string.Empty;
+        private string zipcode = string.Empty;
+        private string country = string.Empty;
 
         public string FirstName
         {
@@ -27,9 +39,10 @@ namespace TodoAppMaui.ViewModels
 
 
                 firstName = value;
-                Debug.WriteLine(value);
-                PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(firstName)));
+                //Debug.WriteLine(value);
+                PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(FirstName)));
                 PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(FullName)));
+                RegisterCommand.ChangeCanExecute();
             }
 
         }
@@ -45,6 +58,7 @@ namespace TodoAppMaui.ViewModels
                 PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(SecondName)));
                 PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(FullName)));
 
+                RegisterCommand.ChangeCanExecute();
             }
 
         }
@@ -60,6 +74,8 @@ namespace TodoAppMaui.ViewModels
                 PropertyChanged?.Invoke(this , new PropertyChangedEventArgs(nameof(LastName)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FullName)));
 
+                RegisterCommand.ChangeCanExecute();
+
             }
 
         }
@@ -71,8 +87,9 @@ namespace TodoAppMaui.ViewModels
             {
                 if (email == value) return;
 
-                lastName = value;
+                email = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
+                RegisterCommand.ChangeCanExecute();
             }
 
         }
@@ -85,8 +102,9 @@ namespace TodoAppMaui.ViewModels
             {
                 if (password == value) return;
 
-                lastName = value;
+                password = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Password)));
+                RegisterCommand.ChangeCanExecute();
             }
         }
 
@@ -97,8 +115,9 @@ namespace TodoAppMaui.ViewModels
             {
                 if (strasse == value) return;
 
-                lastName = value;
+                strasse = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Strasse)));
+                RegisterCommand.ChangeCanExecute();
             }
         }
 
@@ -110,13 +129,116 @@ namespace TodoAppMaui.ViewModels
             {
                 if (hausNumber == value) return;
 
-                lastName = value;
+                hausNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HausNumber)));
+                RegisterCommand.ChangeCanExecute();
+            }
+        }
+
+        public string City
+        {
+            get => city;
+            set
+            {
+                if (city == value) return;
+
+                city = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(City)));
+                RegisterCommand.ChangeCanExecute();
+            }
+        }
+
+        public string Zipcode
+        {
+            get => zipcode;
+            set
+            {
+                if (zipcode == value) return;
+
+                zipcode = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Zipcode)));
+                RegisterCommand.ChangeCanExecute();
+            }
+        }
+
+        public string Country
+        {
+            get => country;
+            set
+            {
+                if (country == value) return;
+
+                country = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Country)));
+                RegisterCommand.ChangeCanExecute();
             }
         }
 
         public string FullName => $"{FirstName} {SecondName} {LastName}";
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public Command RegisterCommand { get; }
+
+        public Command TestCommand { get; }
+        //public bool _isBusy
+        //{
+
+        //}
+
+
+        public MainViewModels(IDataService dataService ,ILogger<MainViewModels> logger)
+        {
+            _dataService = dataService;
+
+            RegisterCommand = new Command(Register, Check);
+               
+            _logger = logger;
+
+            TestCommand = new Command(() => Items.Add("hi"));
+            
+        }
+        public ObservableCollection<string> Items { get; } = new();
+        private bool Check()
+        {
+            if(FirstName.Length<5 || FirstName.Length>15) return false;
+
+            if(LastName.Length<5 || LastName.Length>15) return false;
+
+            if (SecondName != null)
+                if (SecondName.Length > 15) return false;
+
+            if(!MailAddress.TryCreate(Email,out MailAddress? _)) return false;
+
+            if (Password.Length < 5) return false;
+            
+            if(Strasse.Length < 2 ||  Strasse.Length > 50) return false;
+
+            if(HausNumber.Length < 1 || HausNumber.Length > 4) return false;
+
+            if(City.Length < 2 || City.Length > 25) return false ;
+
+            if(Zipcode.Length != 5) return false;
+
+            if(Country.Length <  2 || Country.Length > 50)return false;
+
+
+            return true;
+            
+        }
+        private async void Register()
+        {
+            try
+            {
+                var address = new CreateAddressRequest(strasse, hausNumber, city, zipcode, country);
+                var user = new CreateUserRequest(firstName, secondName, lastName, email, password, address);
+
+                await _dataService.CreateUserAsync(user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Exception{ex}",ex);
+            }
+        }
     }
 }

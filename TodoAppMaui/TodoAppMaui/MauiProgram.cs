@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using TodoAppMaui.Abstractions;
 using TodoAppMaui.Services;
+using TodoAppMaui.ViewModels;
 using TodoAppMaui.Views;
 
 namespace TodoAppMaui
@@ -21,6 +22,7 @@ namespace TodoAppMaui
             //neu
             builder.Services.AddSingleton<IDataService, DataService>();
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainViewModels>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

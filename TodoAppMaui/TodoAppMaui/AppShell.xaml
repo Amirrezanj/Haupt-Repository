@@ -5,11 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TodoAppMaui.Views"
     Title="TodoAppMaui"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        <Tab Title="Login">
+            <ShellContent
+                Title="Login"
+                ContentTemplate="{DataTemplate local:LoginPage}"
+                Route="LoginPage" />
+        </Tab>
+    </TabBar>
 </Shell>

@@ -34,9 +34,16 @@
             <VerticalStackLayout
                 Grid.Column="0"
                 BackgroundColor="Beige"
-                HeightRequest="450"
+                HeightRequest="650"
                 Spacing="15"
                 WidthRequest="300">
+
+                <ListView ItemsSource="{Binding Items}" />
+                <Button
+                    Command="{Binding TestCommand}"
+                    HeightRequest="20"
+                    WidthRequest="20" />
+
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
                     <Label
                         HorizontalTextAlignment="Center"
@@ -88,7 +95,10 @@
                         TextColor="Black" />
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label Text="{Binding FullName}" HorizontalTextAlignment="Center" TextColor="Blue" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding FullName}"
+                        TextColor="Blue" />
                 </VerticalStackLayout>
 
 
@@ -101,9 +111,9 @@
                         x:Name="_emailEntry"
                         HorizontalTextAlignment="Center"
                         Placeholder="Your Email:"
-                        Text="{Binding Email}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding Email}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -117,9 +127,9 @@
                         x:Name="_passwordEntry"
                         HorizontalTextAlignment="Center"
                         Placeholder="*****"
-                        Text="{Binding Password}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding Password}"
                         TextColor="Black" />
                 </VerticalStackLayout>
             </VerticalStackLayout>
@@ -128,7 +138,7 @@
             <VerticalStackLayout
                 Grid.Column="1"
                 BackgroundColor="Beige"
-                HeightRequest="450"
+                HeightRequest="650"
                 Spacing="15"
                 WidthRequest="300">
 
@@ -143,9 +153,9 @@
                         x:Name="_strasseEntity"
                         HorizontalTextAlignment="Center"
                         Placeholder="Your street:"
-                        Text="{Binding Strasse}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding Strasse}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -158,9 +168,9 @@
                         x:Name="_hausNumberEntity"
                         HorizontalTextAlignment="Center"
                         Placeholder="Your hausenumber:"
-                        Text="{Binding HausNumber}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding HausNumber}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -175,6 +185,7 @@
                         Placeholder="your city"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding City}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -189,6 +200,7 @@
                         Placeholder="Your zipcode:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding Zipcode}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -203,6 +215,7 @@
                         Placeholder="Your Country:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        Text="{Binding Country}"
                         TextColor="Black" />
                 </VerticalStackLayout>
 
@@ -212,7 +225,6 @@
             <Button
                 Grid.ColumnSpan="2"
                 Margin="100"
-                Clicked="Register"
                 HorizontalOptions="Center"
                 Text="{Static i18n:AddResources.button_login}"
                 VerticalOptions="Start"
@@ -221,7 +233,7 @@
             <Button
                 Grid.ColumnSpan="2"
                 Margin="10"
-                Clicked="Register"
+                Command="{Binding RegisterCommand}"
                 HorizontalOptions="Center"
                 Text="{Static i18n:AddResources.button_register}"
                 VerticalOptions="End"

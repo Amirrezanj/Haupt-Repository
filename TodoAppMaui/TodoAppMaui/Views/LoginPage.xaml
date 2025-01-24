@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodoAppMaui.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LoginPage">
+    <VerticalStackLayout BackgroundColor="Aqua">
+        <VerticalStackLayout  WidthRequest="250" BackgroundColor="Transparent">
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="Email"
+                TextColor="Blue" />
+            <Entry
+                x:Name="_emailEntry"
+                HorizontalTextAlignment="Center"
+                Placeholder="Your Email:"
+                PlaceholderColor="{AppThemeBinding Dark=beige,
+                                                   Light=black}"
+                TextColor="Black" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+            <Label
+            HorizontalTextAlignment="Center"
+            Text="Password"
+            TextColor="Blue" />
+            <Entry
+            x:Name="_passwordEntry"
+            HorizontalTextAlignment="Center"
+            Placeholder="*****"
+            
+            PlaceholderColor="{AppThemeBinding Dark=beige,
+                                               Light=black}"
+            TextColor="Black" />
+        </VerticalStackLayout>
+
+        <Button HeightRequest="80" WidthRequest="80" Clicked="Button_Clicked" Text="zum SettingsPage"></Button>
+    </VerticalStackLayout>
+</ContentPage>
