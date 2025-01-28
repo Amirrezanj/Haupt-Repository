@@ -237,6 +237,7 @@ namespace TodoAppMaui.ViewModels
                 var user = new CreateUserRequest(firstName, secondName, lastName, email, password, address);
 
                 await _dataService.CreateUserAsync(user);
+                await Shell.Current.GoToAsync("///LoginPage");
             }
             catch (Exception ex)
             {

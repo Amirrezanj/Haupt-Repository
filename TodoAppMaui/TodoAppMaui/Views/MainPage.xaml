@@ -228,7 +228,7 @@
                 Margin="10"
                 Command="{Binding RegisterCommand}"
                 HorizontalOptions="Center"
-                Clicked="Button_Clicked"
+                
                 Text="{Static i18n:AddResources.button_register}"
                 VerticalOptions="End"
                 WidthRequest="500" />

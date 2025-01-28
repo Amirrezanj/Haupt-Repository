@@ -53,7 +53,7 @@
                 HeightRequest="60"
                 Text="Logout"
                 Command="{Binding Logout}"
-                Clicked="Button_Clicked"
+                
                 TextColor="Black"
                 WidthRequest="110" />
         </VerticalStackLayout>

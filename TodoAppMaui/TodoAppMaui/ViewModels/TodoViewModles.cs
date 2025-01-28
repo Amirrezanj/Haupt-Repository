@@ -113,6 +113,7 @@ namespace TodoAppMaui.ViewModels
             var token = await SecureStorage.GetAsync("Bearer");
 
             await _dataService.LogoutAsync(token);
+            await Shell.Current.GoToAsync("///LoginPage");
         }
         public event PropertyChangedEventHandler? PropertyChanged;
 

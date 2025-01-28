@@ -37,7 +37,7 @@
         </VerticalStackLayout>
 
         <Button
-            Clicked="Button_Clicked"
+            
             Command="{Binding LoginCommand}"
             HeightRequest="80"
             Text="Login"

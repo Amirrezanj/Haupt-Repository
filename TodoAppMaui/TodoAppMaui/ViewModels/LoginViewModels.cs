@@ -38,6 +38,7 @@ namespace TodoAppMaui.ViewModels
                 
                 LoginResponse response = await _dataService.LoginAsync(request);
                 await SecureStorage.Default.SetAsync("Bearer", response.Token);
+                await Shell.Current.GoToAsync("TodoPage");
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@ namespace TodoAppMaui
 
             Routing.RegisterRoute("SettingsPage", typeof(SettingsPage));
             Routing.RegisterRoute("TodoPage", typeof(TodoPage));
+           
         }
     }
 }
