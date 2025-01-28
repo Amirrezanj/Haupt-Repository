@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TodoAppMaui.Abstractions;
 using TodoAppMaui.Models;
+using TodoAppMaui.Models.Requests;
+using TodoAppMaui.Services;
 
 namespace TodoAppMaui.ViewModels
 {
@@ -196,7 +198,7 @@ namespace TodoAppMaui.ViewModels
             _logger = logger;
 
             TestCommand = new Command(() => Items.Add("hi"));
-            
+
         }
         public ObservableCollection<string> Items { get; } = new();
         private bool Check()
@@ -226,6 +228,7 @@ namespace TodoAppMaui.ViewModels
             return true;
             
         }
+        
         private async void Register()
         {
             try

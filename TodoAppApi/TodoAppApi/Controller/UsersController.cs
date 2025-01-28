@@ -228,7 +228,8 @@ namespace TodoAppApi.Controller
         {
             var userId = HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
 
-            IQueryable<TodoEntity> todoItems = _dbcontext.Todos.Where(x => x.Id == Guid.Parse(userId));
+            //IQueryable<TodoEntity> todoItems = _dbcontext.Todos.Where(x => x.Id == Guid.Parse(userId));
+            IEnumerable<TodoEntity> todoItems = _dbcontext.Users.Include(x => x.Todos).First(x => x.Id == Guid.Parse(userId)).Todos;
 
             if (!string.IsNullOrWhiteSpace(titleFilter))
             {

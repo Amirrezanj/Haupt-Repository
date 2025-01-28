@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TodoAppMaui.Abstractions;
 using TodoAppMaui.Models;
+using TodoAppMaui.Models.Requests;
 using TodoAppMaui.Models.Responses;
 
 namespace TodoAppMaui.Services
@@ -28,7 +30,49 @@ namespace TodoAppMaui.Services
             _httpClient.BaseAddress = new Uri("http://localhost:5027");
 
         }
-        
+
+
+        public async Task<LoginResponse> LoginAsync(LoginRequest request)
+        {
+            var requestJson = JsonSerializer.Serialize(request);
+            var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("/Session", content);
+
+            response.EnsureSuccessStatusCode();
+
+            var responseJson = await response.Content.ReadAsStringAsync();
+            var LoginResponse = JsonSerializer.Deserialize<LoginResponse>(responseJson, _serializerOptions);
+
+            if (LoginResponse == null)
+                throw new Exception($"{nameof(LoginResponse)} could not be deserialized");
+
+            return LoginResponse;
+        }
+
+        public async Task<CreateTodoItemsResponse> CreateTodoItemAsync(CreateTodoItemsRequest request, string token)
+        {
+            var requestJson = JsonSerializer.Serialize(request);
+            var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage();
+            requestMessage.Method = HttpMethod.Post;
+            requestMessage.RequestUri = new Uri("/users/current/todos", UriKind.Relative);
+            requestMessage.Content = content;
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage responseMessage = await _httpClient.SendAsync(requestMessage);
+
+            var responseJson = await responseMessage.Content.ReadAsStringAsync();
+            var creatTodoResonse = JsonSerializer.Deserialize<CreateTodoItemsResponse>(responseJson, _serializerOptions);
+
+            if (creatTodoResonse == null)
+            {
+                throw new Exception($"{nameof(creatTodoResonse)} couldnt be deserializied");
+            }
+            return creatTodoResonse;
+        }
+
 
         public async Task<CreateUserResponse> CreateUserAsync(CreateUserRequest request)
         {
@@ -47,8 +91,37 @@ namespace TodoAppMaui.Services
             return creatUserResponce;
         }
 
+        public async Task LogoutAsync(string token)
+        {
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.Method = HttpMethod.Delete;
+            request.RequestUri = new Uri("/session/current", UriKind.Relative);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+        }
 
+        public async Task<IEnumerable<GetTodoItemsResponse>> GetTodoItemsAsync(string token, int page = 0, int pageSize = 10, string? titleFilter = null)
+        {
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.Method = HttpMethod.Get;
+            request.RequestUri = new Uri("users/current/todos", UriKind.Relative);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage responseMessage = await _httpClient.SendAsync(request);
+
+            responseMessage.EnsureSuccessStatusCode();
+
+            var responseJson = await responseMessage.Content.ReadAsStringAsync();
+            var getTodoItemsResponse = JsonSerializer.Deserialize<IEnumerable<GetTodoItemsResponse>>(responseJson, _serializerOptions);
+
+            if (getTodoItemsResponse == null)
+            {
+                throw new Exception(($"{nameof(getTodoItemsResponse)} could not be deserilizied"));
+            }
+            return getTodoItemsResponse;
+        }
 
         public class LoggingHandler : DelegatingHandler
         {

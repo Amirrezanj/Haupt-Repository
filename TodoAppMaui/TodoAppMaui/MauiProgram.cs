@@ -23,6 +23,8 @@ namespace TodoAppMaui
             builder.Services.AddSingleton<IDataService, DataService>();
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModels>();
+            builder.Services.AddTransient<LoginViewModels>();
+            builder.Services.AddTransient<TodoViewModles>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

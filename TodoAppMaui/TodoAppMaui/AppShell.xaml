@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:TodoAppMaui.Views"
     Title="TodoAppMaui"
     Shell.FlyoutBehavior="Disabled">
-
+    <!--<ShellContent Title="Home" ContentTemplate="{DataTemplate local:TodoPage}"/>-->
     <TabBar>
         <Tab Title="Home">
             <ShellContent

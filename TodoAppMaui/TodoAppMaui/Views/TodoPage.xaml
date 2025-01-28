@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodoAppMaui.Views.TodoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
+    Title="TodoPage"
+    x:DataType="viewModels:TodoViewModles">
+    <VerticalStackLayout
+        Background="Bisque"
+        HeightRequest="500"
+        WidthRequest="300">
+        <Label HorizontalTextAlignment="Center" Text="Title" />
+        <Entry
+            x:Name="_titleEntry"
+            HorizontalTextAlignment="Center"
+            Placeholder="Title"
+            Text="{Binding Title}"/>
+        <Label HorizontalTextAlignment="Center" Text="descreiption" />
+        <Entry
+            x:Name="_descriptionEntry"
+            HorizontalTextAlignment="Center"
+            Placeholder="Title" 
+            Text="{Binding Description}"/>
+        <Label HorizontalTextAlignment="Center" Text="dueDate" />
+        <Entry
+            x:Name="_dueDateEntry"
+            HorizontalTextAlignment="Center"
+            Placeholder="Title" 
+            Text="{Binding DueDate}"/>
+        <Button
+            Command="{Binding Createtodoes}"
+            BackgroundColor="Aquamarine"
+            HeightRequest="60"
+            Text="neue todo"
+            TextColor="Black"
+            WidthRequest="110" />
+
+        <VerticalStackLayout>
+            <Button
+                Margin="0,60,0,0"
+                BackgroundColor="Aquamarine"
+                Command="{Binding Showtodoes}"
+                HeightRequest="60"
+                Text="show todos"
+                TextColor="Black"
+                WidthRequest="110" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Button
+                Margin="0,60,0,0"
+                BackgroundColor="Aquamarine"
+                HeightRequest="60"
+                Text="Logout"
+                Command="{Binding Logout}"
+                Clicked="Button_Clicked"
+                TextColor="Black"
+                WidthRequest="110" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

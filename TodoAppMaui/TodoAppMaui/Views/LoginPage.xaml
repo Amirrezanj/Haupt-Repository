@@ -3,9 +3,11 @@
     x:Class="TodoAppMaui.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="LoginPage">
+    xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
+    Title="LoginPage"
+    x:DataType="viewModels:LoginViewModels">
     <VerticalStackLayout BackgroundColor="Aqua">
-        <VerticalStackLayout  WidthRequest="250" BackgroundColor="Transparent">
+        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
             <Label
                 HorizontalTextAlignment="Center"
                 Text="Email"
@@ -16,24 +18,30 @@
                 Placeholder="Your Email:"
                 PlaceholderColor="{AppThemeBinding Dark=beige,
                                                    Light=black}"
+                Text="{Binding Email}"
                 TextColor="Black" />
         </VerticalStackLayout>
 
         <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
             <Label
-            HorizontalTextAlignment="Center"
-            Text="Password"
-            TextColor="Blue" />
+                HorizontalTextAlignment="Center"
+                Text="Password"
+                TextColor="Blue" />
             <Entry
-            x:Name="_passwordEntry"
-            HorizontalTextAlignment="Center"
-            Placeholder="*****"
-            
-            PlaceholderColor="{AppThemeBinding Dark=beige,
-                                               Light=black}"
-            TextColor="Black" />
+                x:Name="_passwordEntry"
+                HorizontalTextAlignment="Center"
+                Placeholder="*****"
+                
+                Text="{Binding Password}"
+                TextColor="Black" />
         </VerticalStackLayout>
 
-        <Button HeightRequest="80" WidthRequest="80" Clicked="Button_Clicked" Text="zum SettingsPage"></Button>
+        <Button
+            Clicked="Button_Clicked"
+            Command="{Binding LoginCommand}"
+            HeightRequest="80"
+            Text="Login"
+            WidthRequest="190" />
+
     </VerticalStackLayout>
 </ContentPage>
