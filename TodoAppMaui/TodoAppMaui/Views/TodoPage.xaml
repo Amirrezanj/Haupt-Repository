@@ -3,59 +3,128 @@
     x:Class="TodoAppMaui.Views.TodoPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TodoAppMaui.Models.Responses"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     Title="TodoPage"
-    x:DataType="viewModels:TodoViewModles">
-    <VerticalStackLayout
-        Background="Bisque"
-        HeightRequest="500"
-        WidthRequest="300">
-        <Label HorizontalTextAlignment="Center" Text="Title" />
-        <Entry
-            x:Name="_titleEntry"
-            HorizontalTextAlignment="Center"
-            Placeholder="Title"
-            Text="{Binding Title}"/>
-        <Label HorizontalTextAlignment="Center" Text="descreiption" />
-        <Entry
-            x:Name="_descriptionEntry"
-            HorizontalTextAlignment="Center"
-            Placeholder="Title" 
-            Text="{Binding Description}"/>
-        <Label HorizontalTextAlignment="Center" Text="dueDate" />
-        <Entry
-            x:Name="_dueDateEntry"
-            HorizontalTextAlignment="Center"
-            Placeholder="Title" 
-            Text="{Binding DueDate}"/>
-        <Button
-            Command="{Binding Createtodoes}"
-            BackgroundColor="Aquamarine"
-            HeightRequest="60"
-            Text="neue todo"
-            TextColor="Black"
-            WidthRequest="110" />
+    x:DataType="viewModels:TodoViewModles"
+    BackgroundColor="LightGrey">
+    <HorizontalStackLayout>
+        <VerticalStackLayout Background="Transparent" WidthRequest="300">
+            <Label HorizontalTextAlignment="Center" Text="Title" />
+            <Entry
+                x:Name="_titleEntry"
+                HorizontalTextAlignment="Center"
+                Placeholder="Title"
+                Text="{Binding Title}" />
+            <Label HorizontalTextAlignment="Center" Text="descreiption" />
+            <Entry
+                x:Name="_descriptionEntry"
+                HorizontalTextAlignment="Center"
+                Placeholder="Title"
+                Text="{Binding Description}" />
+            <Label HorizontalTextAlignment="Center" Text="dueDate" />
+            <Entry
+                x:Name="_dueDateEntry"
+                HorizontalTextAlignment="Center"
+                Placeholder="Title"
+                Text="{Binding DueDate}" />
+            <Button
+                BackgroundColor="Aquamarine"
+                Command="{Binding Createtodoes}"
+                HeightRequest="60"
+                Text="neue todo"
+                TextColor="Black"
+                WidthRequest="110" />
 
-        <VerticalStackLayout>
-            <Button
-                Margin="0,60,0,0"
-                BackgroundColor="Aquamarine"
-                Command="{Binding Showtodoes}"
-                HeightRequest="60"
-                Text="show todos"
-                TextColor="Black"
-                WidthRequest="110" />
+            <VerticalStackLayout>
+                <Button
+                    Margin="0,60,0,0"
+                    BackgroundColor="Aquamarine"
+                    Command="{Binding GetTodos}"
+                    HeightRequest="60"
+                    Text="show todos"
+                    TextColor="Black"
+                    WidthRequest="110" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Button
+                    Margin="0,60,0,0"
+                    BackgroundColor="Aquamarine"
+                    Command="{Binding Logout}"
+                    HeightRequest="60"
+                    Text="Logout"
+                    TextColor="Black"
+                    WidthRequest="110" />
+            </VerticalStackLayout>
         </VerticalStackLayout>
+        <!--  wegen abstand  -->
         <VerticalStackLayout>
-            <Button
-                Margin="0,60,0,0"
-                BackgroundColor="Aquamarine"
-                HeightRequest="60"
-                Text="Logout"
-                Command="{Binding Logout}"
-                
-                TextColor="Black"
-                WidthRequest="110" />
+            <Label WidthRequest="120" />
         </VerticalStackLayout>
-    </VerticalStackLayout>
+
+        <VerticalStackLayout Background="Transparent" VerticalOptions="FillAndExpand">
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Todo-Liste"
+                TextColor="#333" />
+
+            <!--  CollectionView  -->
+            <CollectionView HeightRequest="750" ItemsSource="{Binding TodoCollection}">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate x:DataType="models:GetTodoItemsResponse">
+
+                        <Border
+                            Margin="10"
+                            Padding="3"
+                            BackgroundColor="White">
+
+                            <VerticalStackLayout BackgroundColor="Bisque">
+                                <!--  Id  -->
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Id}"
+                                    TextColor="Black" />
+
+                                <!--  Titel  -->
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Title}"
+                                    TextColor="Black" />
+
+                                <!--  Beschreibung  -->
+                                <Label
+                                    FontSize="12"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Description}"
+                                    TextColor="Gray" />
+
+                                <!--  Fälligkeitsdatum  -->
+                                <Label
+                                    FontSize="12"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Duedate}"
+                                    TextColor="DarkGray" />
+
+                                <!--  Fertig-Status  -->
+                                <Label
+                                    FontSize="12"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding IsComplete, Converter={StaticResource BoolToDoneTextConverter}}"
+                                    TextColor="{Binding IsComplete, Converter={StaticResource BoolToColorConverter}}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </HorizontalStackLayout>
+
 </ContentPage>

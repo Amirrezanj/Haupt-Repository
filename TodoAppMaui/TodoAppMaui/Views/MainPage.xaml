@@ -6,8 +6,9 @@
     xmlns:i18n="clr-namespace:TodoAppMaui.Resources.Localization"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     x:DataType="viewModels:MainViewModels"
-    BackgroundImageSource="alt.jpg">
-
+    
+    BackgroundColor="LightGray">
+    <!--BackgroundImageSource="alt.jpg"-->
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="Default" TargetType="Entry">
@@ -39,10 +40,10 @@
                 WidthRequest="300">
 
                 <ListView ItemsSource="{Binding Items}" />
-                <Button
+                <!--<Button
                     Command="{Binding TestCommand}"
                     HeightRequest="20"
-                    WidthRequest="20" />
+                    WidthRequest="20" />-->
 
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
                     <Label
@@ -231,7 +232,7 @@
                 
                 Text="{Static i18n:AddResources.button_register}"
                 VerticalOptions="End"
-                WidthRequest="500" />
+                WidthRequest="300" />
         </Grid>
     </Grid>
 </ContentPage>

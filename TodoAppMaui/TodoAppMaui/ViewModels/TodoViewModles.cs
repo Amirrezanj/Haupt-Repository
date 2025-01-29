@@ -34,14 +34,23 @@ namespace TodoAppMaui.ViewModels
 
         public Command Createtodoes { get; }
         public Command Logout { get; }
+        public Command GetTodos { get; }
+
+        public IEnumerable<GetTodoItemsResponse>? TodoItems { get; set; }
+        public ObservableCollection<GetTodoItemsResponse> TodoCollection { get; set; }
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public TodoViewModles(IDataService dataService, ILogger<LoginViewModels> logger)
         {
             _dataService = dataService;
             _logger = logger;
-            Showtodoes = new Command(Gettodos);
+            Showtodoes = new Command(GetTodoItems);
             Createtodoes = new Command(CreateTodoes);
             Logout = new Command(LoggingOut);
+            GetTodos = new Command(GetTodoItems);
         }
         public string Title
         {
@@ -91,16 +100,23 @@ namespace TodoAppMaui.ViewModels
             }
         }
 
-
-
-        private async void Gettodos()
+        private async void GetTodoItems()
         {
-            var token = await SecureStorage.GetAsync("Bearer");
+            try
+            {
+                var token = await SecureStorage.GetAsync("Bearer");
 
-            await _dataService.GetTodoItemsAsync(token);
-           
+                TodoItems = await _dataService.GetTodoItemsAsync(token);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Exception: {ex}", ex);
+            }
 
+            TodoCollection = new(TodoItems);
+            OnPropertyChanged(nameof(TodoCollection));
         }
+
         private async void CreateTodoes()
         {
             var token = await SecureStorage.GetAsync("Bearer");
