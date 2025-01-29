@@ -6,9 +6,8 @@
     xmlns:i18n="clr-namespace:TodoAppMaui.Resources.Localization"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     x:DataType="viewModels:MainViewModels"
-    
     BackgroundColor="LightGray">
-    <!--BackgroundImageSource="alt.jpg"-->
+    <!--  BackgroundImageSource="alt.jpg"  -->
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="Default" TargetType="Entry">
@@ -21,7 +20,7 @@
     </ContentPage.Resources>
 
     <Grid>
-        <Grid Padding="10">
+        <Grid Padding="10" HorizontalOptions="Center"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -34,7 +33,8 @@
 
             <VerticalStackLayout
                 Grid.Column="0"
-                BackgroundColor="Beige"
+                BackgroundColor="LightBlue"
+                VerticalOptions="FillAndExpand"
                 HeightRequest="650"
                 Spacing="15"
                 WidthRequest="300">
@@ -95,12 +95,7 @@
                         Text="{Binding LastName}"
                         TextColor="Black" />
                 </VerticalStackLayout>
-                <VerticalStackLayout>
-                    <Label
-                        HorizontalTextAlignment="Center"
-                        Text="{Binding FullName}"
-                        TextColor="Blue" />
-                </VerticalStackLayout>
+
 
 
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
@@ -133,12 +128,20 @@
                         Text="{Binding Password}"
                         TextColor="Black" />
                 </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding FullName}"
+                        TextColor="Blue" />
+                </VerticalStackLayout>
             </VerticalStackLayout>
 
 
             <VerticalStackLayout
                 Grid.Column="1"
-                BackgroundColor="Beige"
+                Padding="28"
+                BackgroundColor="LightBlue"
                 HeightRequest="650"
                 Spacing="15"
                 WidthRequest="300">
@@ -229,7 +232,6 @@
                 Margin="10"
                 Command="{Binding RegisterCommand}"
                 HorizontalOptions="Center"
-                
                 Text="{Static i18n:AddResources.button_register}"
                 VerticalOptions="End"
                 WidthRequest="300" />

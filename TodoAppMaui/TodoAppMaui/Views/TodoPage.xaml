@@ -8,25 +8,28 @@
     Title="TodoPage"
     x:DataType="viewModels:TodoViewModles"
     BackgroundColor="LightGrey">
-    <HorizontalStackLayout>
+    <HorizontalStackLayout HorizontalOptions="Center">
         <VerticalStackLayout Background="Transparent" WidthRequest="300">
             <Label HorizontalTextAlignment="Center" Text="Title" />
             <Entry
                 x:Name="_titleEntry"
                 HorizontalTextAlignment="Center"
                 Placeholder="Title"
+                PlaceholderColor="Black"
                 Text="{Binding Title}" />
             <Label HorizontalTextAlignment="Center" Text="descreiption" />
             <Entry
                 x:Name="_descriptionEntry"
                 HorizontalTextAlignment="Center"
                 Placeholder="Title"
+                PlaceholderColor="Black"
                 Text="{Binding Description}" />
             <Label HorizontalTextAlignment="Center" Text="dueDate" />
             <Entry
                 x:Name="_dueDateEntry"
                 HorizontalTextAlignment="Center"
                 Placeholder="Title"
+                PlaceholderColor="Black"
                 Text="{Binding DueDate}" />
             <Button
                 BackgroundColor="Aquamarine"
@@ -82,44 +85,50 @@
                             Padding="3"
                             BackgroundColor="White">
 
-                            <VerticalStackLayout BackgroundColor="Bisque">
+                            <HorizontalStackLayout Padding="30" BackgroundColor="Bisque">
                                 <!--  Id  -->
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="12"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding Id}"
-                                    TextColor="Black" />
-
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Id}"
+                                        TextColor="Black" />
+                                </VerticalStackLayout>
                                 <!--  Titel  -->
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="12"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding Title}"
-                                    TextColor="Black" />
-
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Title}"
+                                        TextColor="Black" />
+                                </VerticalStackLayout>
                                 <!--  Beschreibung  -->
-                                <Label
-                                    FontSize="12"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding Description}"
-                                    TextColor="Gray" />
-
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Description}"
+                                        TextColor="Gray" />
+                                </VerticalStackLayout>
                                 <!--  Fälligkeitsdatum  -->
-                                <Label
-                                    FontSize="12"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding Duedate}"
-                                    TextColor="DarkGray" />
-
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Duedate}"
+                                        TextColor="DarkGray" />
+                                </VerticalStackLayout>
                                 <!--  Fertig-Status  -->
-                                <Label
-                                    FontSize="12"
-                                    HorizontalTextAlignment="Center"
-                                    Text="{Binding IsComplete, Converter={StaticResource BoolToDoneTextConverter}}"
-                                    TextColor="{Binding IsComplete, Converter={StaticResource BoolToColorConverter}}" />
-                            </VerticalStackLayout>
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding IsComplete, Converter={StaticResource BoolToDoneTextConverter}}"
+                                        TextColor="{Binding IsComplete, Converter={StaticResource BoolToColorConverter}}" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

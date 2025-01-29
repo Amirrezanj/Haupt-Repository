@@ -5,8 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     Title="LoginPage"
-    x:DataType="viewModels:LoginViewModels">
-    <VerticalStackLayout BackgroundColor="Aqua">
+    x:DataType="viewModels:LoginViewModels"
+    BackgroundColor="LightGray">
+    <VerticalStackLayout BackgroundColor="Transparent">
         <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
             <Label
                 HorizontalTextAlignment="Center"
@@ -27,17 +28,16 @@
                 HorizontalTextAlignment="Center"
                 Text="Password"
                 TextColor="Blue" />
+
             <Entry
                 x:Name="_passwordEntry"
                 HorizontalTextAlignment="Center"
                 Placeholder="*****"
-                
                 Text="{Binding Password}"
                 TextColor="Black" />
         </VerticalStackLayout>
 
         <Button
-            
             Command="{Binding LoginCommand}"
             HeightRequest="80"
             Text="Login"
