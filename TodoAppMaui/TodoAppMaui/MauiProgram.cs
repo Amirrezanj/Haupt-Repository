@@ -25,6 +25,8 @@ namespace TodoAppMaui
             builder.Services.AddTransient<MainViewModels>();
             builder.Services.AddTransient<LoginViewModels>();
             builder.Services.AddTransient<TodoViewModles>();
+            builder.Services.AddTransient<IpreferenceService, PreferenceService>();
+            builder.Services.AddTransient<SettingViewModels>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

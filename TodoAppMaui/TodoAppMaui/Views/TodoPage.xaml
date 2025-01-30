@@ -8,8 +8,28 @@
     Title="TodoPage"
     x:DataType="viewModels:TodoViewModles"
     BackgroundColor="LightGrey">
-    <HorizontalStackLayout HorizontalOptions="Center">
-        <VerticalStackLayout Background="Transparent" WidthRequest="300">
+    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+
+        <StackLayout
+            HorizontalOptions="Start"
+            Orientation="Vertical"
+            VerticalOptions="Start">
+            <Button
+                Margin="0,0,41,0"
+                Clicked="Button_Clicked"
+                Text="Setting"
+                HeightRequest="60"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="90" />
+        </StackLayout>
+        <VerticalStackLayout>
+            <Label WidthRequest="120" />
+        </VerticalStackLayout>
+        <StackLayout
+            Background="Transparent"
+            Orientation="Vertical"
+            WidthRequest="300">
             <Label HorizontalTextAlignment="Center" Text="Title" />
             <Entry
                 x:Name="_titleEntry"
@@ -39,7 +59,7 @@
                 TextColor="Black"
                 WidthRequest="110" />
 
-            <VerticalStackLayout>
+            <StackLayout Orientation="Vertical">
                 <Button
                     Margin="0,60,0,0"
                     BackgroundColor="Aquamarine"
@@ -48,8 +68,8 @@
                     Text="show todos"
                     TextColor="Black"
                     WidthRequest="110" />
-            </VerticalStackLayout>
-            <VerticalStackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
                 <Button
                     Margin="0,60,0,0"
                     BackgroundColor="Aquamarine"
@@ -58,8 +78,8 @@
                     Text="Logout"
                     TextColor="Black"
                     WidthRequest="110" />
-            </VerticalStackLayout>
-        </VerticalStackLayout>
+            </StackLayout>
+        </StackLayout>
         <!--  wegen abstand  -->
         <VerticalStackLayout>
             <Label WidthRequest="120" />
@@ -134,6 +154,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </VerticalStackLayout>
-    </HorizontalStackLayout>
+
+    </StackLayout>
 
 </ContentPage>

@@ -9,10 +9,15 @@ public partial class TodoPage : ContentPage
     {
         BindingContext = todoViewModles;
         InitializeComponent();
-        _todoViewModles = todoViewModles;
+        BindingContext=_todoViewModles = todoViewModles;
     }
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("///LoginPage");
+        await Shell.Current.GoToAsync("SettingsPage");
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _todoViewModles.GetTodos.Execute(null);
     }
 }

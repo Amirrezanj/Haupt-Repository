@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace TodoAppMaui.Abstractions
 {
-    internal interface IpreferenceService
+    public interface IpreferenceService
     {
-        string AppTheme { get; set; }
+        string CurrentTheme { get; set; }
+        double WindowWidth { get; set; }
+        double WindowHeight { get; set; }
+        double x {  get; set; }
+        double y { get; set; }
+
     }
 }
