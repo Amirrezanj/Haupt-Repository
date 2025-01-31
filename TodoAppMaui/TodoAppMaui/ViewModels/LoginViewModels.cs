@@ -23,6 +23,8 @@ namespace TodoAppMaui.ViewModels
 
         public Command LoginCommand { get; }
 
+        public event EventHandler? LoginFailed;
+
         public LoginViewModels(IDataService dataService, ILogger<LoginViewModels> logger)
         {
             _dataService = dataService;
@@ -43,6 +45,7 @@ namespace TodoAppMaui.ViewModels
             catch (Exception ex)
             {
                 _logger.LogError("Exception{ex}", ex);
+                LoginFailed?.Invoke(this,EventArgs.Empty);
             }
         }
 

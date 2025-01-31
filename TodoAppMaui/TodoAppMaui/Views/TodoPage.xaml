@@ -17,9 +17,9 @@
             <Button
                 Margin="0,0,41,0"
                 Clicked="Button_Clicked"
-                Text="Setting"
                 HeightRequest="60"
                 HorizontalOptions="Start"
+                Text="Setting"
                 VerticalOptions="Start"
                 WidthRequest="90" />
         </StackLayout>

@@ -123,11 +123,17 @@
   <data name="button_register" xml:space="preserve">
     <value>Registieren</value>
   </data>
+  <data name="Fehler_popup" xml:space="preserve">
+    <value>fehler</value>
+  </data>
   <data name="FirstName_Entry" xml:space="preserve">
     <value>Vorname eingeben</value>
   </data>
   <data name="FirstName_Label" xml:space="preserve">
     <value>Vorname : </value>
+  </data>
+  <data name="LoginText_popup" xml:space="preserve">
+    <value>Fehler bei der Anmeldung</value>
   </data>
   <data name="password_label" xml:space="preserve">
     <value>Password erneut eingeben</value>

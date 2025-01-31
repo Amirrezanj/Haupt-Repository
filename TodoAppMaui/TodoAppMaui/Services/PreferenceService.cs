@@ -17,12 +17,12 @@ namespace TodoAppMaui.Services
         }
         public double WindowWidth
         {
-            get => Preferences.Default.Get("WindowWidth", 250);
+            get => Preferences.Default.Get("WindowWidth", 1000);
             set => Preferences.Default.Set("WindowWidth", value);
         }
         public double WindowHeight
         {
-            get => Preferences.Default.Get("WindowWidth", 250);
+            get => Preferences.Default.Get("WindowWidth",1000);
             set => Preferences.Default.Set("WindowWidth", value);
         }
         public double x

@@ -21,12 +21,16 @@ namespace TodoAppMaui
                 });
             //neu
             builder.Services.AddSingleton<IDataService, DataService>();
+            builder.Services.AddTransient<IpreferenceService, PreferenceService>();
+            builder.Services.AddTransient<ISecureStorageService, SecureStorageService>();
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModels>();
             builder.Services.AddTransient<LoginViewModels>();
+            builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<TodoPage>();
             builder.Services.AddTransient<TodoViewModles>();
-            builder.Services.AddTransient<IpreferenceService, PreferenceService>();
             builder.Services.AddTransient<SettingViewModels>();
+            builder.Services.AddTransient<SettingsPage>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

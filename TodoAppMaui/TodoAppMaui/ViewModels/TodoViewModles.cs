@@ -36,6 +36,9 @@ namespace TodoAppMaui.ViewModels
         public Command Logout { get; }
         public Command GetTodos { get; }
 
+        public event EventHandler? FailedShowTodos ;
+
+
         public IEnumerable<GetTodoItemsResponse>? TodoItems { get; set; }
         public ObservableCollection<GetTodoItemsResponse> TodoCollection { get; set; }
         protected virtual void OnPropertyChanged(string propertyName)
@@ -119,9 +122,18 @@ namespace TodoAppMaui.ViewModels
 
         private async void CreateTodoes()
         {
-            var token = await SecureStorage.GetAsync("Bearer");
-            var request = new CreateTodoItemsRequest(Title,description,dueDate);
-            await _dataService.CreateTodoItemAsync(request, token);
+            try
+            {
+                var token = await SecureStorage.GetAsync("Bearer");
+                var request = new CreateTodoItemsRequest(Title, description, dueDate);
+                await _dataService.CreateTodoItemAsync(request, token);
+            }
+            catch(Exception ex)
+            {
+                  _logger.LogError("Exception{ex}", ex);
+
+                FailedShowTodos?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private async void LoggingOut()
@@ -132,8 +144,6 @@ namespace TodoAppMaui.ViewModels
             await Shell.Current.GoToAsync("///LoginPage");
         }
         public event PropertyChangedEventHandler? PropertyChanged;
-
-
 
     }
 }

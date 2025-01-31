@@ -19,5 +19,16 @@ public partial class TodoPage : ContentPage
     {
         base.OnAppearing();
         _todoViewModles.GetTodos.Execute(null);
+        _todoViewModles.FailedShowTodos += FailedShowTodos;
+    }
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _todoViewModles.FailedShowTodos -= FailedShowTodos;
+
+    }
+    private async void FailedShowTodos(object? sender, EventArgs e)
+    {
+        await DisplayAlert("Fehler","nicht in ordnung","ok");
     }
 }

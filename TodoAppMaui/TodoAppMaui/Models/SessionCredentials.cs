@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TodoAppMaui.Models.Responses
+namespace TodoAppMaui.Models
 {
-    public record LoginResponse(string Token, DateTime Expiry);    
-    
+    public record SessionCredentials(string Token, DateTime TokenExpiry);
 }

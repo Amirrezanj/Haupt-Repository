@@ -79,6 +79,15 @@ namespace TodoAppMaui.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die fehler ähnelt.
+        /// </summary>
+        internal static string Fehler_popup {
+            get {
+                return ResourceManager.GetString("Fehler_popup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Vorname eingeben ähnelt.
         /// </summary>
         internal static string FirstName_Entry {
@@ -93,6 +102,15 @@ namespace TodoAppMaui.Resources.Localization {
         internal static string FirstName_Label {
             get {
                 return ResourceManager.GetString("FirstName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler bei der Anmeldung ähnelt.
+        /// </summary>
+        internal static string LoginText_popup {
+            get {
+                return ResourceManager.GetString("LoginText_popup", resourceCulture);
             }
         }
         

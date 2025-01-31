@@ -7,8 +7,12 @@
     Title="SettingsPage"
     x:DataType="viewModels:SettingViewModels"
     BackgroundColor="LightGray">
-    <StackLayout Orientation="Vertical" HorizontalOptions="Start">
-        <Button Clicked="Button_Clicked" WidthRequest="135" FontSize="Micro" Text="change Theme" />
-        
+    <StackLayout HorizontalOptions="Start" Orientation="Vertical">
+        <Button
+            Clicked="Button_Clicked"
+            FontSize="Micro"
+            Text="change Theme"
+            WidthRequest="135" />
+
     </StackLayout>
 </ContentPage>

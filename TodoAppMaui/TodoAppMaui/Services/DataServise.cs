@@ -24,11 +24,13 @@ namespace TodoAppMaui.Services
         {
             PropertyNameCaseInsensitive = true
         };
-        
-        public DataService()
-        {
-            _httpClient.BaseAddress = new Uri("http://localhost:5027");
 
+        private readonly ISecureStorageService _secureStorageService;
+
+        public DataService(ISecureStorageService secureStorageService)
+        {
+            _secureStorageService = secureStorageService;
+            _httpClient.BaseAddress = new Uri("http://localhost:5027");
         }
 
 
@@ -45,6 +47,8 @@ namespace TodoAppMaui.Services
 
             if (LoginResponse == null)
                 throw new Exception($"{nameof(LoginResponse)} could not be deserialized");
+
+            await _secureStorageService.SetSessionCredentialsAsync(new SessionCredentials(LoginResponse.Token, LoginResponse.Expiry));
 
             return LoginResponse;
         }
@@ -63,6 +67,7 @@ namespace TodoAppMaui.Services
 
             HttpResponseMessage responseMessage = await _httpClient.SendAsync(requestMessage);
 
+            responseMessage.EnsureSuccessStatusCode();
             var responseJson = await responseMessage.Content.ReadAsStringAsync();
             var creatTodoResonse = JsonSerializer.Deserialize<CreateTodoItemsResponse>(responseJson, _serializerOptions);
 
@@ -100,6 +105,8 @@ namespace TodoAppMaui.Services
 
             var response = await _httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
+
+            _secureStorageService.DeleteSessionCredentials();
         }
 
         public async Task<IEnumerable<GetTodoItemsResponse>> GetTodoItemsAsync(string token, int page = 0, int pageSize = 10, string? titleFilter = null)
