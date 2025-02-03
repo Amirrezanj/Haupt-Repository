@@ -3,12 +3,16 @@
     x:Class="TodoAppMaui.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:TodoAppMaui.converter"
     xmlns:i18n="clr-namespace:TodoAppMaui.Resources.Localization"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     x:DataType="viewModels:MainViewModels"
     BackgroundColor="LightGray">
     <!--  BackgroundImageSource="alt.jpg"  -->
     <ContentPage.Resources>
+
+        <converter:IntToColor x:Key="key" />
+
         <ResourceDictionary>
             <Style x:Key="Default" TargetType="Entry">
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -20,7 +24,7 @@
     </ContentPage.Resources>
 
     <Grid>
-        <Grid Padding="10" HorizontalOptions="Center"  >
+        <Grid Padding="10" HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -34,9 +38,9 @@
             <VerticalStackLayout
                 Grid.Column="0"
                 BackgroundColor="LightBlue"
-                VerticalOptions="FillAndExpand"
                 HeightRequest="650"
                 Spacing="15"
+                VerticalOptions="FillAndExpand"
                 WidthRequest="300">
 
                 <ListView ItemsSource="{Binding Items}" />
@@ -52,6 +56,7 @@
                         TextColor="Blue" />
                     <Entry
                         x:Name="_firstNameEntry"
+                        BackgroundColor="{Binding FirstName, Converter={StaticResource Key=key}}"
                         HorizontalTextAlignment="Center"
                         Placeholder="{Static i18n:AddResources.FirstName_Entry}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
