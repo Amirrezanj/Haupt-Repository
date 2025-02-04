@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TodoAppApi.Collections;
 
 namespace TodoAppApi.Data.Entities
 {
@@ -14,5 +15,6 @@ namespace TodoAppApi.Data.Entities
         public required DateTime DueDate { get; set; }
         public bool IsDone {  get; set; }
         public UserEntity User { get; set; }
+        public required Kategorie Kategorie { get; set; }
     }
 }

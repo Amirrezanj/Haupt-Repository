@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace TodoAppMaui.Models.Requests
 {
-    public record CreateTodoItemsRequest(string Title, string Description, DateTime Duedate);
+    public record CreateTodoItemsRequest(string Title, string Description, DateTime Duedate ,Kategorie Kategorie);
     
 }

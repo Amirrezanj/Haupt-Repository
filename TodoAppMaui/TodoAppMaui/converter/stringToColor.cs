@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace TodoAppMaui.converter
 {
-    public class IntToColor : IValueConverter
+    internal class stringToColor : IValueConverter
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            string text = (string)value;
-
-            if (string.IsNullOrEmpty(text)) return Colors.Transparent;
-            else if (text.Length <= 5|| text.Length>=15) return Colors.Red;
-            //else if (text.Length >= 8) return Colors.Green;
+            string text = value.ToString();
+            if (text == "sport") return Colors.Red;
+            else if (text == "musik") return Colors.BlueViolet;
             return Colors.Transparent;
         }
 

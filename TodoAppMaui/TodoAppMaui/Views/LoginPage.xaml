@@ -3,8 +3,8 @@
     x:Class="TodoAppMaui.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     xmlns:converter="clr-namespace:TodoAppMaui.converter"
+    xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     Title="LoginPage"
     x:DataType="viewModels:LoginViewModels"
     BackgroundColor="LightGray">
@@ -21,7 +21,14 @@
                 PlaceholderColor="{AppThemeBinding Dark=beige,
                                                    Light=black}"
                 Text="{Binding Email}"
-                TextColor="Black" />
+                TextColor="Black">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="Gray" />
+
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
         </VerticalStackLayout>
 
         <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
@@ -35,16 +42,42 @@
                 HorizontalTextAlignment="Center"
                 Placeholder="*****"
                 Text="{Binding Password}"
-                TextColor="Black" />
+                TextColor="Black">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="Gray" />
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
         </VerticalStackLayout>
 
         <Button
+            BackgroundColor="Red"
             Clicked="Button_Clicked"
             Command="{Binding LoginCommand}"
             HeightRequest="80"
             Text="Login"
-            WidthRequest="190"
-            />
+            WidthRequest="190">
+            <!--<Button.Triggers>
+                <DataTrigger
+                    Binding="{Binding Source={x:Reference _emailEntry}, Path=Text.Length}"
+                    TargetType="Button"
+                    Value="0">
+                    <Setter Property="BackgroundColor" Value="Red" />
+
+                </DataTrigger>
+
+            </Button.Triggers>-->
+            <Button.Triggers>
+                <MultiTrigger TargetType="Button">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference _emailEntry}, Path=Text.Length}" Value="1" />
+                        <BindingCondition Binding="{Binding Source={x:Reference _passwordEntry}, Path=Text.Length}" Value="1" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="BackgroundColor" Value="Green" />
+                </MultiTrigger>
+            </Button.Triggers>
+        </Button>
 
     </VerticalStackLayout>
 </ContentPage>

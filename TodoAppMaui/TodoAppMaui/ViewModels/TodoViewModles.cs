@@ -30,6 +30,10 @@ namespace TodoAppMaui.ViewModels
 
         private bool isDone;
 
+        private Kategorie _Kategorie;
+        public ObservableCollection<Kategorie> Kategories { get; } =
+           new ObservableCollection<Kategorie>(Enum.GetValues(typeof(Kategorie)).Cast<Kategorie>());
+
         public Command Showtodoes { get; }
 
         public Command Createtodoes { get; }
@@ -66,6 +70,7 @@ namespace TodoAppMaui.ViewModels
                 Showtodoes.ChangeCanExecute();
             }
         }
+        
         public string Description
         {
             get => description;
@@ -103,6 +108,20 @@ namespace TodoAppMaui.ViewModels
             }
         }
 
+        public Kategorie SelectedKategory
+        {
+            get => _Kategorie;
+            set
+            {
+                if (_Kategorie != value)
+                {
+                    _Kategorie = value;
+                    OnPropertyChanged(nameof(SelectedKategory));
+                }
+            }
+        }
+
+
         private async void GetTodoItems()
         {
             try
@@ -125,7 +144,7 @@ namespace TodoAppMaui.ViewModels
             try
             {
                 var token = await SecureStorage.GetAsync("Bearer");
-                var request = new CreateTodoItemsRequest(Title, description, dueDate);
+                var request = new CreateTodoItemsRequest(Title, description, dueDate,SelectedKategory );
                 await _dataService.CreateTodoItemAsync(request, token);
             }
             catch(Exception ex)

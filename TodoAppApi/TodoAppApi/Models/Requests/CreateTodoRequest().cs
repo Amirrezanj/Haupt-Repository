@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TodoAppApi.Attributes;
+using TodoAppApi.Collections;
 using TodoAppApi.Data.Entities;
 
 namespace TodoAppApi.Models.Requests
@@ -8,7 +9,7 @@ namespace TodoAppApi.Models.Requests
         [StringLength(50,MinimumLength = 1,ErrorMessage ="blbla")] string Title ,
         [StringLength(50, MinimumLength = 1)] string Description,
         [IsFutureDate(ErrorMessage ="ist nicht in future")]DateTime DueDate ,
-        bool IsDone)
+        bool IsDone , Kategorie Kategorie)
     {
         public static TodoEntity ToEntity(CreateTodoRequest request)
         {
@@ -17,7 +18,8 @@ namespace TodoAppApi.Models.Requests
                 Title = request.Title,
                 Description = request.Description,
                 DueDate = request.DueDate,
-                IsDone = request.IsDone
+                IsDone = request.IsDone,
+                Kategorie=request.Kategorie
             };
             return entity;
         }

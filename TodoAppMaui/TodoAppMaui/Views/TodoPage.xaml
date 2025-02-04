@@ -3,11 +3,16 @@
     x:Class="TodoAppMaui.Views.TodoPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:TodoAppMaui.converter"
+    xmlns:kategorie="clr-namespace:TodoAppMaui.Models"
     xmlns:models="clr-namespace:TodoAppMaui.Models.Responses"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
     Title="TodoPage"
     x:DataType="viewModels:TodoViewModles"
     BackgroundColor="LightGrey">
+    <ContentPage.Resources>
+        <converter:stringToColor x:Key="jadid" />
+    </ContentPage.Resources>
     <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
 
         <StackLayout
@@ -44,6 +49,14 @@
                 Placeholder="Title"
                 PlaceholderColor="Black"
                 Text="{Binding Description}" />
+            <Label HorizontalTextAlignment="Center" Text="Kategorie" />
+            <Picker
+                HorizontalOptions="Center"
+                ItemsSource="{Binding Kategories}"
+                SelectedItem="{Binding SelectedKategory, Mode=TwoWay}"
+                TextColor="{Binding SelectedKategory, Converter={StaticResource jadid}}}"
+                VerticalOptions="Center" />
+
             <Label HorizontalTextAlignment="Center" Text="dueDate" />
             <Entry
                 x:Name="_dueDateEntry"
@@ -132,6 +145,15 @@
                                         Text="{Binding Description}"
                                         TextColor="Gray" />
                                 </VerticalStackLayout>
+                                <!--  kategorie  -->
+                                <VerticalStackLayout Padding="10">
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Kategorie}"
+                                        TextColor="{Binding Kategorie}" />
+                                </VerticalStackLayout>
+
                                 <!--  Fälligkeitsdatum  -->
                                 <VerticalStackLayout Padding="10">
                                     <Label

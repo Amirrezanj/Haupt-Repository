@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace TodoAppMaui.Models.Responses
 {
-    public record CreateTodoItemsResponse(Guid Id, string Title, string Description, DateTime Duedate, bool IsComplete);
+    public record CreateTodoItemsResponse(Guid Id, string Title, string Description, DateTime Duedate, bool IsComplete , Kategorie Kategorie);
     
 }
