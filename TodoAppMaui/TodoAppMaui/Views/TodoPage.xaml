@@ -54,7 +54,7 @@
                 HorizontalOptions="Center"
                 ItemsSource="{Binding Kategories}"
                 SelectedItem="{Binding SelectedKategory, Mode=TwoWay}"
-                TextColor="{Binding SelectedKategory, Converter={StaticResource jadid}}}"
+                TextColor="{Binding SelectedKategory, Converter={StaticResource jadid}}"
                 VerticalOptions="Center" />
 
             <Label HorizontalTextAlignment="Center" Text="dueDate" />

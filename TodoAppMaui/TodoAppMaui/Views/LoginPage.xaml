@@ -8,8 +8,8 @@
     Title="LoginPage"
     x:DataType="viewModels:LoginViewModels"
     BackgroundColor="LightGray">
-    <VerticalStackLayout BackgroundColor="Transparent">
-        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+    <VerticalStackLayout BackgroundColor="Transparent" Padding="10">
+        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250" Padding="10">
             <Label
                 HorizontalTextAlignment="Center"
                 Text="Email"
@@ -25,13 +25,13 @@
                 <Entry.Triggers>
                     <Trigger TargetType="Entry" Property="IsFocused" Value="True">
                         <Setter Property="BackgroundColor" Value="Gray" />
-
+ 
                     </Trigger>
                 </Entry.Triggers>
             </Entry>
         </VerticalStackLayout>
 
-        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
+        <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250" Padding="10">
             <Label
                 HorizontalTextAlignment="Center"
                 Text="Password"
@@ -52,6 +52,7 @@
         </VerticalStackLayout>
 
         <Button
+            
             BackgroundColor="Red"
             Clicked="Button_Clicked"
             Command="{Binding LoginCommand}"

@@ -6,12 +6,15 @@
     xmlns:converter="clr-namespace:TodoAppMaui.converter"
     xmlns:i18n="clr-namespace:TodoAppMaui.Resources.Localization"
     xmlns:viewModels="clr-namespace:TodoAppMaui.ViewModels"
+    xmlns:Behaviours="clr-namespace:TodoAppMaui.Behaviour"
     x:DataType="viewModels:MainViewModels"
     BackgroundColor="LightGray">
     <!--  BackgroundImageSource="alt.jpg"  -->
     <ContentPage.Resources>
 
         <converter:IntToColor x:Key="key" />
+        <converter:String2Color x:Key="ad"/>
+
 
         <ResourceDictionary>
             <Style x:Key="Default" TargetType="Entry">
@@ -56,14 +59,18 @@
                         TextColor="Blue" />
                     <Entry
                         x:Name="_firstNameEntry"
-                        BackgroundColor="{Binding FirstName, Converter={StaticResource Key=key}}"
+                        BackgroundColor="{Binding FirstName, Converter={StaticResource key}}"
                         HorizontalTextAlignment="Center"
                         Placeholder="{Static i18n:AddResources.FirstName_Entry}"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         Style="{StaticResource Key=Default}"
                         Text="{Binding FirstName}"
-                        TextColor="Black" />
+                        TextColor="Black" >
+                        <Entry.Behaviors>
+                            <Behaviours:TextBehaviour/>
+                        </Entry.Behaviors>
+                    </Entry>
 
 
                 </VerticalStackLayout>
@@ -82,7 +89,11 @@
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         Text="{Binding SecondName}"
-                        TextColor="Black" />
+                        TextColor="Black" >
+                        <Entry.Behaviors>
+                            <Behaviours:TextBehaviour/>
+                        </Entry.Behaviors>
+                    </Entry>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="250">
@@ -98,7 +109,11 @@
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         Text="{Binding LastName}"
-                        TextColor="Black" />
+                        TextColor="Black" >
+                        <Entry.Behaviors>
+                            <Behaviours:TextBehaviour/>
+                        </Entry.Behaviors>
+                    </Entry>
                 </VerticalStackLayout>
 
 
@@ -115,7 +130,11 @@
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
                         Text="{Binding Email}"
-                        TextColor="Black" />
+                        TextColor="Black" >
+                        <Entry.Behaviors>
+                            <Behaviours:EmailBehaviour/>
+                        </Entry.Behaviors>
+                    </Entry>
                 </VerticalStackLayout>
 
 
@@ -127,6 +146,7 @@
                     <Entry
                         x:Name="_passwordEntry"
                         HorizontalTextAlignment="Center"
+                        BackgroundColor="{Binding Password, Converter={StaticResource key}}"
                         Placeholder="*****"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
@@ -164,6 +184,7 @@
                         Placeholder="Your street:"
                         PlaceholderColor="{AppThemeBinding Dark=beige,
                                                            Light=black}"
+                        BackgroundColor="{Binding Strasse,Converter={StaticResource ad}}"
                         Text="{Binding Strasse}"
                         TextColor="Black" />
                 </VerticalStackLayout>
