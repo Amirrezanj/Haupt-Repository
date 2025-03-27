@@ -20,6 +20,7 @@ namespace TodoAppMaui.Services
 #else
         private static private static readonly _HttpClient _= new httpClient();
 #endif
+
         private static readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -58,12 +59,15 @@ namespace TodoAppMaui.Services
             var requestJson = JsonSerializer.Serialize(request);
             var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
+            var tok = await _secureStorageService.GetSessionCredentialsAsync();
+
 
             HttpRequestMessage requestMessage = new HttpRequestMessage();
             requestMessage.Method = HttpMethod.Post;
             requestMessage.RequestUri = new Uri("/users/current/todos", UriKind.Relative);
             requestMessage.Content = content;
-            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            //requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tok.Token);
 
             HttpResponseMessage responseMessage = await _httpClient.SendAsync(requestMessage);
 
@@ -115,7 +119,7 @@ namespace TodoAppMaui.Services
             request.Method = HttpMethod.Get;
             request.RequestUri = new Uri("users/current/todos", UriKind.Relative);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
+            
             HttpResponseMessage responseMessage = await _httpClient.SendAsync(request);
 
             responseMessage.EnsureSuccessStatusCode();
